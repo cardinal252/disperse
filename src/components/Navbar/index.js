@@ -38,10 +38,10 @@ const Navbar = () => {
                  
                     <NavMenu onClick={handleClick} click={click}>
                         <NavItem>
-                            <NavLinks to="/about">News</NavLinks>       
+                            <NavLinks to="/portfolio">News</NavLinks>       
                         </NavItem>
                         <NavItem>
-                            <NavLinks to="/portfolio">About</NavLinks>
+                            <NavLinks to="/about">About</NavLinks>
                         </NavItem>
                         <NavItem>
                             <NavLinks to="/services">Services</NavLinks>

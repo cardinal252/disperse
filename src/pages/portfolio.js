@@ -8,7 +8,7 @@ import Portfolio from "./components/portfolio"
 const PortfolioPage = () => (
   <Layout>
     <SEO title="Portfolio" />
-    <h1 className="portfolio">PREVIOUS CLIENTS</h1>
+    <h1 className="portfolio">TECHNICAL STRATEGIES & IMPLEMENTATION</h1>
     <Portfolio />
   </Layout>
 )

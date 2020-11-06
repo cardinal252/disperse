@@ -9,7 +9,7 @@
 }
 
 .about {
-  background: url('../images/banner2.jpg') center center/cover no-repeat;
+  background: url('../images/module-1.jpg') center center/cover no-repeat;
   height: 25vh;
   width: 100%;
   display: flex;
@@ -18,12 +18,12 @@
   align-items: center;
   box-shadow: inset 0 0 0 1000px rgba(0,0,0, 0.2);
   object-fit: contain;
-  margin-top: -80px;
+  margin-top: 0px;
   color: #fff;
 }
 
 .portfolio {
-  background: url('../images/banner3.jpg') center center/cover no-repeat;
+  background: url('../images/module-1.jpg') center center/cover no-repeat;
   height: 25vh;
   width: 100%;
   display: flex;
@@ -32,12 +32,12 @@
   align-items: center;
   box-shadow: inset 0 0 0 1000px rgba(0,0,0, 0.2);
   object-fit: contain;
-  margin-top: -80px;
+  margin-top: 0px;
   color: #fff;
 }
 
 .services {
-  background: url('../images/banner4.jpg') center center/cover no-repeat;
+  background: url('../images/module-1.jpg') center center/cover no-repeat;
   height: 25vh;
   width: 100%;
   display: flex;
@@ -46,12 +46,12 @@
   align-items: center;
   box-shadow: inset 0 0 0 1000px rgba(0,0,0, 0.2);
   object-fit: contain;
-  margin-top: -80px;
+  margin-top: 0px;
   color: #fff;
 }
 
 .contact {
-  background: url('../images/banner5.jpg') center center/cover no-repeat;
+  background: url('../images/module-1.jpg') center center/cover no-repeat;
   height: 25vh;
   width: 100%;
   display: flex;
@@ -60,7 +60,7 @@
   align-items: center;
   box-shadow: inset 0 0 0 1000px rgba(0,0,0, 0.2);
   object-fit: contain;
-  margin-top: -80px;
+  margin-top: 0px;
   color: #fff;
 }
 
