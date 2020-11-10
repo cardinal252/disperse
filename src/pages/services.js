@@ -8,7 +8,7 @@ import Services from "./components/services"
 const ServicesPage = () => (
   <Layout>
     <SEO title="Services" />
-    <h1 className="services">HOW CAN WE HELP</h1>
+    <h1 className="services">SERVICES</h1>
     <Services />
   </Layout>
 )

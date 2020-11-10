@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import TestImg from "../images/con1.jpg"
 
 export default class Testimonials extends Component {
   render() {
@@ -14,32 +15,34 @@ export default class Testimonials extends Component {
         interval={6100}
       >
         <div>
+          <img src={TestImg} />
           <div className="myCarousel">
-            <h3>Andrew Phelps</h3>
-            <h4>Assan Customerr</h4>
+            <h3>Title 1a</h3>
+            <h4>Title 2a</h4>
             <p>
-                "Brought some great knowledge and experience to the team when we started out using Sitecore.  
-                His work rate has to be seen to be believed!"
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
           </div>
         </div>
 
         <div>
+          <img src={TestImg} />
           <div className="myCarousel">
-            <h3>Greg Hunter</h3>
-            <h4>Assan Customer</h4>
+            <h3>Title 1b</h3>
+            <h4>Title 2b</h4>
             <p>
-                "Conscientious, productive, and very willing to share his knowledge with others."
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
           </div>
         </div>
 
         <div>
+          <img src={TestImg} />
           <div className="myCarousel">
-            <h3>Simon Procter</h3>
-            <h4>Director at Codeminers Solutions</h4>
+            <h3>Title 1c</h3>
+            <h4>Title 2c</h4>
             <p>
-                "highly skilled, knowledgeable and an asset to the team."
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
           </div>
         </div>

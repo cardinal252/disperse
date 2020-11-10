@@ -8,7 +8,7 @@ import About from './components/about'
 const AboutPage = () => (
   <Layout>
     <SEO title="About" />
-    <h1 className="about">WHO WE ARE</h1>
+    <h1 className="about">ABOUT US</h1>
     <About />
   </Layout>
 )

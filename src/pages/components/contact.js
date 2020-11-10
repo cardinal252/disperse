@@ -12,30 +12,26 @@ return (
                 <div class="col-md-6 mb40">
                     <h4 class="text-uppercase">Address</h4>
                     <p>
-                        126a Regus House,
-                        Herald Way,
-                        Pegasus Business Park,
-                        Castle Donnington,
-                        DE74 2TZ
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     </p>
                     <h4 class="text-uppercase">Email</h4>
                     <p>
-                        <a href="/">contact@cardinaltech.co.uk</a></p>
+                        <a href="/">contact@email.com</a></p>
                     <h4 class="text-uppercase">Phone</h4>
                     <p>
                         <a href="/">+120 234-449-3949</a></p>
                     <h4 class="text-uppercase">Company Information</h4>
                     <p>
-                        Cardinal Tech is a limited company registered in England and Wales with company number *******.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     </p>
                     <p>
-                        The company logo and labyrinthe device are registered trademarks of the company.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     </p>
                     <p>
-                        Registered Office: ***, ***
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     </p>
                     <p>
-                        VAT number ********
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     </p>
                 </div>
                 <div class="col-md-6 pb40">
