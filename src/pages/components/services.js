@@ -2,7 +2,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/MainElements.css'
 import Testimonials from '../../components/Testimonials'
-import Sketch2 from '../../images/sketch2.jpg'
+import Sketch2 from '../../images/1.jpg'
 
 const Services = () => {
   return (

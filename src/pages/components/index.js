@@ -1,6 +1,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/MainElements.css'
+import '../components/template.css'
 import Image1 from "../../images/con1.jpg"
 
 const Main = () => {
@@ -56,30 +57,81 @@ return (
                 </div>
             </div>
             <div class="container">
-            <div class='row'>
-                <div class='col-md-4 mb40'>
-                    <img src={Image1} alt='' class='img-fluid center-img shadow-card mb30' />
-                    <h5 class='text-uppercase'>News 1</h5>
-                    <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Platea dictumst vestibulum rhoncus est pellentesque.  
-                    </p>
-                </div>
-                <div class='col-md-4 mb40'>
-                    <img src={Image1} alt='' class='img-fluid center-img shadow-card mb30' />
-                    <h5 class='text-uppercase'>News 2</h5>
-                    <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Platea dictumst vestibulum rhoncus est pellentesque. 
-                    </p>
-                </div>
-                <div class='col-md-4 mb40'>
-                    <img src={Image1} alt='' class='img-fluid center-img shadow-card mb30' />
-                    <h5 class='text-uppercase'>News 3</h5>
-                    <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Platea dictumst vestibulum rhoncus est pellentesque. 
-                    </p>
-                </div>
-            </div>
-        </div>
+
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-3">
+						<div class="module-header text-center">
+							<h2 class="montserrat text-uppercase">Our news</h2>
+							<p class="lead divider-line">Read fresh news in our blog.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="row multi-columns-row post-columns">
+
+					<div class="col-sm-4 col-md-4 col-lg-4">
+						<article class="post format-image bg-white">
+							<div class="post-preview">
+								<a href="#"><img src={Image1} alt="" /></a>
+							</div>
+							<div class="post-content">
+								<h2 class="post-title"><a href="#">News 1</a></h2>
+								<ul class="post-meta">
+									<li>October 24, 2015</li>
+									<li>By <a href="#">Benson</a></li>
+								</ul>
+								<p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.</p>
+								<a href="#" class="btn btn-lg btn-link btn-base">Read more ›</a>
+							</div>
+						</article>
+					</div>
+					
+					<div class="col-sm-4 col-md-4 col-lg-4">
+						<article class="post format-image bg-white">
+							<div class="post-preview">
+								<a href="#"><img src={Image1} alt="" /></a>
+							</div>
+							<div class="post-content">
+								<h2 class="post-title"><a href="#">News 2</a></h2>
+								<ul class="post-meta">
+									<li>October 24, 2015</li>
+									<li>By <a href="#">Benson</a></li>
+								</ul>
+								<p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.</p>
+								<a href="#" class="btn btn-lg btn-link btn-base">Read more ›</a>
+							</div>
+						</article>
+					</div>
+				
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+						<article class="post format-image bg-white">
+							<div class="post-preview">
+								<a href="#"><img src={Image1} alt="" /></a>
+							</div>
+							<div class="post-content">
+								<h2 class="post-title"><a href="#">News 3</a></h2>
+								<ul class="post-meta">
+									<li>October 24, 2015</li>
+									<li>By <a href="#">Benson</a></li>
+								</ul>
+								<p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.</p>
+								<a href="#" class="btn btn-lg btn-link btn-base">Read more ›</a>
+							</div>
+						</article>
+					</div>
+					
+
+				</div>
+
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="text-center m-t-35">
+							<a href="#">Read all news</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
     </>
     )  
 }
