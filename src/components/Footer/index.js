@@ -4,8 +4,22 @@ import { FooterContainer, SocialIcons, SocialIconLink, SocialLogo, SocialMediaWr
 import Logo from '../../images/logo-black.png'
 import News from '../../images/con1.jpg'
 import './style.css'
+import { graphql, useStaticQuery } from 'gatsby'
 
 const Footer = () => {
+    const data = useStaticQuery(graphql`
+    query {
+        contentfulAboutPage {
+            aboutTop {
+                aboutTop  
+            }
+            aboutBody {
+                aboutBody
+            }
+        }    
+    }
+`)
+
     return (
         <footer class="footer">
         <div class="container">
@@ -62,7 +76,7 @@ const Footer = () => {
                 <div class="col-lg-3 col-md-6 mb30">
                     <h5>Who We Are</h5>
                     <h6>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quisque non tellus orci ac. Mi in nulla posuere sollicitudin aliquam ultrices sagittis orci a. Suscipit tellus mauris a diam maecenas sed.
+                    {data.contentfulAboutPage.aboutTop.aboutTop}
                     </h6>
                 </div>
                 <div class="col-lg-3 col-md-6 mb30">

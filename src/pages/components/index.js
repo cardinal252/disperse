@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/MainElements.css'
 import '../components/template.css'
 import Image1 from "../../images/con1.jpg"
+import News from '../blog'
 
 const Main = () => {
 
@@ -114,7 +115,7 @@ return (
 									<li>October 24, 2015</li>
 									<li>By <a href="#">Benson</a></li>
 								</ul>
-								<p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.</p>
+								<p><News />"</p>
 								<a href="#" class="btn btn-lg btn-link btn-base">Read more ›</a>
 							</div>
 						</article>

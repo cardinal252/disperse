@@ -1,6 +1,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/MainElements.css'
+import News from '../blog'
 const Portfolio = () => {
 
   return (
@@ -8,7 +9,8 @@ const Portfolio = () => {
      	<div class="container">
 
 <div class="row">
-    <div class="col-sm-10 col-sm-offset-1 blog-content">
+    <News />
+    {/* <div class="col-sm-10 col-sm-offset-1 blog-content">
         <article class="post format-image">
             <div class="post-preview">
                 <a href="#"><img src="assets/images/blog/1.jpg" alt="" /></a>
@@ -98,7 +100,7 @@ const Portfolio = () => {
                 <li><a href="#" aria-label="Next"><i class="fa fa-angle-right"></i></a></li>
             </ul>
         </nav>
-    </div>
+    </div> */}
 </div>
 
 </div>

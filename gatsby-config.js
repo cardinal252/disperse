@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `disperse`,
     description: `disperse`,
-    author: `disperse`,
+    author: `JCM`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -28,8 +28,12 @@ module.exports = {
         icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: "xjldg4gmgybd",
+        accessToken: "JfTMtpLJSnjPr102b0auocxPEDY_eW4NERfphLREmWw"
+      },
+    },
   ],
 }
