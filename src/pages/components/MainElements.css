@@ -1199,7 +1199,7 @@ Icon boxes
 
 .special-feature .mask-top {
   width: 100%;
-  background-color: #ffffff;
+  background-color:  #95d1e5;
   padding: 55px 0;
   position: absolute;
   top: 0px;
@@ -1999,13 +1999,13 @@ Image boxes styled hover styles
 
 /***owl carousel**/
 .carousel-root {
-  width: 64% !important;
+  width: 100% !important;
   margin: auto !important;
   margin-top: 3% !important;
 }
 
 .carousel .slide {
-  background: #fff !important;
+  background: #95d1e5 !important;
   color: black;
   height: 100%;
 }
@@ -2016,7 +2016,7 @@ Image boxes styled hover styles
 }
 
 .myCarousel {
-  background: #fafafa;
+  background: #95d1e5;
   margin-top: -6%;
   width: 54%;
   margin-left: auto;
@@ -2025,7 +2025,7 @@ Image boxes styled hover styles
   padding-bottom: 8%;
   padding-left: 5%;
   padding-right: 5%;
-  border: 1px solid #ddd;
+  border: 1px solid #95d1e5;
   height: 286px;
 }
 
@@ -2108,7 +2108,7 @@ Image boxes styled hover styles
     display: none !important;
   }
   .myCarousel {
-    background: #fafafa;
+    background: #ADD8E6;
     margin-top: -9%;
     width: 88%;
     margin-left: auto;

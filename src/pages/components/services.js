@@ -3,7 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/MainElements.css'
 import Testimonials from '../../components/Testimonials'
 import Sketch2 from '../../images/1.jpg'
-import { graphql, useStaticQuery } from 'gatsby'
+import Image1 from "../../images/con1.jpg"
+import { Link, graphql, useStaticQuery } from 'gatsby'
+import BlogTemplate from '../../templates/blog'
 
 const Services = () => {
  
@@ -18,6 +20,16 @@ const Services = () => {
               }
             }
           }
+        }
+        allContentfulServices {
+            edges {
+                node {
+                    title
+                    body {
+                        body
+                    }
+                }
+            }
         }
       }
   `)
@@ -52,54 +64,31 @@ const Services = () => {
                     </div>
                 </div>
             </div>
-            <div class="bg-parallax parallax-overlay" data-jarallax='{"speed": 0.2}'>
+            <div class="bg-parallax parallax-overlay" data-jarallax='{"speed": 0.2}'>  
                 <div class="container">
-                    <div class="row">
+                    <div class="row">        
+                {data.allContentfulServices.edges.map((edge) => {
+                    return  (
                         <div class="col-lg-4 col-md-4 pt30 pb30 text-center">
                             <div class="icon-bg">
                                 <i class="ti-image fa-4x mb20"></i>
-                                <h3>Hosted Services</h3>
-                                <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                </p>
-                                {/* <a href="#" class="btn btn-white-outline">
-                                    Learn More
-                                </a> */}
+                           
+                                <Link to={`/news/${edge.node.slug}`}>
+                                <h2 class="post-title">{edge.node.title}</h2>
+                                <p>{edge.node.body.body}</p>  
+                                <a href="#" class="btn btn-lg btn-link btn-base">Read more ›</a> 
+                                </Link>
+                            
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 pt30 pb30 text-center">
-                            <div class="icon-bg">
-                                <i class="ti-twitter fa-4x mb20"></i>
-                                <h3>Engineering & Maintainence</h3>
-                                <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                </p>
-                                {/* <a href="#" class="btn btn-white-outline">
-                                    Learn More
-                                </a> */}
-                            </div>
+                    )    
+                })} 
                         </div>
-                        <div class="col-lg-4 col-md-4 pt30 pb30 text-center">
-                            <div class="icon-bg">
-                                <i class="ti-bag fa-4x mb20"></i>
-                                <h3>Telephone Systems</h3>
-                                <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                </p>
-                                {/* <a href="#" class="btn btn-white-outline">
-                                    Learn More
-                                </a> */}
-                            </div>
-                        </div>
-                        
                     </div>
-                </div>
-            </div>
+				</div>
 
-            <div class="pt0 pb0">
-            <div class="container mb120">
-                <Testimonials />
-            </div>
+        <div class="pt0 pb0">
+            <Testimonials />
         </div>
         </>    
     )  

@@ -3,7 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/MainElements.css'
 import Testimonials from '../../components/Testimonials'
 import HolderImg from '../../images/iphone-3.png'
-import { graphql, useStaticQuery } from 'gatsby'
+import { Link, graphql, useStaticQuery } from 'gatsby'
+import Image1 from "../../images/con1.jpg"
 
 
 
@@ -17,60 +18,59 @@ const About = () => {
                 aboutBody {
                     aboutBody
                 }
-            }   
+            }  
+            allContentfulAboutSlider {
+                edges {
+                  node {
+                    title
+                    body {
+                      body
+                    }
+                  }
+                }
+            }
         }
     `)
   
   return (
         <>
         <div class='container-fluid no-padding mb40'>
-            <div class="row special-feature">
-                <div class="col-md-4 col-sm-6 margin20">
-                    <div class="s-feature-box text-center">
-                        <div class="mask-top">
-                        <i></i>
-                        <h4>Title 1</h4>
-                    </div>
-                    <div class="mask-bottom">
-                        <i></i>
-                        <h4>Title 1</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
+            <div class="row special-feature">         
+                {data.allContentfulAboutSlider.edges.map((edge) => {
+                    return  (
+                        <div class="col-md-4 col-sm-6 margin20">
+                            <div class="s-feature-box text-center">
+                                <div class="mask-top">
+                                    <i></i>
+                                    <h4>{edge.node.title}</h4>
+                                </div>
+                                <div class="mask-bottom">
+                                    <h4>{edge.node.title}</h4>
+                                    <p>{edge.node.body.body}</p>
+                                    <a href="#" class="btn btn-lg btn-link btn-base">Read more ›</a> 
+                                </div>  
+                            </div>
+                        </div>
+                    )    
+                })} 
             </div>
-            <div class="col-md-4 col-sm-6 margin20">
-                <div class="s-feature-box text-center">
-                    <div class="mask-top">
-                        <i></i>
-                        <h4>Title 2</h4>
-                    </div>
-                    <div class="mask-bottom">
-                        <i></i>
-                        <h4>Title 2</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
+
+            {/* 
+                
+                    
+                  
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-6 margin20">
-                <div class="s-feature-box text-center">
-                    <div class="mask-top">
-                        <i></i>
-                        <h4>Title 3</h4>
-                    </div>
-                    <div class="mask-bottom">
-                        <i></i>
-                        <h4>Title 3</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-            </div>
+            </div> */}
+         
+ 
             <div class='row pt40 no-margin'>
                 <div class='col-lg-8  mr-auto ml-auto'>
-                     <p class='title-heading1 mb50 text-center'>
-                     <h2>{data.contentfulAboutPage.aboutTop.aboutTop}</h2>
-                     </p>
+                    <p class='title-heading1 mb50 text-center'>
+                    <h2>{data.contentfulAboutPage.aboutTop.aboutTop}</h2>
+                    </p>
                 </div>
             </div>
+
             <div class='container-fluid no-padding mb40'>
                 <div class='row no-margin'>
                     <div class='col-lg-4  mr-auto ml-auto'>
@@ -87,14 +87,12 @@ const About = () => {
                         </p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>    
-    <div class="pt0 pb0">
-        <div class="container mb120">
+            </div>   
+            
+        </div>    
+        <div class="pt0 pb0">
             <Testimonials />         
-        </div>
-    </div>    
+        </div>     
     </>    
     )  
 }
