@@ -11,10 +11,10 @@ function HeroSection() {
                 <div class="row center">
                     <div class="col-lg-3" />
                     <div class="btn col-lg-3">
-                        <Button to='/about'>How We Can Help</Button>
+                        <a href="#!" class="btn btn-outline-primary btn-rounded">How can we help</a>
                     </div>
                     <div class="btn col-lg-3">
-                        <Button to='/'>Get Started</Button>
+                        <a href="#!" class="btn btn-outline-primary btn-rounded">Get Started</a>
                     </div> 
                     <div class="col-lg-3" />
                 </div>    

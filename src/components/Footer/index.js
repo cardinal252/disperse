@@ -4,7 +4,7 @@ import { FooterContainer, SocialIcons, SocialIconLink, SocialLogo, SocialMediaWr
 import Logo from '../../images/logo-black.png'
 import News from '../../images/con1.jpg'
 import './style.css'
-import { graphql, useStaticQuery } from 'gatsby'
+import { Link, graphql, useStaticQuery } from 'gatsby'
 
 const Footer = () => {
     const data = useStaticQuery(graphql`
@@ -13,10 +13,23 @@ const Footer = () => {
             aboutTop {
                 aboutTop  
             }
-            aboutBody {
-                aboutBody
-            }
         }    
+        allContentfulServicesPage {
+          edges {
+            node {
+                title
+            }
+          }
+        }
+        allContentfulBlogPost ( sort: { fields: publishedDate, order:DESC } ) {
+            edges {
+                node {
+                    title
+                    slug
+                    publishedDate(formatString:"MMMM Do, YYYY")
+                }
+            }
+        }
     }
 `)
 
@@ -26,52 +39,29 @@ const Footer = () => {
             <div class="row">
                 <div class="col-lg-3 col-md-6 mb-30">
                     <h5>Our Services</h5>
-                    <ul class="list-unstyled list-links">
-                        <li>
-                            <a href="#!">What We Do 1</a>
-                        </li>
-                        <li>
-                            <a href="#!">What We Do 2
-                                {/* <span class="badge rounded bg-secondary text-white d-inline-block ml-2">18</span> */}
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#!">What We Do 3</a>
-                        </li>
-                        <li>
-                            <a href="#!">What We Do 4</a>
-                        </li>
-                    </ul>
+                    {data.allContentfulServicesPage.edges.map((edge) => {
+                        return  (
+                        <div>
+                            {edge.node.title}
+                        </div>    
+                        )    
+                    })} 
+                    
                 </div>
                 <div class="col-lg-3 col-md-6 mb30">
                     <h5>Latest News</h5>
-                    <ul class="list-unstyled list-links">
-                        <li class="media">
-                            <img src={News} class="img-fluid" alt="" />
-                            <div class="media-body">
-                                <a href="#!">News 1
-                                    <small class="text-muted d-block">on 12 June 2018</small>
-                                </a>
-                            </div>
-                        </li>
-
-                        <li class="media">
-                            <img src={News} class="img-fluid" alt="" />
-                            <div class="media-body">
-                                <a href="#!">News 2
-                                    <small class="text-muted d-block">on 02 Sep. 2018</small>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="media">
-                            <img src={News} class="img-fluid" alt="" />
-                            <div class="media-body">
-                                <a href="#!">News 3
-                                    <small class="text-muted d-block">on 17 October 2018</small>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
+                    <ol>
+                        {data.allContentfulBlogPost.edges.map((edge) => {
+                            return  (
+                            <li>
+                                <Link to={`/news/${edge.node.slug}`}>   
+                                <h3>{edge.node.title}</h3>
+                                <p>{edge.node.publishedDate}</p>
+                                </Link>
+                            </li>
+                            )    
+                        })} 
+                    </ol>
                 </div>
                 <div class="col-lg-3 col-md-6 mb30">
                     <h5>Who We Are</h5>

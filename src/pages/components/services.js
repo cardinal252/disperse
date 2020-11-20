@@ -3,22 +3,46 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/MainElements.css'
 import Testimonials from '../../components/Testimonials'
 import Sketch2 from '../../images/1.jpg'
+import { graphql, useStaticQuery } from 'gatsby'
 
 const Services = () => {
+ 
+    const data = useStaticQuery(graphql`
+    query {
+        allContentfulServicesPage {
+          edges {
+            node {
+              title
+              body {
+                body
+              }
+            }
+          }
+        }
+      }
+  `)
+      
   return (
         <>
             <div class="container mb50">
                 <div class="row align-items-center">
                     <div class="col-md-6 mb30">
-                        <h3 class="mb20">We offer full time best & quality services</h3>
+                        <h3 class="mb20">What We Do</h3>
                         <p class="lead">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            What We Do!
                         </p>
-                        <ul class="list-unstyled list-icon mb20">
-                            <li>Cras purus odio</li>
-                            <li>vestibulum in vulputate</li>
-                            <li>Fusce condimentum nunc</li>
-                        </ul>
+                        <div className="container pt30 pb30">
+                        <ol>
+                            {data.allContentfulServicesPage.edges.map((edge) => {
+                                return  (
+                                <li>
+                                    <h3>{edge.node.title}</h3>
+                                    <p>{edge.node.body.body}</p>
+                                </li>
+                                )    
+                            })} 
+                        </ol>
+                        </div>  
                         {/* <a href="#" class="btn btn-primary">
                             Learn More
                         </a> */}

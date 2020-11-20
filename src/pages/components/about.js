@@ -17,7 +17,7 @@ const About = () => {
                 aboutBody {
                     aboutBody
                 }
-            }    
+            }   
         }
     `)
   
