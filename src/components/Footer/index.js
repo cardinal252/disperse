@@ -14,14 +14,14 @@ const Footer = () => {
                 aboutTop  
             }
         }    
-        allContentfulServicesPage {
+        allContentfulServicesPage(limit: 4) {
           edges {
             node {
                 title
             }
           }
         }
-        allContentfulBlogPost ( sort: { fields: publishedDate, order:DESC } ) {
+        allContentfulBlogPost( sort: { fields: publishedDate, order:DESC }, limit: 3) {
             edges {
                 node {
                     title
@@ -49,19 +49,27 @@ const Footer = () => {
                     
                 </div>
                 <div class="col-lg-3 col-md-6 mb30">
+                    <div class="widget">
                     <h5>Latest News</h5>
                     <ol>
                         {data.allContentfulBlogPost.edges.map((edge) => {
                             return  (
                             <li>
-                                <Link to={`/news/${edge.node.slug}`}>   
-                                <h3>{edge.node.title}</h3>
-                                <p>{edge.node.publishedDate}</p>
-                                </Link>
+                                <div class="widget-posts-image">
+                                    <img src={News} alt="" />
+                                </div>
+                                <div class="widget-posts-body">
+                                    <Link to={`/news/${edge.node.slug}`}>   
+                                        <h6>{edge.node.title}</h6>
+                                        <p>{edge.node.publishedDate}</p>
+                                    </Link>
+                                </div>
+                                
                             </li>
                             )    
                         })} 
                     </ol>
+                    </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mb30">
                     <h5>Who We Are</h5>

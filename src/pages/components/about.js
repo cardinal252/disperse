@@ -19,7 +19,7 @@ const About = () => {
                     aboutBody
                 }
             }  
-            allContentfulAboutSlider {
+            allContentfulAboutSlider(limit: 3) {
                 edges {
                   node {
                     title
@@ -71,7 +71,7 @@ const About = () => {
                 </div>
             </div>
 
-            <div class='container-fluid no-padding mb40'>
+            <div class='container-fluid col-lg-8 no-padding mb40'>
                 <div class='row no-margin'>
                     <div class='col-lg-4  mr-auto ml-auto'>
                         <div class="title-heading1 mb30">

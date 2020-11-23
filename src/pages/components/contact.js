@@ -2,9 +2,23 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/MainElements.css'
 import '../../smart-form/contact/css/smart-forms.css'
+import { Link, graphql, useStaticQuery } from 'gatsby'
 
 const Contact = () => {
-
+    const data = useStaticQuery(graphql`
+    query {
+        contentfulContactPage {
+            address {
+              address
+            }
+            email
+            phone
+            companyInfo {
+              companyInfo
+            }
+          }
+    }
+`)
 return (
     <>
         <div class="container pt90 pb50">
@@ -12,27 +26,17 @@ return (
                 <div class="col-md-6 mb40">
                     <h4 class="text-uppercase">Address</h4>
                     <p>
+                    {data.contentfulContactPage.address.address}    
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     </p>
                     <h4 class="text-uppercase">Email</h4>
                     <p>
-                        <a href="/">contact@email.com</a></p>
+                        <a href="/">{data.contentfulContactPage.email}</a></p>
                     <h4 class="text-uppercase">Phone</h4>
                     <p>
-                        <a href="/">+120 234-449-3949</a></p>
+                        <a href="/">{data.contentfulContactPage.phone}</a></p>
                     <h4 class="text-uppercase">Company Information</h4>
-                    <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </p>
-                    <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </p>
-                    <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </p>
-                    <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </p>
+                    {data.contentfulContactPage.companyInfo.companyInfo}
                 </div>
                 <div class="col-md-6 pb40">
                     <div class="smart-wrap">

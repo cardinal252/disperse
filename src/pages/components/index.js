@@ -5,12 +5,16 @@ import '../components/template.css'
 import Image1 from "../../images/con1.jpg"
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import BlogTemplate from '../../templates/blog'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faHeadset,
+} from '@fortawesome/free-solid-svg-icons'
 
 const Main = () => {
 
     const data = useStaticQuery(graphql`
     query {
-        allContentfulServicesPage {
+        allContentfulServicesPage(limit: 4) {
           edges {
             node {
               title
@@ -20,12 +24,13 @@ const Main = () => {
             }
           }
         }
-        allContentfulBlogPost ( sort: { fields: publishedDate, order:DESC } ) {
+        allContentfulBlogPost ( sort: { fields: publishedDate, order:DESC }, limit: 3 ) {
             edges {
                 node {
                     title
                     slug
                     publishedDate(formatString:"MMMM Do, YYYY")
+                    author
                     body {
                         body
                     }
@@ -40,7 +45,8 @@ return (
         <div class='container pt90 pb60'>
                 <div class='row align-items-center'>
                     <div class='col-md-4 mb30'>
-                        <div class='section-title title-left mb30'>
+                    <FontAwesomeIcon icon={faHeadset} size="7x" />
+                        <div class='section-title title-right mb30'>
                             <span class="section-subTitle">what we do</span>
                             <h3 class='mb0'>
                                 Our services
@@ -89,7 +95,7 @@ return (
                                 <h2 class="post-title">{edge.node.title}</h2>
                                 <ul class="post-meta">
                                     <li>{edge.node.publishedDate}</li>
-                                    <li>{edge.node.publishedDate}</li>
+                                    <li> BY {edge.node.author}</li>
                                 </ul> 
                                 <p>{edge.node.body.body}</p>  
                                 <a href="#" class="btn btn-lg btn-link btn-base">Read more ›</a> 

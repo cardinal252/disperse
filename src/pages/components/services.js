@@ -11,7 +11,7 @@ const Services = () => {
  
     const data = useStaticQuery(graphql`
     query {
-        allContentfulServicesPage {
+        allContentfulServicesPage(limit: 4) {
           edges {
             node {
               title
@@ -21,7 +21,7 @@ const Services = () => {
             }
           }
         }
-        allContentfulServices {
+        allContentfulServices(limit: 3) {
             edges {
                 node {
                     title
