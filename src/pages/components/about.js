@@ -2,9 +2,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/MainElements.css'
 import Testimonials from '../../components/Testimonials'
-import HolderImg from '../../images/iphone-3.png'
 import { Link, graphql, useStaticQuery } from 'gatsby'
-import Image1 from "../../images/con1.jpg"
 
 
 
@@ -18,10 +16,20 @@ const About = () => {
                 aboutBody {
                     aboutBody
                 }
+                aboutImage {
+                    resize(height: 1030) {
+                      src
+                    }
+                }
             }  
             allContentfulAboutSlider(limit: 3) {
                 edges {
                   node {
+                    aboutImage {
+                        resize(width: 50, height: 50) {
+                          src
+                        }
+                    } 
                     title
                     body {
                       body
@@ -45,9 +53,10 @@ const About = () => {
                                     <h4>{edge.node.title}</h4>
                                 </div>
                                 <div class="mask-bottom">
+                                    <img src={edge.node.aboutImage.resize.src} alt={edge.node.title} />
                                     <h4>{edge.node.title}</h4>
                                     <p>{edge.node.body.body}</p>
-                                    <a href="#" class="btn btn-lg btn-link btn-base">Read more ›</a> 
+                                    <Link to="/" class="btn btn-lg btn-link btn-base">Read more ›</Link> 
                                 </div>  
                             </div>
                         </div>
@@ -83,7 +92,10 @@ const About = () => {
                     </div>
                     <div class='col-lg-4  mr-auto ml-auto'>
                         <p class='lead mb50 text-center'>
-                            <img src={HolderImg} alt="/" />
+                            <img 
+                                src={data.contentfulAboutPage.aboutImage.resize.src} 
+                                alt={data.contentfulAboutPage.title}
+                            />
                         </p>
                     </div>
                 </div>

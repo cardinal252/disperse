@@ -2,9 +2,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/MainElements.css'
 import '../components/template.css'
-import Image1 from "../../images/con1.jpg"
 import { Link, graphql, useStaticQuery } from 'gatsby'
-import BlogTemplate from '../../templates/blog'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faHeadset,
@@ -21,6 +19,11 @@ const Main = () => {
               body {
                 body
               }
+              servicesImage {
+                  resize(width: 80) {
+                    src  
+                  }
+              }
             }
           }
         }
@@ -34,8 +37,25 @@ const Main = () => {
                     body {
                         body
                     }
+                    media {
+                        resize(width: 680, height: 489) {
+                          src
+                        }
+                    }
                 }
             }
+        }
+        contentfulServicesAbout {
+            header
+            subheader
+            bodyServices {
+              bodyServices
+            }
+            serviceButton
+        }
+        contentfulBlogTitle {
+            heading
+            subheading
         }
       }
   `)
@@ -47,21 +67,22 @@ return (
                     <div class='col-md-4 mb30'>
                     <FontAwesomeIcon icon={faHeadset} size="7x" />
                         <div class='section-title title-right mb30'>
-                            <span class="section-subTitle">what we do</span>
+                            <span class="section-subTitle">{data.contentfulServicesAbout.header}</span>
                             <h3 class='mb0'>
-                                Our services
+                                {data.contentfulServicesAbout.subheader}
                             </h3>
                         </div>
                         <p class='lead'>
-                            We provide the best customer service to our customers
+                            {data.contentfulServicesAbout.bodyServices.bodyServices}
                         </p>
-                        <a data-scroll href='#portfolio' class='btn btn-outline-secondary'>Learn More</a>
+                        <a data-scroll href='#portfolio' class='btn btn-outline-secondary'>{data.contentfulServicesAbout.serviceButton}</a>
                     </div>
                     <div class='col-md-7 ml-auto'>
                         <div class='row'>
                             {data.allContentfulServicesPage.edges.map((edge) => {
                                 return  (
                                         <div class='col-md-6 mb30 text-center'>
+                                            <img src={edge.node.servicesImage.resize.src} alt={edge.node.title} />
                                             <h5 class='text-uppercase mb20'>{edge.node.title}</h5>
                                             <p>{edge.node.body.body}</p>
                                         </div>      
@@ -76,8 +97,8 @@ return (
 				<div class="row">
 					<div class="col-sm-12 col-sm-offset-3">
 						<div class="module-header text-center">
-							<h2 class="montserrat text-uppercase">Our news</h2>
-							<p class="lead divider-line">Read fresh news in our blog.</p>
+							<h2 class="montserrat text-uppercase">{data.contentfulBlogTitle.heading}</h2>
+							<p class="lead divider-line">{data.contentfulBlogTitle.subheading}</p>
 						</div>
 					</div>
 				</div>
@@ -88,7 +109,7 @@ return (
                     <div class="col-sm col-md-4 col-lg-4">
                         <article class="post format-image bg-white">
                             <div class="post-preview">
-                                <a href="#"><img src={Image1} alt="" /></a>
+                                <img src={edge.node.media.resize.src} alt={edge.node.title} />
                             </div>
                             <div class="post-content">
                                 <Link to={`/news/${edge.node.slug}`}>
@@ -98,7 +119,7 @@ return (
                                     <li> BY {edge.node.author}</li>
                                 </ul> 
                                 <p>{edge.node.body.body}</p>  
-                                <a href="#" class="btn btn-lg btn-link btn-base">Read more ›</a> 
+                                <Link to="/" class="btn btn-lg btn-link btn-base">Read more ›</Link> 
                                 </Link>
                             </div>
                         </article>
@@ -111,7 +132,7 @@ return (
 				<div class="row">
 					<div class="col-sm-12">
 						<div class="text-center m-t-35 m-b-35">
-							<a href="#">Read all news</a>
+							<Link to="/">Read all news</Link>
 						</div>
 					</div>
 				</div>

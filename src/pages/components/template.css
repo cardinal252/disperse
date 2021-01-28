@@ -2307,6 +2307,10 @@ body.off-canvas-cart-open:after {
     height: 450px;
 }
 
+address.map-background {
+    background: url("../../images/map.png") no-repeat left;
+}
+
 #map {
     height: 100% !important;
     width: 100%;
@@ -5336,6 +5340,7 @@ body.off-canvas-cart-open:after {
 .widget-posts-image {
     float: left;
     width: 44px;
+    height: 44px;
 }
 
 .widget-posts-body {

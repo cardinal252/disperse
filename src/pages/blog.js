@@ -12,6 +12,11 @@ const News = () => {
             title
             slug
             publishedDate(formatString:"MMMM Do, YYYY")
+            media {
+              fluid(maxWidth: 200) {
+                  src
+              }
+          }
           }
         }
       }
@@ -26,8 +31,16 @@ const News = () => {
             return  (
               <li className={blogStyles.post}>
                 <Link to={`/news/${edge.node.slug}`}>
-                  <h2>{edge.node.title}</h2>
-                  <p>{edge.node.publishedDate}</p>
+                  <div className="col-lg-4">
+                    <h2>{edge.node.title}</h2>
+                    <p>{edge.node.publishedDate}</p>
+                  </div>
+                  <div className="col-lg-8">  
+                    <img   
+                        src={edge.node.media.fluid.src} 
+                        alt={edge.node.title}
+                    /> 
+                  </div>    
                 </Link>
               </li>
             )    

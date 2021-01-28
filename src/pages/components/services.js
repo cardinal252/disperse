@@ -2,10 +2,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/MainElements.css'
 import Testimonials from '../../components/Testimonials'
-import Sketch2 from '../../images/1.jpg'
-import Image1 from "../../images/con1.jpg"
 import { Link, graphql, useStaticQuery } from 'gatsby'
-import BlogTemplate from '../../templates/blog'
 
 const Services = () => {
  
@@ -18,6 +15,11 @@ const Services = () => {
               body {
                 body
               }
+              servicesImage {
+                    resize(width: 80) {
+                        src  
+                    }
+                }
             }
           }
         }
@@ -31,6 +33,20 @@ const Services = () => {
                 }
             }
         }
+        contentfulServicesImage {
+            serviceImage {
+                resize(height: 1030) {
+                    src
+                }
+            }
+        }
+        contentfulServicesAbout {
+            header
+            subheader
+            bodyServices {
+              bodyServices
+            }
+          }
       }
   `)
       
@@ -39,28 +55,31 @@ const Services = () => {
             <div class="container mb50">
                 <div class="row align-items-center">
                     <div class="col-md-6 mb30">
-                        <h3 class="mb20">What We Do</h3>
+                        <h3 class="mb20">{data.contentfulServicesAbout.header}</h3>
                         <p class="lead">
-                            What We Do!
+                            {data.contentfulServicesAbout.subheader}
                         </p>
                         <div className="container pt30 pb30">
-                        <ol>
+                        <ul>
                             {data.allContentfulServicesPage.edges.map((edge) => {
-                                return  (
-                                <li>
-                                    <h3>{edge.node.title}</h3>
-                                    <p>{edge.node.body.body}</p>
-                                </li>
+                                return  (   
+                                    <li>
+                                        <div><img src={edge.node.servicesImage.resize.src} alt={edge.node.title} /></div>
+                                        <div>    
+                                            <h3>{edge.node.title}</h3>
+                                            <p>{edge.node.body.body}</p>
+                                        </div>       
+                                    </li>
                                 )    
                             })} 
-                        </ol>
+                        </ul>
                         </div>  
                         {/* <a href="#" class="btn btn-primary">
                             Learn More
                         </a> */}
                     </div>
                     <div class="col-md-6 mb30">
-                        <img src={Sketch2} alt="" class="img-fluid" />
+                        <img src={data.contentfulServicesImage.serviceImage.resize.src} alt="" class="img-fluid" />
                     </div>
                 </div>
             </div>
@@ -76,7 +95,7 @@ const Services = () => {
                                 <Link to={`/news/${edge.node.slug}`}>
                                 <h2 class="post-title">{edge.node.title}</h2>
                                 <p>{edge.node.body.body}</p>  
-                                <a href="#" class="btn btn-lg btn-link btn-base">Read more ›</a> 
+                                <p>Read more ›</p> 
                                 </Link>
                             
                             </div>
