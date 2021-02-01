@@ -3,10 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/MainElements.css'
 import '../components/template.css'
 import { Link, graphql, useStaticQuery } from 'gatsby'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faHeadset,
-} from '@fortawesome/free-solid-svg-icons'
+
 
 const Main = () => {
 
@@ -20,7 +17,7 @@ const Main = () => {
                 body
               }
               servicesImage {
-                  resize(width: 80) {
+                  resize {
                     src  
                   }
               }
@@ -46,6 +43,11 @@ const Main = () => {
             }
         }
         contentfulServicesAbout {
+            serviceImage {
+                resize {
+                    src
+                }
+            }
             header
             subheader
             bodyServices {
@@ -65,18 +67,12 @@ return (
         <div class='container pt90 pb60'>
                 <div class='row align-items-center'>
                     <div class='col-md-4 mb30'>
-                    <FontAwesomeIcon icon={faHeadset} size="7x" />
-                        <div class='section-title title-right mb30'>
-                            <span class="section-subTitle">{data.contentfulServicesAbout.header}</span>
-                            <h3 class='mb0'>
-                                {data.contentfulServicesAbout.subheader}
-                            </h3>
-                        </div>
-                        <p class='lead'>
-                            {data.contentfulServicesAbout.bodyServices.bodyServices}
-                        </p>
-                        <a data-scroll href='#portfolio' class='btn btn-outline-secondary'>{data.contentfulServicesAbout.serviceButton}</a>
-                    </div>
+                        <div class='text-center'>
+                            <img src={data.contentfulServicesAbout.serviceImage.resize.src} alt={data.contentfulServicesAbout.subheader} />
+                            <h5 class='text-uppercase mb20'>{data.contentfulServicesAbout.subheader}</h5>
+                            <p>{data.contentfulServicesAbout.bodyServices.bodyServices}</p>
+                        </div> 
+                    </div>    
                     <div class='col-md-7 ml-auto'>
                         <div class='row'>
                             {data.allContentfulServicesPage.edges.map((edge) => {

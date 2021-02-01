@@ -19,11 +19,6 @@ const Footer = () => {
           edges {
             node {
                 title
-                servicesImage {
-                    resize(width: 20) {
-                      src  
-                    }
-                }
             }
           }
         }
@@ -70,7 +65,6 @@ const Footer = () => {
                     {data.allContentfulServicesPage.edges.map((edge) => {
                         return  (
                         <div>
-                            <img src={edge.node.servicesImage.resize.src} alt={edge.node.title} />
                             {edge.node.title}
                         </div>    
                         )    
@@ -101,24 +95,22 @@ const Footer = () => {
                     </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb30">
-                    <h6 class="montserrat text-uppercase bottom-line">{data.contentfulAboutPage.header}</h6>
-                    <h6>
-                    {data.contentfulAboutPage.aboutTop.aboutTop}
-                    </h6>
-                </div>
-                <div class="col-sm-3">
+                <div class="col-sm-6">
                     <div class="widget">
                         <h6 class="montserrat text-uppercase bottom-line">Contact Us</h6>
                         <address class="map-background">
                             <p>{data.contentfulContactPage.address.address} </p>
-                            Phone: <p>{data.contentfulContactPage.phone}</p>
-                            E-mail: <a href="mailto:support@neomax.com">{data.contentfulContactPage.email}</a>
+                            <p>Phone: {data.contentfulContactPage.phone}</p>
+                            <p>E-mail: <a href="mailto:support@neomax.com">{data.contentfulContactPage.email}</a></p>
+                            <form>
+                                <label>
+                                    Join Our Mailing List:
+                                    <input type="text" name="email" value="" />
+                                    <button type="submit">Submit</button>
+
+                                </label>
+                            </form>
                         </address>
-                    </div>
-					
-                    <div class="pt-4">
-                        <a href="#!" class="btn btn-outline-primary btn-rounded">Learn More</a>
                     </div>
                 </div>
             </div>
