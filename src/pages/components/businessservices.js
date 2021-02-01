@@ -1,15 +1,15 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/MainElements.css'
-import CSarticles from '../articles/computerservicesarticles'
-const ComputerServices = () => {
+import BSarticles from '../articles/businessservicesarticles'
+const BusinessServices = () => {
 
   return (
         <>        
      	<div class="container">
 
 <div class="row">
-    <CSarticles />
+    <BSarticles />
     {/* <div class="col-sm-10 col-sm-offset-1 blog-content">
         <article class="post format-image">
             <div class="post-preview">
@@ -108,4 +108,4 @@ const ComputerServices = () => {
     )  
 }
 
-export default ComputerServices     
+export default BusinessServices     

@@ -34,7 +34,7 @@ const Navbar = () => {
 		
 				
 					<li className="has-submenu">
-						<a href="/services">TELEPHONE SYSTEMS</a>
+						<a href="/telephonesystems">TELEPHONE SYSTEMS</a>
 						<ul className="submenu">
 							<li><a href="index-corporate-1.html">Page 1</a></li>
 							<li><a href="index-corporate-2.html">Page 2</a></li>
@@ -44,7 +44,7 @@ const Navbar = () => {
 					</li>
 					
 					<li className="has-submenu">
-						<a href="#">LINES & CALLS</a>
+						<a href="linesandcalls">LINES & CALLS</a>
 						<ul className="submenu">
 							<li className="has-submenu">
 								<a href="#">Page 1</a>
@@ -78,7 +78,7 @@ const Navbar = () => {
 					</li>
 
                     <li className="has-submenu">
-						<a href="#">MOBILE</a>
+						<a href="/mobile">MOBILE</a>
 						<ul className="submenu">
 							<li className="has-submenu">
 								<a href="#">Page 1</a>
@@ -111,7 +111,7 @@ const Navbar = () => {
 					</li>
 
                     <li className="has-submenu">
-						<a href="#">CONNECTIVITY</a>
+						<a href="/connectivity">CONNECTIVITY</a>
 						<ul className="submenu">
 							<li className="has-submenu">
 								<a href="#">Page 1</a>
@@ -145,7 +145,7 @@ const Navbar = () => {
 					</li>
 
                     <li className="has-submenu">
-						<a href="#">BUSINESS SERVICES</a>
+						<a href="/businessservices">BUSINESS SERVICES</a>
 						<ul className="submenu">
 							<li className="has-submenu">
 								<a href="#">Page 1</a>

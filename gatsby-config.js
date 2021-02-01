@@ -16,6 +16,9 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
+    `@contentful/rich-text-types`,
+    `@contentful/rich-text-react-renderer`,
+    `@contentful/gatsby-transformer-contentful-richtext`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
