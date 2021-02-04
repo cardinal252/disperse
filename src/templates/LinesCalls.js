@@ -6,13 +6,12 @@ import Head from '../components/head'
 
 export const query = graphql`
     query($slug: String!) {
-        contentfulBlogPost(slug: {eq: $slug}) {
+        contentfulLCarticles(slug: {eq: $slug}) {
             title
-            publishedDate(formatString:"MMMM Do, YYYY")
             body {
                 body
             }
-            media {
+            lcImage {
                 fluid(maxWidth: 500) {
                     src
                 }
@@ -25,16 +24,15 @@ const BlogTemplate = (props) => {
   
     return (
         <Layout>
-            <Head title="{props.data.contentfulBlogPost.title}" />
+            <Head title="{props.data.contentfulLCarticles.title}" />
             <div className="container pt30">
                 <div>
-                <h1 className="news">{props.data.contentfulBlogPost.title}</h1> 
-                    <p>{props.data.contentfulBlogPost.publishedDate}</p>
+                <h1 className="news">{props.data.contentfulLCarticles.title}</h1> 
                     <img 
-                        src={props.data.contentfulBlogPost.media.fluid.src} 
-                        alt={props.data.contentfulBlogPost.title}
+                        src={props.data.contentfulLCarticles.lcImage.fluid.src} 
+                        alt={props.data.contentfulLCarticles.title}
                     />    
-                    <p>{props.data.contentfulBlogPost.body.body}</p> 
+                    <p>{props.data.contentfulLCarticles.body.body}</p> 
                 </div>    
             </div>      
         </Layout>

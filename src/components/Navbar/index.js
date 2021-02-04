@@ -1,10 +1,62 @@
 import React from 'react'
 import Logo from '../../images/logo-white.png'
 import '../../components/template.css'
-
+import { Link, graphql, useStaticQuery } from 'gatsby'
 
 const Navbar = () => {
-    
+    const data = useStaticQuery(graphql`
+	query {
+		allContentfulPageHeaders {
+			edges {
+			  node {
+				title
+			  }
+			}
+		}
+		allContentfulTSarticle {
+			edges {
+			  node {
+				title
+			  }
+			}
+		  }
+		  allContentfulLCarticles {
+			edges {
+			  node {
+				title
+			  }
+			}
+		  }  
+		  allContentfulMarticle {
+			edges {
+			  node {
+				title
+			  }
+			}
+		  } 
+		  allContentfulConArticle {
+			edges {
+			  node {
+				title
+			  }
+			}
+		  }  
+		  allContentfulBSarticles {
+			edges {
+			  node {
+				title
+			  }
+			}
+		  } 
+		    allContentfulCsArticles {
+			edges {
+			  node {
+				title
+			  }
+			}
+		  }     
+	}
+`)
 
   return (
       <>
@@ -36,179 +88,108 @@ const Navbar = () => {
 					<li className="has-submenu">
 						<a href="/telephonesystems">TELEPHONE SYSTEMS</a>
 						<ul className="submenu">
-							<li><a href="index-corporate-1.html">Page 1</a></li>
-							<li><a href="index-corporate-2.html">Page 2</a></li>
-							<li><a href="index-corporate-3.html">Page 3</a></li>
-							<li><a href="index-corporate-4.html">Page 4</a></li>
-						</ul>
+                        {data.allContentfulTSarticle.edges.map((edge) => {
+                            return  (
+                            <li className="has-submenu">    
+								<Link to="/">{edge.node.title}</Link>
+								<ul className="submenu">
+									<li><a href="about-1.html">SubPage 1</a></li>
+									<li><a href="about-2.html">SubPage 2</a></li>
+									<li><a href="about-3.html">Subpage 3</a></li>
+								</ul>	
+                            </li>
+                            )    
+                        })} 
+                    </ul>
 					</li>
 					
 					<li className="has-submenu">
 						<a href="linesandcalls">LINES & CALLS</a>
 						<ul className="submenu">
-							<li className="has-submenu">
-								<a href="#">Page 1</a>
+						{data.allContentfulLCarticles.edges.map((edge) => {
+                            return  (
+                            <li className="has-submenu">    
+								<Link to="/">{edge.node.title}</Link>
 								<ul className="submenu">
 									<li><a href="about-1.html">SubPage 1</a></li>
 									<li><a href="about-2.html">SubPage 2</a></li>
 									<li><a href="about-3.html">Subpage 3</a></li>
-								</ul>
-							</li>
-		
-							<li className="has-submenu">
-								<a href="#">Page 2</a>
-								<ul className="submenu">
-									<li><a href="services-1.html">SubPage 1</a></li>
-									<li><a href="services-2.html">SubPage 2</a></li>
-									<li><a href="services-3.html">SubPage 3</a></li>
-								</ul>
-							</li>
-		
-							<li className="has-submenu">
-								<a href="#">Page 3</a>
-								<ul className="submenu">
-									<li><a href="gallery-2col.html">SubPage 1</a></li>
-									<li><a href="gallery-3col.html">SubPage 2</a></li>
-									<li><a href="gallery-4col.html">SubPage 3</a></li>
-								</ul>
-							</li>
-		
-							<li><a href="page-404.html">404 Page</a></li>
+								</ul>	
+                            </li>
+                            )    
+                        })} 
 						</ul>
 					</li>
 
                     <li className="has-submenu">
 						<a href="/mobile">MOBILE</a>
 						<ul className="submenu">
-							<li className="has-submenu">
-								<a href="#">Page 1</a>
-								<ul className="submenu">
-									<li><a href="about-1.html">SubPage 1</a></li>
-									<li><a href="about-2.html">SubPage 2</a></li>
-									<li><a href="about-3.html">Subpage 3</a></li>
-								</ul>
-							</li>
-		
-							<li className="has-submenu">
-								<a href="#">Page 2</a>
-								<ul className="submenu">
-									<li><a href="services-1.html">SubPage 1</a></li>
-									<li><a href="services-2.html">SubPage 2</a></li>
-									<li><a href="services-3.html">SubPage 3</a></li>
-								</ul>
-							</li>
-		
-							<li className="has-submenu">
-								<a href="#">Page 3</a>
-								<ul className="submenu">
-									<li><a href="gallery-2col.html">SubPage 1</a></li>
-									<li><a href="gallery-3col.html">SubPage 2</a></li>
-									<li><a href="gallery-4col.html">SubPage 3</a></li>
-								</ul>
-							</li>
-		
+							{data.allContentfulMarticle.edges.map((edge) => {
+								return  (
+								<li className="has-submenu">    
+									<Link to="/">{edge.node.title}</Link>
+									<ul className="submenu">
+										<li><a href="about-1.html">SubPage 1</a></li>
+										<li><a href="about-2.html">SubPage 2</a></li>
+										<li><a href="about-3.html">Subpage 3</a></li>
+									</ul>	
+								</li>
+								)    
+							})} 
 						</ul>
 					</li>
 
                     <li className="has-submenu">
 						<a href="/connectivity">CONNECTIVITY</a>
 						<ul className="submenu">
-							<li className="has-submenu">
-								<a href="#">Page 1</a>
-								<ul className="submenu">
-									<li><a href="about-1.html">SubPage 1</a></li>
-									<li><a href="about-2.html">SubPage 2</a></li>
-									<li><a href="about-3.html">Subpage 3</a></li>
-								</ul>
-							</li>
-		
-							<li className="has-submenu">
-								<a href="#">Page 2</a>
-								<ul className="submenu">
-									<li><a href="services-1.html">SubPage 1</a></li>
-									<li><a href="services-2.html">SubPage 2</a></li>
-									<li><a href="services-3.html">SubPage 3</a></li>
-								</ul>
-							</li>
-		
-							<li className="has-submenu">
-								<a href="#">Page 3</a>
-								<ul className="submenu">
-									<li><a href="gallery-2col.html">SubPage 1</a></li>
-									<li><a href="gallery-3col.html">SubPage 2</a></li>
-									<li><a href="gallery-4col.html">SubPage 3</a></li>
-								</ul>
-							</li>
-		
-							<li><a href="page-404.html">404 Page</a></li>
+						{data.allContentfulConArticle.edges.map((edge) => {
+								return  (
+								<li className="has-submenu">    
+									<Link to="/">{edge.node.title}</Link>
+									<ul className="submenu">
+										<li><a href="about-1.html">SubPage 1</a></li>
+										<li><a href="about-2.html">SubPage 2</a></li>
+										<li><a href="about-3.html">Subpage 3</a></li>
+									</ul>	
+								</li>
+								)    
+							})} 
 						</ul>
 					</li>
 
                     <li className="has-submenu">
 						<a href="/businessservices">BUSINESS SERVICES</a>
 						<ul className="submenu">
-							<li className="has-submenu">
-								<a href="#">Page 1</a>
-								<ul className="submenu">
-									<li><a href="about-1.html">SubPage 1</a></li>
-									<li><a href="about-2.html">SubPage 2</a></li>
-									<li><a href="about-3.html">Subpage 3</a></li>
-								</ul>
-							</li>
-		
-							<li className="has-submenu">
-								<a href="#">Page 2</a>
-								<ul className="submenu">
-									<li><a href="services-1.html">SubPage 1</a></li>
-									<li><a href="services-2.html">SubPage 2</a></li>
-									<li><a href="services-3.html">SubPage 3</a></li>
-								</ul>
-							</li>
-		
-							<li className="has-submenu">
-								<a href="#">Page 3</a>
-								<ul className="submenu">
-									<li><a href="gallery-2col.html">SubPage 1</a></li>
-									<li><a href="gallery-3col.html">SubPage 2</a></li>
-									<li><a href="gallery-4col.html">SubPage 3</a></li>
-								</ul>
-							</li>
-		
-							<li><a href="page-404.html">404 Page</a></li>
+						{data.allContentfulBSarticles.edges.map((edge) => {
+								return  (
+								<li className="has-submenu">    
+									<Link to="/">{edge.node.title}</Link>
+									<ul className="submenu">
+										<li><a href="about-1.html">SubPage 1</a></li>
+										<li><a href="about-2.html">SubPage 2</a></li>
+										<li><a href="about-3.html">Subpage 3</a></li>
+									</ul>	
+								</li>
+								)    
+							})} 
 						</ul>
 					</li>
 
                     <li className="has-submenu">
 						<a href="/computerservices">COMPUTER SERVICES</a>
 						<ul className="submenu">
-							<li className="has-submenu">
-								<a href="#">Page 1</a>
+						{data.allContentfulCsArticles.edges.map((edge) => {
+							return  (
+							<li className="has-submenu">    
+								<Link to="/">{edge.node.title}</Link>
 								<ul className="submenu">
 									<li><a href="about-1.html">SubPage 1</a></li>
 									<li><a href="about-2.html">SubPage 2</a></li>
 									<li><a href="about-3.html">Subpage 3</a></li>
-								</ul>
+								</ul>	
 							</li>
-		
-							<li className="has-submenu">
-								<a href="#">Page 2</a>
-								<ul className="submenu">
-									<li><a href="services-1.html">SubPage 1</a></li>
-									<li><a href="services-2.html">SubPage 2</a></li>
-									<li><a href="services-3.html">SubPage 3</a></li>
-								</ul>
-							</li>
-		
-							<li className="has-submenu">
-								<a href="#">Page 3</a>
-								<ul className="submenu">
-									<li><a href="gallery-2col.html">SubPage 1</a></li>
-									<li><a href="gallery-3col.html">SubPage 2</a></li>
-									<li><a href="gallery-4col.html">SubPage 3</a></li>
-								</ul>
-							</li>
-		
-							<li><a href="page-404.html">404 Page</a></li>
+							)    
+						})} 
 						</ul>
 					</li>
 					

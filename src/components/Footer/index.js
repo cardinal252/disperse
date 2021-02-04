@@ -1,10 +1,7 @@
 import React from 'react'
-import { FaFacebook, FaLinkedin } from 'react-icons/fa'
-import { FooterContainer, SocialIcons, SocialIconLink, SocialLogo, SocialMediaWrap, WebsiteRights } from "./FooterElements"
-import Logo from '../../images/logo-black.png'
-import News from '../../images/con1.jpg'
 import './style.css'
 import { Link, graphql, useStaticQuery } from 'gatsby'
+import '../../smart-form/contact/css/smart-forms.css'
 
 const Footer = () => {
     const data = useStaticQuery(graphql`
@@ -15,7 +12,7 @@ const Footer = () => {
                 aboutTop  
             }
         }    
-        allContentfulServicesPage(limit: 4) {
+        allContentfulPageHeaders {
           edges {
             node {
                 title
@@ -62,7 +59,7 @@ const Footer = () => {
             <div class="row">
                 <div class="col-lg-3 col-md-6 mb-30">
                     <h6 class="montserrat text-uppercase bottom-line">{data.contentfulServicesAbout.header}</h6>
-                    {data.allContentfulServicesPage.edges.map((edge) => {
+                    {data.allContentfulPageHeaders.edges.map((edge) => {
                         return  (
                         <div>
                             {edge.node.title}
@@ -95,24 +92,43 @@ const Footer = () => {
                     </ul>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-3">
                     <div class="widget">
                         <h6 class="montserrat text-uppercase bottom-line">Contact Us</h6>
                         <address class="map-background">
                             <p>{data.contentfulContactPage.address.address} </p>
                             <p>Phone: {data.contentfulContactPage.phone}</p>
-                            <p>E-mail: <a href="mailto:support@neomax.com">{data.contentfulContactPage.email}</a></p>
-                            <form>
-                                <label>
-                                    Join Our Mailing List:
-                                    <input type="text" name="email" value="" />
-                                    <button type="submit">Submit</button>
-
-                                </label>
-                            </form>
+                            <p>E-mail: <a href="mailto:support@neomax.com">{data.contentfulContactPage.email}</a></p>  
                         </address>
                     </div>
                 </div>
+                <div className="col-sm-3">
+                    <div className="smart-forms">
+                        <form method="post" action="smart-form/contact/php/smartprocess.php" id="smart-form">
+                        
+                                <h4>Join Our Mailing List :</h4>
+                                <div class="section">
+                                    <label class="field prepend-icon">
+                                        <input type="text" name="sendername" id="sendername" class="gui-input" placeholder="Enter name" />
+                                        <span class="field-icon"><i class="fa fa-user"></i></span>  
+                                    </label>
+                                </div>
+                                <div class="section">
+                                    <label class="field prepend-icon">
+                                        <input type="email" name="emailaddress" id="emailaddress" class="gui-input" placeholder="Email address" />
+                                        <span class="field-icon"><i class="fa fa-envelope"></i></span>
+                                    </label>
+                                </div>
+                                
+                                <div class="result"></div>                                                                         
+                        
+                            <div>
+                                <button type="submit" data-btntext-sending="Sending..." class="button btn btn-primary">Submit</button>
+                                <button type="reset" class="button"> Reset </button>
+                            </div>
+                        </form>
+                    </div> 
+                </div>            
             </div>
             <div class="row text-center">
                 <div class="col-lg-6 mr-auto ml-auto">

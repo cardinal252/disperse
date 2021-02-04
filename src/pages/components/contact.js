@@ -35,8 +35,30 @@ return (
                     <h4 class="text-uppercase">Phone</h4>
                     <p>
                         <a href="/">{data.contentfulContactPage.phone}</a></p>
-                    <h4 class="text-uppercase">Company Information</h4>
-                    {data.contentfulContactPage.companyInfo.companyInfo}
+                        <div class="smart-forms">
+                            <form method="post" action="smart-form/contact/php/smartprocess.php" id="smart-form">
+                               
+                                    <h4>Join Our Mailing List :</h4>
+                                    <div class="section">
+                                        <label class="field prepend-icon">
+                                            <input type="text" name="sendername" id="sendername" class="gui-input" placeholder="Enter name" />
+                                            <span class="field-icon"><i class="fa fa-user"></i></span>  
+                                        </label>
+                                    </div>
+                                    <div class="section">
+                                        <label class="field prepend-icon">
+                                            <input type="email" name="emailaddress" id="emailaddress" class="gui-input" placeholder="Email address" />
+                                            <span class="field-icon"><i class="fa fa-envelope"></i></span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="result"></div>                                                                         
+                               
+                                <div>
+                                    <button type="submit" data-btntext-sending="Sending..." class="button btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                        </div>    
                 </div>
                 <div class="col-md-6 pb40">
                     <div class="smart-wrap">
