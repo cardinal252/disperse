@@ -63,15 +63,15 @@ const Footer = () => {
                         return  (
                         <div>
                             {edge.node.title}
-                        </div>    
+                        </div> 
+                           
                         )    
                     })} 
-                    
                 </div>
                 <div class="col-lg-3">
                     <div class="widget">
                     <h6 class="montserrat text-uppercase bottom-line">{data.contentfulBlogTitle.heading}</h6>
-                    <ul>
+                    <ul className="recent-posts">
                         {data.allContentfulBlogPost.edges.map((edge) => {
                             return  (
                             <li>
