@@ -1,33 +1,50 @@
 const path = require('path')
 
 module.exports.createPages = async ({ graphql, actions }) => {
-    const { createPage } = actions
+  const { createPage } = actions
 
-    const CMSpage = await graphql(`
+  getTSArticles().then(function(result){
+    createPages(result.data.allContentfulTSarticle.nodes, './src/templates/TSarticle2.js');
+  });
+  getLCArticles().then(function(result){
+    createPages(result.data.allContentfulLCarticles.nodes, './src/templates/TSarticle.js');
+  });
+
+  async function getLCArticles() {
+    console.log('Writing the ls articles');
+    return await graphql(`
         query {
-            allContentfulEntry {
-                edges {
-                  node {
-                    ... on ContentfulTSarticle {
-                      slug
-                    }
-                    ... on ContentfulLCarticles {
-                      slug
-                    }
-                  }
-                }
-              }   
-        }  
-    `)
-    const page = CMSpage
-
-    page.data.allContentfulEntry.edges.forEach((edge) => {
-        createPage({
-            component: path.resolve('./src/templates/TSarticle.js'),
-            path: `/${edge.node.slug}`,
-            context: {
-                slug: edge.node.slug    
+          allContentfulLCarticles {
+            nodes {
+              slug
             }
-        })
+          }
+        } 
+    `);
+  }
+
+  async function getTSArticles() {
+    console.log('Writing the ts articles');
+    return await graphql(`
+        query {
+          allContentfulTSarticle {
+            nodes {
+              slug
+            }
+          }
+        } 
+    `);
+  }  
+
+  async function createPages(nodes, template){
+    return await nodes.forEach((content) => {
+      createPage({
+        component: path.resolve(template),
+        path: `/${content.slug}`,
+        context: {
+          slug: content.slug
+        }
+      })
     })
+  }
 }
