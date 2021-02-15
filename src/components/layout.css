@@ -64,6 +64,11 @@
   color: #fff;
 }
 
+.templates {
+  background-color: black;
+  height: 120;
+}
+
 h1 {
   color: #fff;
   font-size: 38px;

@@ -25,14 +25,15 @@ const BlogTemplate = (props) => {
     return (
         <Layout>
             <Head title="{props.data.contentfulLCarticles.title}" />
-            <div className="container pt100">
+            <div className="templates pt80"></div>
+            <div className="container pt30">
                 <div>
                 <h1 className="news">{props.data.contentfulLCarticles.title}</h1> 
                     <img 
                         src={props.data.contentfulLCarticles.lcImage.fluid.src} 
                         alt={props.data.contentfulLCarticles.title}
                     />    
-                    <p>{props.data.contentfulLCarticles.body.body}</p> 
+                    <p className="pt20">{props.data.contentfulLCarticles.body.body}</p> 
                 </div>    
             </div>      
         </Layout>
