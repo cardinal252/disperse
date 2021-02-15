@@ -17,7 +17,7 @@ const Main = () => {
                 body
               }
               servicesImage {
-                  resize {
+                  resize (height: 200) {
                     src  
                   }
               }
@@ -78,8 +78,8 @@ return (
                             {data.allContentfulServicesPage.edges.map((edge) => {
                                 return  (
                                         <div class='col-md-6 mb30 text-center'>
-                                            <img src={edge.node.servicesImage.resize.src} alt={edge.node.title} />
-                                            <h5 class='text-uppercase mb20'>{edge.node.title}</h5>
+                                            <img className="mb30" src={edge.node.servicesImage.resize.src} alt={edge.node.title} />
+                                            <h5 className='text-uppercase mb20'>{edge.node.title}</h5>
                                             <p>{edge.node.body.body}</p>
                                         </div>      
                                 )    

@@ -6,12 +6,12 @@ import Head from '../components/head'
 
 export const query = graphql`
     query($slug: String!) {
-        contentfulTSarticle(slug: {eq: $slug}) {
+        contentfulMarticle(slug: {eq: $slug}) {
             title
             body {
                 body
             }
-            tsImage {
+            mobImage {
                 fluid(maxWidth: 500) {
                     src
                 }
@@ -24,15 +24,15 @@ const BlogTemplate = (props) => {
   
     return (
         <Layout>
-            <Head title="{props.data.contentfulTSarticle.title}" />
-            <div className="container pt30">
+            <Head title="{props.data.contentfulMarticle.title}" />
+            <div className="container pt100">
                 <div>
-                <h1 className="news">{props.data.contentfulTSarticle.title}</h1> 
+                <h1 className="news">{props.data.contentfulMarticle.title}</h1> 
                     <img 
-                        src={props.data.contentfulTSarticle.tsImage.fluid.src} 
-                        alt={props.data.contentfulTSarticle.title}
+                        src={props.data.contentfulMarticle.mobImage.fluid.src} 
+                        alt={props.data.contentfulMarticle.title}
                     />    
-                    <p>{props.data.contentfulTSarticle.body.body}</p> 
+                    <p>{props.data.contentfulMarticle.body.body}</p> 
                 </div>    
             </div>      
         </Layout>

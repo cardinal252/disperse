@@ -47,7 +47,7 @@ const CSarticles = () => {
           {data.allContentfulCsArticles.edges.map((edge) => {
             return  (
               <li className={blogStyles.post}>
-                <Link to={`/news/${edge.node.slug}`}>
+                <Link to={`/${edge.node.slug}`}>
                 <div className="row">
                     <h2>{edge.node.title}</h2>
                   </div>

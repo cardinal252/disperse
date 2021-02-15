@@ -1,5 +1,6 @@
 import React from 'react'
 import Logo from '../../images/logo-white.png'
+import Logo1 from '../../images/logo-white2.png'
 import '../../components/template.css'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 
@@ -16,7 +17,8 @@ const Navbar = () => {
 		allContentfulTSarticle {
 			edges {
 			  node {
-				title
+				title  
+				slug
 			  }
 			}
 		  }
@@ -24,6 +26,7 @@ const Navbar = () => {
 			edges {
 			  node {
 				title
+				slug
 			  }
 			}
 		  }  
@@ -31,6 +34,7 @@ const Navbar = () => {
 			edges {
 			  node {
 				title
+				slug
 			  }
 			}
 		  } 
@@ -38,6 +42,7 @@ const Navbar = () => {
 			edges {
 			  node {
 				title
+				slug
 			  }
 			}
 		  }  
@@ -45,13 +50,15 @@ const Navbar = () => {
 			edges {
 			  node {
 				title
+				slug
 			  }
 			}
 		  } 
-		    allContentfulCsArticles {
+		  allContentfulCsArticles {
 			edges {
 			  node {
 				title
+				slug
 			  }
 			}
 		  }     
@@ -66,7 +73,7 @@ const Navbar = () => {
 			
 			<div className="inner-header">
 				<a className="inner-brand" href="/">
-					<img className="brand-light" src={Logo} alt="" />
+					<img className="brand-light" src={Logo1} alt="" />
 					<img className="brand-dark" src={Logo} alt="" />
 				</a>
 			</div>
@@ -91,7 +98,7 @@ const Navbar = () => {
                         {data.allContentfulTSarticle.edges.map((edge) => {
                             return  (
                             <li className="has-submenu">    
-								<Link to="/">{edge.node.title}</Link>
+								<Link to={`/${edge.node.slug}`}>{edge.node.title}</Link>
 								<ul className="submenu">
 									<li><a href="about-1.html">SubPage 1</a></li>
 									<li><a href="about-2.html">SubPage 2</a></li>
@@ -109,7 +116,7 @@ const Navbar = () => {
 						{data.allContentfulLCarticles.edges.map((edge) => {
                             return  (
                             <li className="has-submenu">    
-								<Link to="/">{edge.node.title}</Link>
+								<Link to={`/${edge.node.slug}`}>{edge.node.title}</Link>
 								<ul className="submenu">
 									<li><a href="about-1.html">SubPage 1</a></li>
 									<li><a href="about-2.html">SubPage 2</a></li>
@@ -127,7 +134,7 @@ const Navbar = () => {
 							{data.allContentfulMarticle.edges.map((edge) => {
 								return  (
 								<li className="has-submenu">    
-									<Link to="/">{edge.node.title}</Link>
+									<Link to={`/${edge.node.slug}`}>{edge.node.title}</Link>
 									<ul className="submenu">
 										<li><a href="about-1.html">SubPage 1</a></li>
 										<li><a href="about-2.html">SubPage 2</a></li>
@@ -145,7 +152,7 @@ const Navbar = () => {
 						{data.allContentfulConArticle.edges.map((edge) => {
 								return  (
 								<li className="has-submenu">    
-									<Link to="/">{edge.node.title}</Link>
+									<Link to={`/${edge.node.slug}`}>{edge.node.title}</Link>
 									<ul className="submenu">
 										<li><a href="about-1.html">SubPage 1</a></li>
 										<li><a href="about-2.html">SubPage 2</a></li>
@@ -163,7 +170,7 @@ const Navbar = () => {
 						{data.allContentfulBSarticles.edges.map((edge) => {
 								return  (
 								<li className="has-submenu">    
-									<Link to="/">{edge.node.title}</Link>
+									<Link to={`/${edge.node.slug}`}>{edge.node.title}</Link>
 									<ul className="submenu">
 										<li><a href="about-1.html">SubPage 1</a></li>
 										<li><a href="about-2.html">SubPage 2</a></li>
@@ -181,7 +188,7 @@ const Navbar = () => {
 						{data.allContentfulCsArticles.edges.map((edge) => {
 							return  (
 							<li className="has-submenu">    
-								<Link to="/">{edge.node.title}</Link>
+								<Link to={`/${edge.node.slug}`}>{edge.node.title}</Link>
 								<ul className="submenu">
 									<li><a href="about-1.html">SubPage 1</a></li>
 									<li><a href="about-2.html">SubPage 2</a></li>

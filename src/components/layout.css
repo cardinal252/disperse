@@ -9,7 +9,7 @@
 }
 
 .about {
-  background: url('../images/module-1.jpg') center center/cover no-repeat;
+  background: url('../images/Banners/tp_vid_clouds-1.jpg') center center/cover no-repeat;
   height: 25vh;
   width: 100%;
   display: flex;
@@ -23,7 +23,7 @@
 }
 
 .portfolio {
-  background: url('../images/module-1.jpg') center center/cover no-repeat;
+  background: url('../images/Banners/tp_vid_clouds-1.jpg') center center/cover no-repeat;
   height: 25vh;
   width: 100%;
   display: flex;
@@ -37,7 +37,7 @@
 }
 
 .services {
-  background: url('../images/module-1.jpg') center center/cover no-repeat;
+  background: url('../images/Banners/tp_vid_clouds-1.jpg') center center/cover no-repeat;
   height: 25vh;
   width: 100%;
   display: flex;
@@ -51,7 +51,7 @@
 }
 
 .contact {
-  background: url('../images/module-1.jpg') center center/cover no-repeat;
+  background: url('../images/Banners/tp_vid_clouds-1.jpg') center center/cover no-repeat;
   height: 25vh;
   width: 100%;
   display: flex;

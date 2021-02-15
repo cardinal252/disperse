@@ -30,7 +30,7 @@ const News = () => {
           {data.allContentfulBlogPost.edges.map((edge) => {
             return  (
               <li className={blogStyles.post}>
-                <Link to={`/news/${edge.node.slug}`}>
+                <Link to={`/${edge.node.slug}`}>
                   <div className="col-lg-4">
                     <h2>{edge.node.title}</h2>
                     <p>{edge.node.publishedDate}</p>
