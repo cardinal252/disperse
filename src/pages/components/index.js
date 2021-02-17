@@ -65,13 +65,13 @@ const Main = () => {
 return (
     <>
         <div class='container pt90 pb60'>
-                <div class='row align-items-center'>
-                    <div class='col-md-4 mb30'>
-                        <div class='text-center'>
+                <div class='row'>
+                    <div class='col-md-5 mb30'>
+                    
                             <img className="mb30" src={data.contentfulServicesAbout.serviceImage.resize.src} alt={data.contentfulServicesAbout.subheader} />
                             <h5 class='text-uppercase mb20'>{data.contentfulServicesAbout.subheader}</h5>
                             <p>{data.contentfulServicesAbout.bodyServices.bodyServices}</p>
-                        </div> 
+                        
                     </div>    
                     <div class='col-md-7 ml-auto'>
                         <div class='row'>

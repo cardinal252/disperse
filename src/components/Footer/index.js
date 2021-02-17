@@ -57,12 +57,14 @@ const Footer = () => {
         <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6 mb-30">
+                <div class="col-lg-2 col-md-6 mb-30">
                     <h6 class="montserrat text-uppercase bottom-line">{data.contentfulServicesAbout.header}</h6>
                     {data.allContentfulPageHeaders.edges.map((edge) => {
                         return  (
                         <div>
+                            <Link to={`${edge.node.title}`}>
                             {edge.node.title}
+                            </Link>
                         </div> 
                            
                         )    
@@ -102,7 +104,7 @@ const Footer = () => {
                         </address>
                     </div>
                 </div>
-                <div className="col-sm-3">
+                <div className="col-sm-4">
                     <div className="smart-forms">
                         <form method="post" action="smart-form/contact/php/smartprocess.php" id="smart-form">
                         
@@ -110,13 +112,12 @@ const Footer = () => {
                                 <div class="section">
                                     <label class="field prepend-icon">
                                         <input type="text" name="sendername" id="sendername" class="gui-input" placeholder="Enter name" />
-                                        <span class="field-icon"><i class="fa fa-user"></i></span>  
+        
                                     </label>
                                 </div>
                                 <div class="section">
                                     <label class="field prepend-icon">
                                         <input type="email" name="emailaddress" id="emailaddress" class="gui-input" placeholder="Email address" />
-                                        <span class="field-icon"><i class="fa fa-envelope"></i></span>
                                     </label>
                                 </div>
                                 
