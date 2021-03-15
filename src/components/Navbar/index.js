@@ -7,16 +7,34 @@ import { Link, graphql, useStaticQuery } from 'gatsby'
 const Navbar = () => {
     const data = useStaticQuery(graphql`
 	query {
-		allContentfulPageHeaders {
-			edges {
-			  node {
-				title
-			  }
-			}
-		}
+		contentfulTSarticle {
+			articleTitle
+			component
+		  }
+		contentfulBSarticles {
+			articleTitle
+			component
+		  }
+		contentfulConArticle {
+			articleTitle
+			component
+		  } 
+		contentfulCsArticles {
+			articleTitle
+			component
+		  } 
+		contentfulLCarticles {
+			articleTitle
+			component
+		  } 
+		contentfulMarticle {
+			articleTitle
+			component
+		  }     
 		allContentfulTSarticle {
 			edges {
 			  node {
+				articleTitle  
 				title  
 				slug
 			  }
@@ -93,7 +111,7 @@ const Navbar = () => {
 		
 				
 					<li className="has-submenu">
-						<a href="/telephonesystems">TELEPHONE SYSTEMS</a>
+						<Link to={`/${data.contentfulTSarticle.component}`}>{data.contentfulTSarticle.articleTitle}</Link>
 						<ul className="submenu">
                         {data.allContentfulTSarticle.edges.map((edge) => {
                             return  (
@@ -111,7 +129,7 @@ const Navbar = () => {
 					</li>
 					
 					<li className="has-submenu">
-						<a href="linesandcalls">LINES & CALLS</a>
+					<Link to={`/${data.contentfulLCarticles.component}`}>{data.contentfulLCarticles.articleTitle}</Link>
 						<ul className="submenu">
 						{data.allContentfulLCarticles.edges.map((edge) => {
                             return  (
@@ -129,7 +147,7 @@ const Navbar = () => {
 					</li>
 
                     <li className="has-submenu">
-						<a href="/mobile">MOBILE</a>
+						<Link to={`/${data.contentfulMarticle.component}`}>{data.contentfulMarticle.articleTitle}</Link>
 						<ul className="submenu">
 							{data.allContentfulMarticle.edges.map((edge) => {
 								return  (
@@ -147,7 +165,7 @@ const Navbar = () => {
 					</li>
 
                     <li className="has-submenu">
-						<a href="/connectivity">CONNECTIVITY</a>
+						<Link to={`/${data.contentfulConArticle.component}`}>{data.contentfulConArticle.articleTitle}</Link>
 						<ul className="submenu">
 						{data.allContentfulConArticle.edges.map((edge) => {
 								return  (
@@ -165,7 +183,7 @@ const Navbar = () => {
 					</li>
 
                     <li className="has-submenu">
-						<a href="/businessservices">BUSINESS SERVICES</a>
+						<Link to={`/${data.contentfulBSarticles.component}`}>{data.contentfulBSarticles.articleTitle}</Link>
 						<ul className="submenu">
 						{data.allContentfulBSarticles.edges.map((edge) => {
 								return  (
@@ -183,7 +201,7 @@ const Navbar = () => {
 					</li>
 
                     <li className="has-submenu">
-						<a href="/computerservices">COMPUTER SERVICES</a>
+						<Link to={`/${data.contentfulCsArticles.component}`}>{data.contentfulCsArticles.articleTitle}</Link>
 						<ul className="submenu">
 						{data.allContentfulCsArticles.edges.map((edge) => {
 							return  (

@@ -6,13 +6,13 @@ import Head from '../../components/head'
 const LCarticles = () => {
   const data = useStaticQuery(graphql`
     query {
-      contentfulPageHeaders(title: {eq: "Lines And Calls"}) {
-        title
-        subtitle {
-          subtitle
+      contentfulMain(pageHeader: {eq: "Lines & Calls"}) {
+        pageHeader
+        pageSubheader {
+          pageSubheader
         }
-        body {
-          body
+        pageBody {
+          pageBody
         }
       }
       allContentfulLCarticles {
@@ -38,9 +38,9 @@ const LCarticles = () => {
       <div className="container pt30 pb30">
         <Head title="Blog" />  
         <div>
-          <h1>{data.contentfulPageHeaders.title}</h1>
-          <h3>{data.contentfulPageHeaders.subtitle.subtitle}</h3>
-          <p>{data.contentfulPageHeaders.body.body}</p>
+          <h1>{data.contentfulMain.pageHeader}</h1>
+          <h3>{data.contentfulMain.pageSubheader.pageSubheader}</h3>
+          <p>{data.contentfulMain.pageBody.pageBody}</p>
         </div> 
         <ol className={blogStyles.posts}>
           {data.allContentfulLCarticles.edges.map((edge) => {

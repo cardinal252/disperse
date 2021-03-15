@@ -11,7 +11,7 @@ export const query = graphql`
             body {
                 body
             }
-            mobImage {
+            mImage {
                 fluid(maxWidth: 500) {
                     src
                 }
@@ -30,7 +30,7 @@ const BlogTemplate = (props) => {
                 <div>
                 <h1 className="news">{props.data.contentfulMarticle.title}</h1> 
                     <img 
-                        src={props.data.contentfulMarticle.mobImage.fluid.src} 
+                        src={props.data.contentfulMarticle.mImage.fluid.src} 
                         alt={props.data.contentfulMarticle.title}
                     />    
                     <p className="pt20">{props.data.contentfulMarticle.body.body}</p> 

@@ -2534,12 +2534,12 @@ Smart form customization
   font-family: "Play", sans-serif; }
   .smart-forms .form-body {
     padding: 0px;
-    padding-bottom: 20px; }
+    padding-bottom: 20px;
+    background: #F5F5F5  }
   .smart-forms .form-footer {
     overflow: hidden;
     padding: 0px;
     padding-top: 0px;
-    background: #fff;
     background-image: none; }
   .smart-forms .refresh-captcha {
     background-color: #5bc0de;

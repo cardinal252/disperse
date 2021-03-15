@@ -30,7 +30,6 @@ const Main = () => {
                     title
                     slug
                     publishedDate(formatString:"MMMM Do, YYYY")
-                    author
                     body {
                         body
                     }
@@ -42,22 +41,25 @@ const Main = () => {
                 }
             }
         }
-        contentfulServicesAbout {
-            serviceImage {
+        contentfulTSarticle {
+            tsImage {
                 resize {
                     src
                 }
             }
+
+            title
+            body {
+              body
+            }
+        }
+        contentfulHeader {
             header
             subheader
-            bodyServices {
-              bodyServices
-            }
-            serviceButton
         }
-        contentfulBlogTitle {
-            heading
-            subheading
+        contentfulHeader {
+            header
+            subheader
         }
       }
   `)
@@ -68,9 +70,9 @@ return (
                 <div class='row'>
                     <div class='col-md-5 mb30'>
                     
-                            <img className="mb30" src={data.contentfulServicesAbout.serviceImage.resize.src} alt={data.contentfulServicesAbout.subheader} />
-                            <h5 class='text-uppercase mb20'>{data.contentfulServicesAbout.subheader}</h5>
-                            <p>{data.contentfulServicesAbout.bodyServices.bodyServices}</p>
+                            <img className="mb30" src={data.contentfulTSarticle.tsImage.resize.src} alt={data.contentfulTSarticle.title} />
+                            <h5 class='text-uppercase mb20'>{data.contentfulTSarticle.title}</h5>
+                            <p>{data.contentfulTSarticle.body.body}</p>
                         
                     </div>    
                     <div class='col-md-7 ml-auto'>
@@ -90,50 +92,49 @@ return (
             </div>
             <div class="container">
 
-				<div class="row">
-					<div class="col-sm-12 col-sm-offset-3">
-						<div class="module-header text-center">
-							<h2 class="montserrat text-uppercase">{data.contentfulBlogTitle.heading}</h2>
-							<p class="lead divider-line">{data.contentfulBlogTitle.subheading}</p>
-						</div>
-					</div>
-				</div>
+<div class="row">
+    <div class="col-sm-12 col-sm-offset-3">
+        <div class="module-header text-center">
+            <h2 class="montserrat text-uppercase">{data.contentfulHeader.header}</h2>
+            <p class="lead divider-line">{data.contentfulHeader.subheader}</p>
+        </div>
+    </div>
+</div>
 
-				<div class="row multi-columns-row post-columns">         
-                {data.allContentfulBlogPost.edges.map((edge) => {
-                    return  (
-                    <div class="col-sm col-md-4 col-lg-4">
-                        <article class="post format-image bg-white">
-                            <div class="post-preview">
-                                <img src={edge.node.media.resize.src} alt={edge.node.title} />
-                            </div>
-                            <div class="post-content">
-                                <Link to={`/news/${edge.node.slug}`}>
-                                <h2 class="post-title">{edge.node.title}</h2>
-                                <ul class="post-meta">
-                                    <li>{edge.node.publishedDate}</li>
-                                    <li> BY {edge.node.author}</li>
-                                </ul> 
-                                <p>{edge.node.body.body}</p>  
-                                <Link to="/" class="btn btn-lg btn-link btn-base">Read more ›</Link> 
-                                </Link>
-                            </div>
-                        </article>
-                    </div>
-                    )    
-                })} 
+<div class="row multi-columns-row post-columns">         
+{data.allContentfulBlogPost.edges.map((edge) => {
+    return  (
+    <div class="col-sm col-md-4 col-lg-4">
+        <article class="post format-image bg-white">
+            <div class="post-preview">
+                <img src={edge.node.media.resize.src} alt={edge.node.title} />
+            </div>
+            <div class="post-content">
+                <Link to={`/news/${edge.node.slug}`}>
+                <h2 class="post-title">{edge.node.title}</h2>
+                <ul class="post-meta">
+                    <li>{edge.node.publishedDate}</li>
+                </ul> 
+                <p>{edge.node.body.body}</p>  
+                <Link to="/" class="btn btn-lg btn-link btn-base">Read more ›</Link> 
+                </Link>
+            </div>
+        </article>
+    </div>
+    )    
+})} 
 
-				</div>
+</div>
 
-				<div class="row">
-					<div class="col-sm-12">
-						<div class="text-center m-t-35 m-b-35">
-							<Link to="/">Read all news</Link>
-						</div>
-					</div>
-				</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="text-center m-t-35 m-b-35">
+            <Link to="/">Read all news</Link>
+        </div>
+    </div>
+</div>
 
-			</div>
+</div>
     </>
     )  
 }

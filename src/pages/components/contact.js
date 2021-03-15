@@ -3,14 +3,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/MainElements.css'
 import '../../smart-form/contact/css/smart-forms.css'
 import { graphql, useStaticQuery } from 'gatsby'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+    faEnvolope,
+  } from '@fortawesome/free-solid-svg-icons'
 
 const Contact = () => {
     const data = useStaticQuery(graphql`
     query {
         contentfulContactPage {
-            address {
-              address
-            }
+            address 
             email
             phone
             companyInfo {
@@ -21,83 +23,110 @@ const Contact = () => {
 `)
 return (
     <>
-        <div class="container pt90 pb50">
-            <div class="row">
-                <div class="col-md-6 mb40">
-                    <h4 class="text-uppercase">Address</h4>
+        <div className="container pt90 pb50">
+            <div className="row">
+                <div className="col-md-6 mb40">
+                    <h4 className="text-uppercase">Address</h4>
                     <p>
-                    {data.contentfulContactPage.address.address}    
+                    {data.contentfulContactPage.address}    
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     </p>
-                    <h4 class="text-uppercase">Email</h4>
+                    <h4 className="text-uppercase">Email</h4>
                     <p>
                         <a href="/">{data.contentfulContactPage.email}</a></p>
-                    <h4 class="text-uppercase">Phone</h4>
+                    <h4 className="text-uppercase">Phone</h4>
                     <p>
                         <a href="/">{data.contentfulContactPage.phone}</a></p>
-                        <div class="smart-forms">
+                        <h4 class="text-uppercase">Social</h4>
+                    <div class="clearfix pt10">
+                        <a href="#" class="social-icon si-border si-facebook">
+                            <FontAwesomeIcon icon="fa fa-facebook" />
+                            <FontAwesomeIcon icon="fa fa-facebook" />
+                        </a>
+                        <a href="#" class="social-icon si-border si-twitter">
+                            <i class="fa fa-twitter"></i>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon si-border si-g-plus">
+                            <i class="fa fa-google-plus"></i>
+                            <i class="fa fa-google-plus"></i>
+                        </a>
+                        <a href="#" class="social-icon si-border si-skype">
+                            <i class="fa fa-skype"></i>
+                            <i class="fa fa-skype"></i>
+                        </a>
+                        <a href="#" class="social-icon si-border si-linkedin">
+                            <i class="fa fa-linkedin"></i>
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </div>    
+                        <div className="smart-forms pt20">
                             <form method="post" action="smart-form/contact/php/smartprocess.php" id="smart-form">
                                
                                     <h4>Join Our Mailing List :</h4>
-                                    <div class="section">
-                                        <label class="field prepend-icon">
-                                            <input type="text" name="sendername" id="sendername" class="gui-input" placeholder="Enter name" />
-                                            <span class="field-icon"><i class="fa fa-user"></i></span>  
+                                    <div className="section">
+                                        <label className="field prepend-icon">
+                                            <input type="text" name="sendername" id="sendername" className="gui-input" placeholder="Enter name" />
+                                            <span className="field-icon"><i className="fa fa-user"></i></span>  
                                         </label>
                                     </div>
-                                    <div class="section">
-                                        <label class="field prepend-icon">
-                                            <input type="email" name="emailaddress" id="emailaddress" class="gui-input" placeholder="Email address" />
-                                            <span class="field-icon"><i class="fa fa-envelope"></i></span>
+                                    <div className="section">
+                                        <label className="field prepend-icon">
+                                            <input type="email" name="emailaddress" id="emailaddress" className="gui-input" placeholder="Email address" />
+                                            <span className="field-icon"><i className="fa fa-envelope"></i></span>
                                         </label>
                                     </div>
                                     
-                                    <div class="result"></div>                                                                         
+                                    <div className="result"></div>                                                                         
                                
                                 <div>
-                                    <button type="submit" data-btntext-sending="Sending..." class="button btn btn-primary">Submit</button>
+                                    <button type="submit" data-btntext-sending="Sending..." className="button btn btn-primary">Submit</button>
                                 </div>
                             </form>
                         </div>    
                 </div>
-                <div class="col-md-6 pb40">
-                    <div class="smart-wrap">
-                        <div class="smart-forms smart-container">
+                <div className="col-md-6 pb40">
+                <h2>Nice to hear from you</h2> 
+                    <p>
+                        Suspendisse ut interdum lectus. Integer ac neque faucibus, venenatis nisl quis, pellentesque lacus. Integer et ipsum sit amet dui ultrices hendrerit. Pellentesque leo massa, suscipit a felis non, posuere convallis velit. Sed tincidunt lacinia velit et aliquam.
+                    </p>
+                    <div className="smart-wrap">
+                        <div className="smart-forms smart-container">
                             <form method="post" action="smart-form/contact/php/smartprocess.php" id="smart-form">
-                                <div class="form-body">
-                                    <div class="section">
-                                        <label class="field prepend-icon">
-                                            <input type="text" name="sendername" id="sendername" class="gui-input" placeholder="Enter name" />
-                                            <span class="field-icon"><i class="fa fa-user"></i></span>  
+                                <div className="form-body">
+                                    <div className="section">
+                                        <label className="field prepend-icon">
+                                            <input type="text" name="sendername" id="sendername" className="gui-input" placeholder="Enter name" />
+                                            <span className="field-icon"><i className="fa fa-user"></i></span>  
                                         </label>
                                     </div>
-                                    <div class="section">
-                                        <label class="field prepend-icon">
-                                            <input type="email" name="emailaddress" id="emailaddress" class="gui-input" placeholder="Email address" />
-                                            <span class="field-icon"><i class="fa fa-envelope"></i></span>
+                                    <div className="section">
+                                        <label className="field prepend-icon">
+                                            <input type="email" name="emailaddress" id="emailaddress" className="gui-input" placeholder="Email address" />
+                                            <span className="field-icon"><i className="faEnvolope"></i></span>
                                         </label>
                                     </div>
                                     
-                                    <div class="section">
-                                        <label class="field prepend-icon">
-                                            <input type="text" name="sendersubject" id="sendersubject" class="gui-input" placeholder="Enter subject" />
-                                            <span class="field-icon"><i class="fa fa-lightbulb-o"></i></span>
+                                    <div className="section">
+                                        <label className="field prepend-icon">
+                                            <input type="text" name="sendersubject" id="sendersubject" className="gui-input" placeholder="Enter subject" />
+                                            <span className="field-icon"><FontAwesomeIcon icon={faEnvolope} size="1x" /></span>
                                         </label>
                                     </div>
                 
-                                    <div class="section">
-                                        <label class="field prepend-icon">
-                                            <textarea class="gui-textarea" id="sendermessage" name="sendermessage" placeholder="Enter message"></textarea>
-                                            <span class="field-icon"><i class="fa fa-comments"></i></span>
-                                            <span class="input-hint"> <strong>Hint:</strong> Please enter between 80 - 300 characters.</span>   
+                                    <div className="section">
+                                        <label className="field prepend-icon">
+                                            <textarea className="gui-textarea" id="sendermessage" name="sendermessage" placeholder="Enter message"></textarea>
+                                            <span className="field-icon"><i className="fa fa-comments"></i></span>
+                                            <span className="input-hint"> <strong>Hint:</strong> Please enter between 80 - 300 characters.</span>   
                                         </label>
                                     </div>
                 
-                                    <div class="result"></div>                                                                         
+                                    <div className="result"></div>                                                                         
                                 </div>
-                                <div class="form-footer">
-                                    <button type="submit" data-btntext-sending="Sending..." class="button btn btn-primary">Submit</button>
-                                    <button type="reset" class="button"> Reset </button>
+                                <div className="form-footer">
+                                    <button type="submit" data-btntext-sending="Sending..." className="button btn btn-primary">Submit</button>
+                                    <button type="reset" className="button"> Reset </button>
                                 </div>
                             </form>
                         </div>    

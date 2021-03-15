@@ -6,13 +6,13 @@ import Head from '../../components/head'
 const Mobarticles = () => {
   const data = useStaticQuery(graphql`
     query {
-      contentfulPageHeaders(title: {eq: "Mobile"}) {
-        title
-        subtitle {
-          subtitle
+      contentfulMain(pageHeader: {eq: "Mobile"}) {
+        pageHeader
+        pageSubheader {
+          pageSubheader
         }
-        body {
-          body
+        pageBody {
+          pageBody
         }
       }
       allContentfulMarticle {
@@ -23,7 +23,7 @@ const Mobarticles = () => {
             body {
               body
             }
-            mobImage {
+            mImage {
               fluid(maxWidth: 300) {
                   src
               }
@@ -39,9 +39,9 @@ const Mobarticles = () => {
       <div className="container pt30 pb30">
         <Head title="Blog" /> 
         <div>
-          <h1>{data.contentfulPageHeaders.title}</h1>
-          <h3>{data.contentfulPageHeaders.subtitle.subtitle}</h3>
-          <p>{data.contentfulPageHeaders.body.body}</p>
+        <h1>{data.contentfulMain.pageHeader}</h1>
+          <h3>{data.contentfulMain.pageSubheader.pageSubheader}</h3>
+          <p>{data.contentfulMain.pageBody.pageBody}</p>
         </div>  
         <ol className={blogStyles.posts}>
           {data.allContentfulMarticle.edges.map((edge) => {
@@ -57,7 +57,7 @@ const Mobarticles = () => {
                     </div>
                     <div className="col-lg-4">  
                       <img   
-                          src={edge.node.mobImage.fluid.src} 
+                          src={edge.node.mImage.fluid.src} 
                           alt={edge.node.title}
                       /> 
                     </div>

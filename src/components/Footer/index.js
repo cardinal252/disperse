@@ -5,17 +5,11 @@ import '../../smart-form/contact/css/smart-forms.css'
 
 const Footer = () => {
     const data = useStaticQuery(graphql`
-    query {
-        contentfulAboutPage {
-            header
-            aboutTop {
-                aboutTop  
-            }
-        }    
-        allContentfulPageHeaders {
+    query {   
+        allContentfulMain {
           edges {
             node {
-                title
+                pageTitle
             }
           }
         }
@@ -33,17 +27,12 @@ const Footer = () => {
                 }
             }
         }
-        contentfulBlogTitle {
-            heading
-            subheading
-        }
-        contentfulServicesAbout {
+        contentfulHeader {
             header
+            subheader
         }
         contentfulContactPage {
-            address {
-              address
-            }
+            address 
             email
             phone
             companyInfo {
@@ -58,12 +47,12 @@ const Footer = () => {
         <div class="container">
             <div class="row">
                 <div class="col-lg-2 col-md-6 mb-30">
-                    <h6 class="montserrat text-uppercase bottom-line">{data.contentfulServicesAbout.header}</h6>
-                    {data.allContentfulPageHeaders.edges.map((edge) => {
+                    <h6 class="montserrat text-uppercase bottom-line">WHAT WE DO</h6>
+                    {data.allContentfulMain.edges.map((edge) => {
                         return  (
                         <div>
-                            <Link to={`${edge.node.title}`}>
-                            {edge.node.title}
+                            <Link to={`${edge.node.pageTitle}`}>
+                            {edge.node.pageTitle}
                             </Link>
                         </div> 
                            
@@ -72,7 +61,7 @@ const Footer = () => {
                 </div>
                 <div class="col-lg-3">
                     <div class="widget">
-                    <h6 class="montserrat text-uppercase bottom-line">{data.contentfulBlogTitle.heading}</h6>
+                    <h6 class="montserrat text-uppercase bottom-line">{data.contentfulHeader.header}</h6>
                     <ul className="recent-posts">
                         {data.allContentfulBlogPost.edges.map((edge) => {
                             return  (
@@ -84,7 +73,6 @@ const Footer = () => {
                                     <Link to={`/news/${edge.node.slug}`}>   
                                         <h6>{edge.node.title}</h6>
                                         <p>{edge.node.publishedDate}</p>
-
                                     </Link>
                                 </div>
                                 
@@ -98,37 +86,44 @@ const Footer = () => {
                     <div class="widget">
                         <h6 class="montserrat text-uppercase bottom-line">Contact Us</h6>
                         <address class="map-background">
-                            <p>{data.contentfulContactPage.address.address} </p>
+                            <p>{data.contentfulContactPage.address} </p>
                             <p>Phone: {data.contentfulContactPage.phone}</p>
                             <p>E-mail: <a href="mailto:support@neomax.com">{data.contentfulContactPage.email}</a></p>  
                         </address>
                     </div>
                 </div>
                 <div className="col-sm-4">
-                    <div className="smart-forms">
-                        <form method="post" action="smart-form/contact/php/smartprocess.php" id="smart-form">
-                        
-                                <h4>Join Our Mailing List :</h4>
-                                <div class="section">
-                                    <label class="field prepend-icon">
-                                        <input type="text" name="sendername" id="sendername" class="gui-input" placeholder="Enter name" />
-        
-                                    </label>
-                                </div>
-                                <div class="section">
-                                    <label class="field prepend-icon">
-                                        <input type="email" name="emailaddress" id="emailaddress" class="gui-input" placeholder="Email address" />
-                                    </label>
-                                </div>
-                                
-                                <div class="result"></div>                                                                         
-                        
-                            <div>
-                                <button type="submit" data-btntext-sending="Sending..." class="button btn btn-primary">Submit</button>
-                                <button type="reset" class="button"> Reset </button>
-                            </div>
-                        </form>
-                    </div> 
+                <h6 class="montserrat text-uppercase bottom-line">JOIN OUR MAILING LIST</h6>
+                <form id="contact-form" method="post" novalidate>
+							<div class="row">
+
+								<div class="col-md-6 form-group">
+									<label class="sr-only">First Name</label>
+									<input type="text" class="form-control input-lg" name="name" placeholder="First Name" value="" required="" />
+									<p class="help-block text-danger"></p>
+								</div>
+
+								<div class="col-md-6 form-group">
+									<label class="sr-only">Last Name</label>
+									<input type="text" class="form-control input-lg" name="lastname" placeholder="Last Name" value="" required="" />
+									<p class="help-block text-danger"></p>
+								</div>
+
+								<div class="col-md-12 form-group">
+									<label class="sr-only">E-mail Address</label>
+									<input type="email" class="form-control input-lg" name="email" placeholder="E-mail Address" value="" required="" />
+									<p class="help-block text-danger"></p>
+								</div>
+
+								<div class="col-md-6 text-center">
+									<button type="submit" class="btn btn-lg btn-round btn-dark">Submit</button>
+								</div>
+                                <div class="col-md-6 text-center">
+									<button type="reset" class="btn btn-lg btn-round btn-dark">Clear</button>
+								</div>
+
+							</div>
+						</form> 
                 </div>            
             </div>
             <div class="row text-center">

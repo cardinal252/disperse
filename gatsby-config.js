@@ -15,11 +15,13 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `@contentful/rich-text-types`,
     `@contentful/rich-text-react-renderer`,
     `@contentful/gatsby-transformer-contentful-richtext`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-excerpts`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -35,9 +37,10 @@ module.exports = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: "xjldg4gmgybd",
-        accessToken: "JfTMtpLJSnjPr102b0auocxPEDY_eW4NERfphLREmWw"
+        spaceId: "0g51cwofkrus",
+        accessToken: "VbH191mNYgFr6-tdCbEw1chl_INWUM9cXpji6AIpm00"
       },
     },
+    `gatsby-plugin-fontawesome-css`,
   ],
 }
