@@ -13,7 +13,9 @@ const Layout = ({ children }) => {
   useScript('/assets/jquery-2.2.3.min.js');
   useScript('/assets/custom.min.js');
   
- 
+  Layout.propTypes = {
+    children: PropTypes.node.isRequired,
+  }
 
   return (
     <>
@@ -24,8 +26,6 @@ const Layout = ({ children }) => {
   )
 }
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
+
 
 export default Layout

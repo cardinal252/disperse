@@ -5333,10 +5333,6 @@ body.off-canvas-cart-open:after {
     opacity: 0.7;
 }
 
-.widget-posts-image {
-    float: left;
-    width: 44px;
-}
 
 .widget-posts-body {
     margin-left: 58px;

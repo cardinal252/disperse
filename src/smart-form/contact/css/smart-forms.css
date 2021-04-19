@@ -83,6 +83,7 @@ html, body{
 ---------------------------------------------------------------------- */
 .smart-forms .field{ display:block; position:relative; }
 .smart-forms .field-icon i { color:#BBB; position:relative; }
+.smart-forms .field-button i { position:relative; }
 .smart-forms .field-label { display: block; margin-bottom: 7px; }
 .smart-forms .field-label.colm{ padding-top:12px; }
 .smart-forms .field-label em{ 
@@ -465,6 +466,8 @@ html, body{
 .smart-forms .select > select:focus { z-index:10; z-index:20\9; }
 .smart-forms .gui-input:focus ~ .field-icon i,
 .smart-forms .gui-textarea:focus ~ .field-icon i{ color:#4EBD4A; }
+.smart-forms .gui-input:focus ~ .field-button i,
+.smart-forms .gui-textarea:focus ~ .field-button i{ color:#4EBD4A; }
 .smart-forms .select-multiple select:focus, 
 .smart-forms .gui-input:focus ~ .input-hint,
 .smart-forms .gui-textarea:focus ~ .input-hint, 
@@ -1374,14 +1377,39 @@ html, body{
 	z-index:99;
 }
 
+.smart-forms .prepend-icon .custom-combobox-input { padding-left:42px; } 
+.smart-forms .field-botton, 
+.smart-forms .field-button{
+	top:0;
+	color: inherit;
+	line-height:42px;
+	position:absolute;
+	text-align: right;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -ms-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+    pointer-events: none;
+	z-index:99;
+}
+
 .smart-forms .append-icon .field-icon i, 
 .smart-forms .prepend-icon .field-icon i{ 
 	position:relative;
 	font-size:14px;
 }
 
+.smart-forms .append-icon .field-button i, 
+.smart-forms .prepend-icon .field-button i{ 
+	position:relative;
+	font-size:14px;
+}
+
 .smart-forms .prepend-icon .field-icon{ left:0;  }
 .smart-forms .append-icon .field-icon{ right:0; }
+.smart-forms .prepend-icon .field-button{ left:0;  }
+.smart-forms .append-icon .field-button{ right:0; }
 .smart-forms .prepend-icon > input, 
 .smart-forms .prepend-icon > textarea,
 .smart-forms .prepend-icon > select{ padding-left:36px; }

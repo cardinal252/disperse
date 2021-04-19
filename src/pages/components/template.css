@@ -25,7 +25,7 @@ body {
 img {
     max-width: 100%;
     height: auto;
-}
+} 
 
 iframe {
     border: 0;
@@ -5339,12 +5339,11 @@ address.map-background {
 
 .widget-posts-image {
     float: left;
-    width: 44px;
-    height: 44px;
 }
 
 .widget-posts-body {
-    margin-left: 58px;
+    margin-left: 20px;
+    padding-top: 0px;
 }
 
 .widget-posts-title {
@@ -5356,6 +5355,14 @@ address.map-background {
     opacity: 0.7;
 }
 
+@media (max-width: 900px) {
+    .widget-posts-body {
+       margin-left: 0px;
+    }
+    .widget-posts-image {
+   
+    }
+}
 /* --- [ Twitter Feed Widget ] --- */
 
 .twitter-feed ul {
@@ -5523,7 +5530,7 @@ address.map-background {
 */
 
 .footer {
-    background-color: #222222;
+    background-color: #22222;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 0;

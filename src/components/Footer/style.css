@@ -6,6 +6,11 @@
     .footer > .container {
       z-index: 1;
       position: relative; }
+    @media (max-width: 992px) {
+      .footer > .container > .row {
+        text-align: center;
+      }
+    } 
     .footer h5 {
       font-weight: 600;
       font-size: 18px;
@@ -34,3 +39,4 @@
         line-height: 1;
         padding: 0px;
         padding-top: .25rem; }
+

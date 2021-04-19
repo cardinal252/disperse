@@ -1,12 +1,22 @@
 import React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import '../components/MainElements.css'
 import '../../smart-form/contact/css/smart-forms.css'
 import { graphql, useStaticQuery } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-    faEnvolope,
-  } from '@fortawesome/free-solid-svg-icons'
+  faFacebook,
+  faTwitter,
+  faGooglePlus,
+  faSkype,
+  faLinkedin,
+} from '@fortawesome/free-brands-svg-icons'
+import {
+    faUser,
+    faEnvelope,
+    faComment,
+    faLightbulb
+} from '@fortawesome/free-solid-svg-icons'
 
 const Contact = () => {
     const data = useStaticQuery(graphql`
@@ -40,24 +50,24 @@ return (
                         <h4 class="text-uppercase">Social</h4>
                     <div class="clearfix pt10">
                         <a href="#" class="social-icon si-border si-facebook">
-                            <FontAwesomeIcon icon="fa fa-facebook" />
-                            <FontAwesomeIcon icon="fa fa-facebook" />
+                        <FontAwesomeIcon icon={faFacebook} size="1x" />
+                      
                         </a>
                         <a href="#" class="social-icon si-border si-twitter">
-                            <i class="fa fa-twitter"></i>
-                            <i class="fa fa-twitter"></i>
+                        <FontAwesomeIcon icon={faTwitter} size="1x" />
+                      
                         </a>
                         <a href="#" class="social-icon si-border si-g-plus">
-                            <i class="fa fa-google-plus"></i>
-                            <i class="fa fa-google-plus"></i>
+                        <FontAwesomeIcon icon={faGooglePlus} size="1x" />
+                        
                         </a>
                         <a href="#" class="social-icon si-border si-skype">
-                            <i class="fa fa-skype"></i>
-                            <i class="fa fa-skype"></i>
+                        <FontAwesomeIcon icon={faSkype} size="1x" />
+                        
                         </a>
                         <a href="#" class="social-icon si-border si-linkedin">
-                            <i class="fa fa-linkedin"></i>
-                            <i class="fa fa-linkedin"></i>
+                        <FontAwesomeIcon icon={faLinkedin} size="1x" />
+                       
                         </a>
                     </div>    
                         <div className="smart-forms pt20">
@@ -67,13 +77,13 @@ return (
                                     <div className="section">
                                         <label className="field prepend-icon">
                                             <input type="text" name="sendername" id="sendername" className="gui-input" placeholder="Enter name" />
-                                            <span className="field-icon"><i className="fa fa-user"></i></span>  
+                                            <span className="field-icon"><FontAwesomeIcon icon={faUser} size="1x" /></span>  
                                         </label>
                                     </div>
                                     <div className="section">
                                         <label className="field prepend-icon">
                                             <input type="email" name="emailaddress" id="emailaddress" className="gui-input" placeholder="Email address" />
-                                            <span className="field-icon"><i className="fa fa-envelope"></i></span>
+                                            <span className="field-icon"><FontAwesomeIcon icon={faEnvelope} size="1x" /></span>
                                         </label>
                                     </div>
                                     
@@ -97,27 +107,27 @@ return (
                                     <div className="section">
                                         <label className="field prepend-icon">
                                             <input type="text" name="sendername" id="sendername" className="gui-input" placeholder="Enter name" />
-                                            <span className="field-icon"><i className="fa fa-user"></i></span>  
+                                            <span className="field-icon"><FontAwesomeIcon icon={faUser} size="1x" /></span>  
                                         </label>
                                     </div>
                                     <div className="section">
                                         <label className="field prepend-icon">
                                             <input type="email" name="emailaddress" id="emailaddress" className="gui-input" placeholder="Email address" />
-                                            <span className="field-icon"><i className="faEnvolope"></i></span>
+                                            <span className="field-icon"><FontAwesomeIcon icon={faEnvelope} size="1x" /></span>
                                         </label>
                                     </div>
                                     
                                     <div className="section">
                                         <label className="field prepend-icon">
                                             <input type="text" name="sendersubject" id="sendersubject" className="gui-input" placeholder="Enter subject" />
-                                            <span className="field-icon"><FontAwesomeIcon icon={faEnvolope} size="1x" /></span>
+                                            <span className="field-icon"><FontAwesomeIcon icon={faLightbulb} size="1x" /></span>
                                         </label>
                                     </div>
                 
                                     <div className="section">
                                         <label className="field prepend-icon">
                                             <textarea className="gui-textarea" id="sendermessage" name="sendermessage" placeholder="Enter message"></textarea>
-                                            <span className="field-icon"><i className="fa fa-comments"></i></span>
+                                            <span className="field-icon"><FontAwesomeIcon icon={faComment} size="1x" /></span>
                                             <span className="input-hint"> <strong>Hint:</strong> Please enter between 80 - 300 characters.</span>   
                                         </label>
                                     </div>

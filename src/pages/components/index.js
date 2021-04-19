@@ -9,21 +9,32 @@ const Main = () => {
 
     const data = useStaticQuery(graphql`
     query {
-        allContentfulServicesPage(limit: 4) {
-          edges {
-            node {
-              title
-              body {
-                body
-              }
-              servicesImage {
-                  resize (height: 200) {
-                    src  
+        allContentfulMain(sort: {fields: servicesOrder, order: ASC}, limit: 4) {
+            edges {
+              node {
+                pageTitle
+                pageSubheader {
+                  pageSubheader
+                }
+                servicesImage {
+                  resize(height: 200) {
+                    src
                   }
+                }
               }
             }
           }
-        }
+          contentfulMain(pageTitle: {eq: "TELEPHONE SYSTEMS"}) {
+            servicesImage {
+              resize {
+                src
+              }
+            }
+            pageTitle
+            pageBody {
+              pageBody
+            }
+          }  
         allContentfulBlogPost ( sort: { fields: publishedDate, order:DESC }, limit: 3 ) {
             edges {
                 node {
@@ -70,19 +81,19 @@ return (
                 <div class='row'>
                     <div class='col-md-5 mb30'>
                     
-                            <img className="mb30" src={data.contentfulTSarticle.tsImage.resize.src} alt={data.contentfulTSarticle.title} />
-                            <h5 class='text-uppercase mb20'>{data.contentfulTSarticle.title}</h5>
-                            <p>{data.contentfulTSarticle.body.body}</p>
+                            <img className="mb30" src={data.contentfulMain.servicesImage.resize.src} alt={data.contentfulMain.pageTitle} />
+                            <h5 class='text-uppercase mb20'>{data.contentfulMain.pageTitle}</h5>
+                            <p>{data.contentfulMain.pageBody.pageBody}</p>
                         
                     </div>    
                     <div class='col-md-7 ml-auto'>
                         <div class='row'>
-                            {data.allContentfulServicesPage.edges.map((edge) => {
+                            {data.allContentfulMain.edges.map((edge) => {
                                 return  (
                                         <div class='col-md-6 mb30 text-center'>
-                                            <img className="mb30" src={edge.node.servicesImage.resize.src} alt={edge.node.title} />
-                                            <h5 className='text-uppercase mb20'>{edge.node.title}</h5>
-                                            <p>{edge.node.body.body}</p>
+                                            <img className="mb30" src={edge.node.servicesImage.resize.src} alt={edge.node.pageTitle} />
+                                            <h5 className='text-uppercase mb20'>{edge.node.pageTitle}</h5>
+                                            <p>{edge.node.pageSubheader.pageSubheader}</p>
                                         </div>      
                                 )    
                             })} 

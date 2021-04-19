@@ -2665,9 +2665,10 @@ Template responsive style
     font-size: 1.35714em !important;
     line-height: 1.36842em !important; } }
 
-@media (max-width: 576px) {
+@media (max-width: 767px) {
   .container {
-    width: 100%; } }
+    width: 100%;
+  } }
 
 /**typography customization for shop**/
 h1, h2, h3, h4, h5, h6 {
