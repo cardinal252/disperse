@@ -2,7 +2,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../components/MainElements.css'
 import '../../smart-form/contact/css/smart-forms.css'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery, Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faFacebook,
@@ -43,32 +43,32 @@ return (
                     </p>
                     <h4 className="text-uppercase">Email</h4>
                     <p>
-                        <a href="/">{data.contentfulContactPage.email}</a></p>
+                        <Link to="/">{data.contentfulContactPage.email}</Link></p>
                     <h4 className="text-uppercase">Phone</h4>
                     <p>
-                        <a href="/">{data.contentfulContactPage.phone}</a></p>
+                        <Link to="/">{data.contentfulContactPage.phone}</Link></p>
                         <h4 class="text-uppercase">Social</h4>
                     <div class="clearfix pt10">
-                        <a href="#" class="social-icon si-border si-facebook">
+                        <Link to="#" class="social-icon si-border si-facebook">
                         <FontAwesomeIcon icon={faFacebook} size="1x" />
                       
-                        </a>
-                        <a href="#" class="social-icon si-border si-twitter">
+                        </Link>
+                        <Link to="#" class="social-icon si-border si-twitter">
                         <FontAwesomeIcon icon={faTwitter} size="1x" />
                       
-                        </a>
-                        <a href="#" class="social-icon si-border si-g-plus">
+                        </Link>
+                        <Link to="#" class="social-icon si-border si-g-plus">
                         <FontAwesomeIcon icon={faGooglePlus} size="1x" />
                         
-                        </a>
-                        <a href="#" class="social-icon si-border si-skype">
+                        </Link>
+                        <Link to="#" class="social-icon si-border si-skype">
                         <FontAwesomeIcon icon={faSkype} size="1x" />
                         
-                        </a>
-                        <a href="#" class="social-icon si-border si-linkedin">
+                        </Link>
+                        <Link to="#" class="social-icon si-border si-linkedin">
                         <FontAwesomeIcon icon={faLinkedin} size="1x" />
                        
-                        </a>
+                        </Link>
                     </div>    
                         <div className="smart-forms pt20">
                             <form method="post" action="smart-form/contact/php/smartprocess.php" id="smart-form">

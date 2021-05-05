@@ -690,9 +690,9 @@ SOCIAL BUTTONS
 **********************/
 /**social icons default size**/
 .social-icon {
-  margin: 0 5px 5px 0;
-  width: 40px;
-  height: 40px;
+  
+  width: 20%;
+  height: 44px%;
   font-size: 20px;
   line-height: 40px !important;
   color: #555;
@@ -702,7 +702,7 @@ SOCIAL BUTTONS
   display: block;
   float: left;
   text-align: center;
-  border: 1px solid #AAA; }
+  border: 0px solid #AAA; }
 
 .social-icon:hover {
   border-color: transparent; }
@@ -791,7 +791,7 @@ SOCIAL BUTTONS
   margin-top: -30px; }
 
 si-border {
-  border: 1px solid #AAA !important; }
+  border: 0px solid #AAA !important; }
 
 .si-border-round {
   -webkit-border-radius: 50%;

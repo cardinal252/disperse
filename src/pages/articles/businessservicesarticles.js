@@ -3,7 +3,7 @@ import { Link, graphql, useStaticQuery } from 'gatsby'
 import blogStyles from './blog.module.css' 
 import Head from '../../components/head'
 
-const BSarticles = () => {
+const MenuArticleE = () => {
   const data = useStaticQuery(graphql`
     query {
       contentfulMain(pageHeader: {eq: "Business Services"}) {
@@ -15,7 +15,7 @@ const BSarticles = () => {
           pageBody
         }
       }
-      allContentfulBSarticles {
+      allContentfulMenuArticleE {
         edges {
           node {
             title
@@ -43,7 +43,7 @@ const BSarticles = () => {
           <p>{data.contentfulMain.pageBody.pageBody}</p>
         </div> 
         <ol className={blogStyles.posts}>
-          {data.allContentfulBSarticles.edges.map((edge) => {
+          {data.allContentfulMenuArticleE.edges.map((edge) => {
             return  (
               <li className={blogStyles.post}>
                 <Link to={`/${edge.node.slug}`}>
@@ -70,4 +70,4 @@ const BSarticles = () => {
   )
 }
 
-export default BSarticles
+export default MenuArticleE

@@ -5360,7 +5360,9 @@ address.map-background {
        margin-left: 0px;
     }
     .widget-posts-image {
-   
+        display: block;
+        position: relative;
+        align-content: center;
     }
 }
 /* --- [ Twitter Feed Widget ] --- */

@@ -2641,8 +2641,8 @@ body.off-canvas-cart-open:after {
     text-align: center;
     line-height: 32px;
     font-size: 14px;
-    height: 32px;
-    width: 32px;
+    height: 100%;
+    width: 100%;
     color: #777777;
 }
 

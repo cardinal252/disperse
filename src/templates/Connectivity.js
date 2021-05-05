@@ -6,7 +6,7 @@ import Head from '../components/head'
 
 export const query = graphql`
     query($slug: String!) {
-        contentfulConArticle(slug: {eq: $slug}) {
+        contentfulMenuArticleD(slug: {eq: $slug}) {
             title
             body {
                 body
@@ -24,16 +24,16 @@ const BlogTemplate = (props) => {
   
     return (
         <Layout>
-            <Head title="{props.data.contentfulConArticle.title}" />
+            <Head title="{props.data.contentfulMenuArticleD.title}" />
             <div className="templates pt80"></div>
             <div className="container pt30">
                 <div>
-                <h1 className="news">{props.data.contentfulConArticle.title}</h1> 
+                <h1 className="news">{props.data.contentfulMenuArticleD.title}</h1> 
                     <img 
-                        src={props.data.contentfulConArticle.conImage.fluid.src} 
-                        alt={props.data.contentfulConArticle.title}
+                        src={props.data.contentfulMenuArticleD.conImage.fluid.src} 
+                        alt={props.data.contentfulMenuArticleD.title}
                     />    
-                    <p className="pt20">{props.data.contentfulConArticle.body.body}</p> 
+                    <p className="pt20">{props.data.contentfulMenuArticleD.body.body}</p> 
                 </div>    
             </div>      
         </Layout>

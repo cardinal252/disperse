@@ -3,30 +3,30 @@ const path = require('path')
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  getTSArticles().then(function(result){
-    createPages(result.data.allContentfulTSarticle.nodes, './src/templates/TeleSys.js');
+  getMenuArticleA().then(function(result){
+    createPages(result.data.allContentfulMenuArticleA.nodes, './src/templates/TeleSys.js');
   });
-  getLCArticles().then(function(result){
-    createPages(result.data.allContentfulLCarticles.nodes, './src/templates/LinesCalls.js');
+  getMenuArticleB().then(function(result){
+    createPages(result.data.allContentfulMenuArticleB.nodes, './src/templates/LinesCalls.js');
   });
-  getMArticle().then(function(result){
-    createPages(result.data.allContentfulMarticle.nodes, './src/templates/Mobile.js');
+  getMenuArticleC().then(function(result){
+    createPages(result.data.allContentfulMenuArticleC.nodes, './src/templates/Mobile.js');
   });
-  getConArticle().then(function(result){
-    createPages(result.data.allContentfulConArticle.nodes, './src/templates/Connectivity.js');
+  getMenuArticleD().then(function(result){
+    createPages(result.data.allContentfulMenuArticleD.nodes, './src/templates/Connectivity.js');
   });
-  getBSarticles().then(function(result){
-    createPages(result.data.allContentfulBSarticles.nodes, './src/templates/Business.js');
+  getMenuArticleE().then(function(result){
+    createPages(result.data.allContentfulMenuArticleE.nodes, './src/templates/Business.js');
   });
-  getCsArticles().then(function(result){
-    createPages(result.data.allContentfulCsArticles.nodes, './src/templates/Computer.js');
+  getMenuArticleF().then(function(result){
+    createPages(result.data.allContentfulMenuArticleF.nodes, './src/templates/Computer.js');
   });
 
-  async function getBSarticles() {
+  async function getMenuArticleE() {
     console.log('Writing the ls articles');
     return await graphql(`
         query {
-          allContentfulBSarticles {
+          allContentfulMenuArticleE {
             nodes {
               slug
             }
@@ -35,11 +35,11 @@ module.exports.createPages = async ({ graphql, actions }) => {
     `);
   }
 
-  async function getConArticle() {
+  async function getMenuArticleD() {
     console.log('Writing the ls articles');
     return await graphql(`
         query {
-          allContentfulConArticle {
+          allContentfulMenuArticleD {
             nodes {
               slug
             }
@@ -48,11 +48,11 @@ module.exports.createPages = async ({ graphql, actions }) => {
     `);
   }
 
-  async function getLCArticles() {
+  async function getMenuArticleB() {
     console.log('Writing the ls articles');
     return await graphql(`
         query {
-          allContentfulLCarticles {
+          allContentfulMenuArticleB {
             nodes {
               slug
             }
@@ -61,11 +61,11 @@ module.exports.createPages = async ({ graphql, actions }) => {
     `);
   }
 
-  async function getMArticle() {
+  async function getMenuArticleC() {
     console.log('Writing the ls articles');
     return await graphql(`
         query {
-          allContentfulMarticle {
+          allContentfulMenuArticleC {
             nodes {
               slug
             }
@@ -74,11 +74,11 @@ module.exports.createPages = async ({ graphql, actions }) => {
     `);
   }
 
-  async function getTSArticles() {
+  async function getMenuArticleA() {
     console.log('Writing the ts articles');
     return await graphql(`
         query {
-          allContentfulTSarticle {
+          allContentfulMenuArticleA {
             nodes {
               slug
             }
@@ -87,11 +87,11 @@ module.exports.createPages = async ({ graphql, actions }) => {
     `);
   }  
 
-  async function getCsArticles() {
+  async function getMenuArticleF() {
     console.log('Writing the ts articles');
     return await graphql(`
         query {
-          allContentfulCsArticles {
+          allContentfulMenuArticleF {
             nodes {
               slug
             }

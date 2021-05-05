@@ -15,7 +15,7 @@ const Mobarticles = () => {
           pageBody
         }
       }
-      allContentfulMarticle {
+      allContentfulMenuArticleC {
         edges {
           node {
             title
@@ -44,7 +44,7 @@ const Mobarticles = () => {
           <p>{data.contentfulMain.pageBody.pageBody}</p>
         </div>  
         <ol className={blogStyles.posts}>
-          {data.allContentfulMarticle.edges.map((edge) => {
+          {data.allContentfulMenuArticleC.edges.map((edge) => {
             return  (
               <li className={blogStyles.post}>
                 <Link to={`/${edge.node.slug}`}>

@@ -4,7 +4,6 @@ import { Link, graphql, useStaticQuery } from 'gatsby'
 import '../../smart-form/contact/css/smart-forms.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-    faUser,
     faEnvelope,
 } from '@fortawesome/free-solid-svg-icons'
 import {
@@ -140,24 +139,24 @@ const Footer = () => {
                             <h4 class="text-uppercase">Social</h4>
                         </div> 
                         <div class="col-lg-6 clearfix social">
-                                <Link to="#" class="social-icon si-border si-facebook">
-                                <FontAwesomeIcon icon={faFacebook} size="1x" />
+                                <Link to="#" class="social-icon si-facebook">
+                                <FontAwesomeIcon icon={faFacebook} size="2x" />
                             
                                 </Link>
                                 <Link to="#" class="social-icon si-border si-twitter">
-                                <FontAwesomeIcon icon={faTwitter} size="1x" />
+                                <FontAwesomeIcon icon={faTwitter} size="2x" />
                             
                                 </Link>
                                 <Link to="#" class="social-icon si-border si-g-plus">
-                                <FontAwesomeIcon icon={faGooglePlus} size="1x" />
+                                <FontAwesomeIcon icon={faGooglePlus} size="2x" />
                                 
                                 </Link>
                                 <Link to="#" class="social-icon si-border si-skype">
-                                <FontAwesomeIcon icon={faSkype} size="1x" />
+                                <FontAwesomeIcon icon={faSkype} size="2x" />
                                 
                                 </Link>
                                 <Link to="#" class="social-icon si-border si-linkedin">
-                                <FontAwesomeIcon icon={faLinkedin} size="1x" />
+                                <FontAwesomeIcon icon={faLinkedin} size="2x" />
                             
                                 </Link>
                         </div>         

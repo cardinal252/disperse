@@ -1,7 +1,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/MainElements.css'
-import TSarticles from '../articles/telephonesystemsarticles'
+import MenuArticleA from '../articles/telephonesystemsarticles'
 const TelephoneSystems = () => {
 
   return (
@@ -9,7 +9,7 @@ const TelephoneSystems = () => {
      	<div class="container">
 
 <div class="row">
-    <TSarticles />
+    <MenuArticleA />
     {/* <div class="col-sm-10 col-sm-offset-1 blog-content">
         <article class="post format-image">
             <div class="post-preview">

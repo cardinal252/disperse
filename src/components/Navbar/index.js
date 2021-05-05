@@ -7,31 +7,31 @@ import { Link, graphql, useStaticQuery } from 'gatsby'
 const Navbar = () => {
     const data = useStaticQuery(graphql`
 	query {
-		contentfulTSarticle {
+		contentfulMenuArticleA {
 			articleTitle
 			component
 		  }
-		contentfulBSarticles {
+		contentfulMenuArticleE {
 			articleTitle
 			component
 		  }
-		contentfulConArticle {
+		contentfulMenuArticleD {
 			articleTitle
 			component
 		  } 
-		contentfulCsArticles {
+		contentfulMenuArticleF {
 			articleTitle
 			component
 		  } 
-		contentfulLCarticles {
+		contentfulMenuArticleB {
 			articleTitle
 			component
 		  } 
-		contentfulMarticle {
+		contentfulMenuArticleC {
 			articleTitle
 			component
 		  }     
-		allContentfulTSarticle {
+		allContentfulMenuArticleA {
 			edges {
 			  node {
 				articleTitle  
@@ -40,7 +40,7 @@ const Navbar = () => {
 			  }
 			}
 		  }
-		  allContentfulLCarticles {
+		  allContentfulMenuArticleB {
 			edges {
 			  node {
 				title
@@ -48,7 +48,7 @@ const Navbar = () => {
 			  }
 			}
 		  }  
-		  allContentfulMarticle {
+		  allContentfulMenuArticleC {
 			edges {
 			  node {
 				title
@@ -56,7 +56,7 @@ const Navbar = () => {
 			  }
 			}
 		  } 
-		  allContentfulConArticle {
+		  allContentfulMenuArticleD {
 			edges {
 			  node {
 				title
@@ -64,7 +64,7 @@ const Navbar = () => {
 			  }
 			}
 		  }  
-		  allContentfulBSarticles {
+		  allContentfulMenuArticleE {
 			edges {
 			  node {
 				title
@@ -72,7 +72,7 @@ const Navbar = () => {
 			  }
 			}
 		  } 
-		  allContentfulCsArticles {
+		  allContentfulMenuArticleF {
 			edges {
 			  node {
 				title
@@ -111,9 +111,9 @@ const Navbar = () => {
 		
 				
 					<li className="has-submenu">
-						<Link to={`/${data.contentfulTSarticle.component}`}>{data.contentfulTSarticle.articleTitle}</Link>
+						<Link to={`/${data.contentfulMenuArticleA.component}`}>{data.contentfulMenuArticleA.articleTitle}</Link>
 						<ul className="submenu">
-                        {data.allContentfulTSarticle.edges.map((edge) => {
+                        {data.allContentfulMenuArticleA.edges.map((edge) => {
                             return  (
                             <li className="has-submenu">    
 								<Link to={`/${edge.node.slug}`}>{edge.node.title}</Link>
@@ -129,9 +129,9 @@ const Navbar = () => {
 					</li>
 					
 					<li className="has-submenu">
-					<Link to={`/${data.contentfulLCarticles.component}`}>{data.contentfulLCarticles.articleTitle}</Link>
+					<Link to={`/${data.contentfulMenuArticleB.component}`}>{data.contentfulMenuArticleB.articleTitle}</Link>
 						<ul className="submenu">
-						{data.allContentfulLCarticles.edges.map((edge) => {
+						{data.allContentfulMenuArticleB.edges.map((edge) => {
                             return  (
                             <li className="has-submenu">    
 								<Link to={`/${edge.node.slug}`}>{edge.node.title}</Link>
@@ -147,9 +147,9 @@ const Navbar = () => {
 					</li>
 
                     <li className="has-submenu">
-						<Link to={`/${data.contentfulMarticle.component}`}>{data.contentfulMarticle.articleTitle}</Link>
+						<Link to={`/${data.contentfulMenuArticleC.component}`}>{data.contentfulMenuArticleC.articleTitle}</Link>
 						<ul className="submenu">
-							{data.allContentfulMarticle.edges.map((edge) => {
+							{data.allContentfulMenuArticleC.edges.map((edge) => {
 								return  (
 								<li className="has-submenu">    
 									<Link to={`/${edge.node.slug}`}>{edge.node.title}</Link>
@@ -165,9 +165,9 @@ const Navbar = () => {
 					</li>
 
                     <li className="has-submenu">
-						<Link to={`/${data.contentfulConArticle.component}`}>{data.contentfulConArticle.articleTitle}</Link>
+						<Link to={`/${data.contentfulMenuArticleD.component}`}>{data.contentfulMenuArticleD.articleTitle}</Link>
 						<ul className="submenu">
-						{data.allContentfulConArticle.edges.map((edge) => {
+						{data.allContentfulMenuArticleD.edges.map((edge) => {
 								return  (
 								<li className="has-submenu">    
 									<Link to={`/${edge.node.slug}`}>{edge.node.title}</Link>
@@ -183,9 +183,9 @@ const Navbar = () => {
 					</li>
 
                     <li className="has-submenu">
-						<Link to={`/${data.contentfulBSarticles.component}`}>{data.contentfulBSarticles.articleTitle}</Link>
+						<Link to={`/${data.contentfulMenuArticleE.component}`}>{data.contentfulMenuArticleE.articleTitle}</Link>
 						<ul className="submenu">
-						{data.allContentfulBSarticles.edges.map((edge) => {
+						{data.allContentfulMenuArticleE.edges.map((edge) => {
 								return  (
 								<li className="has-submenu">    
 									<Link to={`/${edge.node.slug}`}>{edge.node.title}</Link>
@@ -201,9 +201,9 @@ const Navbar = () => {
 					</li>
 
                     <li className="has-submenu">
-						<Link to={`/${data.contentfulCsArticles.component}`}>{data.contentfulCsArticles.articleTitle}</Link>
+						<Link to={`/${data.contentfulMenuArticleF.component}`}>{data.contentfulMenuArticleF.articleTitle}</Link>
 						<ul className="submenu">
-						{data.allContentfulCsArticles.edges.map((edge) => {
+						{data.allContentfulMenuArticleF.edges.map((edge) => {
 							return  (
 							<li className="has-submenu">    
 								<Link to={`/${edge.node.slug}`}>{edge.node.title}</Link>

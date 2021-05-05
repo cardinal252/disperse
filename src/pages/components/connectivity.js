@@ -1,7 +1,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/MainElements.css'
-import Conarticles from '../articles/connectivityarticles'
+import MenuArticleD from '../articles/connectivityarticles'
 const Connectivity = () => {
 
   return (
@@ -9,7 +9,7 @@ const Connectivity = () => {
      	<div class="container">
 
 <div class="row">
-    <Conarticles />
+    <MenuArticleD />
     {/* <div class="col-sm-10 col-sm-offset-1 blog-content">
         <article class="post format-image">
             <div class="post-preview">

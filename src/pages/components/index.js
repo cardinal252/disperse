@@ -52,7 +52,7 @@ const Main = () => {
                 }
             }
         }
-        contentfulTSarticle {
+        contentfulMenuArticleA {
             tsImage {
                 resize {
                     src
