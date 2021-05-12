@@ -93,7 +93,7 @@ return (
                         </div>    
                 </div>
                 <div className="col-md-6 pb40">
-                <h2>Nice to hear from you</h2> 
+                <h2>{data.contentfulContactPage.formTitle}</h2> 
                     <p>
                         Suspendisse ut interdum lectus. Integer ac neque faucibus, venenatis nisl quis, pellentesque lacus. Integer et ipsum sit amet dui ultrices hendrerit. Pellentesque leo massa, suscipit a felis non, posuere convallis velit. Sed tincidunt lacinia velit et aliquam.
                     </p>
