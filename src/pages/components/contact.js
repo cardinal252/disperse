@@ -37,10 +37,7 @@ return (
             <div className="row">
                 <div className="col-md-6 mb40">
                     <h4 className="text-uppercase">Address</h4>
-                    <p>
-                    {data.contentfulContactPage.address}    
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </p>
+                    <p>{data.contentfulContactPage.address}</p>
                     <h4 className="text-uppercase">Email</h4>
                     <p>
                         <Link to="/">{data.contentfulContactPage.email}</Link></p>
