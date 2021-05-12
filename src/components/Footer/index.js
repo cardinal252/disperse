@@ -20,6 +20,7 @@ const Footer = () => {
         allContentfulMain(sort: {order: ASC, fields: pageOrder}) {
             edges {
               node {
+                id  
                 icon {
                   resize(width: 20) {
                     src
@@ -32,6 +33,7 @@ const Footer = () => {
         allContentfulBlogPost( sort: { fields: publishedDate, order:DESC }, limit: 3) {
             edges {
                 node {
+                    id
                     title
                     slug
                     publishedDate(formatString:"MMMM Do, YYYY")
@@ -59,21 +61,21 @@ const Footer = () => {
 `)
 
     return (
-        <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="widget">
-                    <h6 class="montserrat text-uppercase bottom-line">WHAT WE DO</h6>
+        <footer className="footer">
+        <div className="container">
+            <div className="row">
+                <div className="col-lg-3 col-md-6">
+                    <div className="widget">
+                    <h6 className="montserrat text-uppercase bottom-line">WHAT WE DO</h6>
                     <ul className="recent-posts">
                         {data.allContentfulMain.edges.map((edge) => {
                             return  (
-                            <li>
+                            <li key={edge.node.id}>
                                 <div className="row">
-                                    <div class="col-md-3 widget-posts-image">
+                                    <div className="col-md-3 widget-posts-image">
                                         <img src={edge.node.icon.resize.src} alt={edge.node.pageTitle} />
                                     </div>
-                                    <div class="col-md-8 widget-posts-body">
+                                    <div className="col-md-8 widget-posts-body">
                                         <Link to={`${edge.node.pageTitle}`}>   
                                             <h6>{edge.node.pageTitle}</h6>
                                         </Link>
@@ -85,18 +87,18 @@ const Footer = () => {
                     </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="widget">
-                    <h6 class="montserrat text-uppercase bottom-line">{data.contentfulHeader.header}</h6>
+                <div className="col-lg-3 col-md-6">
+                    <div className="widget">
+                    <h6 className="montserrat text-uppercase bottom-line">{data.contentfulHeader.header}</h6>
                     <ul className="recent-posts">
                         {data.allContentfulBlogPost.edges.map((edge) => {
                             return  (
-                            <li>
+                            <li key={edge.node.id}>
                                 <div className="row">
-                                    <div class="col-md-3 widget-posts-image">
+                                    <div className="col-md-3 widget-posts-image">
                                         <img src={edge.node.media.resize.src} alt={edge.node.title} />
                                     </div>
-                                    <div class="col-md-8 widget-posts-body">
+                                    <div className="col-md-8 widget-posts-body">
                                         <Link to={`/news/${edge.node.slug}`}>   
                                             <h6>{edge.node.title}</h6>
                                             <p>{edge.node.publishedDate}</p>
@@ -109,59 +111,59 @@ const Footer = () => {
                     </ul>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="row">
-                        <div class="col-lg-12">
-                        <h6 class="montserrat text-uppercase bottom-line">Contact Us</h6>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="widget">
+                <div className="col-lg-6">
+                    <div className="row">
+                        <div className="col-lg-12">
+                        <h6 className="montserrat text-uppercase bottom-line">Contact Us</h6>
+                            <div className="row">
+                                <div className="col-lg-6">
+                                    <div className="widget">
                                         
-                                        <address class="map-background">
+                                        <address className="map-background">
                                             <h6 className="text-uppercase">Address</h6>
                                             <p>{data.contentfulContactPage.address}</p>
                                         </address>
                                     </div>
                                 </div> 
-                                <div class="col-lg-6">
-                                    <div class="widget">
-                                        <address class="map-background">
+                                <div className="col-lg-6">
+                                    <div className="widget">
+                                        <address className="map-background">
                                             <h6 className="text-uppercase">Phone</h6>
                                             <p>{data.contentfulContactPage.phone}</p>
                                             <h6 className="text-uppercase">Email</h6>
-                                            <p><a href="mailto:support@neomax.com">{data.contentfulContactPage.email}</a></p>
+                                            <p><Link to="mailto:support@neomax.com">{data.contentfulContactPage.email}</Link></p>
                                         </address>
                                     </div>
                                 </div> 
                             </div>    
                         </div>
-                        <div class="col-lg-6 clearfix">
-                            <h4 class="text-uppercase">Social</h4>
+                        <div className="col-lg-6 clearfix">
+                            <h4 className="text-uppercase">Social</h4>
                         </div> 
-                        <div class="col-lg-6 clearfix social">
-                                <Link to="#" class="social-icon si-facebook">
+                        <div className="col-lg-6 clearfix social">
+                                <Link to="#" className="social-icon si-facebook">
                                 <FontAwesomeIcon icon={faFacebook} size="2x" />
                             
                                 </Link>
-                                <Link to="#" class="social-icon si-border si-twitter">
+                                <Link to="#" className="social-icon si-border si-twitter">
                                 <FontAwesomeIcon icon={faTwitter} size="2x" />
                             
                                 </Link>
-                                <Link to="#" class="social-icon si-border si-g-plus">
+                                <Link to="#" className="social-icon si-border si-g-plus">
                                 <FontAwesomeIcon icon={faGooglePlus} size="2x" />
                                 
                                 </Link>
-                                <Link to="#" class="social-icon si-border si-skype">
+                                <Link to="#" className="social-icon si-border si-skype">
                                 <FontAwesomeIcon icon={faSkype} size="2x" />
                                 
                                 </Link>
-                                <Link to="#" class="social-icon si-border si-linkedin">
+                                <Link to="#" className="social-icon si-border si-linkedin">
                                 <FontAwesomeIcon icon={faLinkedin} size="2x" />
                             
                                 </Link>
                         </div>         
                     </div>    
-                    <div class="row">
+                    <div className="row">
                         <div className="col-lg-12 smart-forms">
                     
                     
@@ -181,8 +183,8 @@ const Footer = () => {
                     </div>    
                 </div>                    
             </div>
-            <div class="row text-center">
-                <div class="col-lg-6 mr-auto ml-auto">
+            <div className="row text-center">
+                <div className="col-lg-6 mr-auto ml-auto">
                 © Copyright {new Date().getFullYear()} Disperse
                 
                 </div>

@@ -42,24 +42,24 @@
                 <div class="page">
                     <div class="offcanvas" role="navigation">
                         <div class="top-toggle">
-                            <a href="#" class="toggle-smartadmin" ><i class="fa fa-bars"></i></a>  
+                            <Link to="#" class="toggle-smartadmin" ><i class="fa fa-bars"></i></Link>  
                         </div><!-- .top-toggle -->
                         <div class="admin-profile">
                             <span class="profile-pic"></span>
                             <!--<span class="profile-user"><b>Hello:</b> Steve1455 </span>-->
                         </div><!-- .admin-profile -->
                         <ul class="smart-navigation">
-                            <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard </a></li>
-                            <li><a href="../formcsv.csv?v=v1"><i class="fa fa-download"></i> Download CSV </a></li>
-                            <li><a href="logout.php"><i class="fa fa-sign-out"></i> Logout </a></li>
+                            <li><Link to="#"><i class="fa fa-dashboard"></i> Dashboard </Link></li>
+                            <li><Link to="../formcsv.csv?v=v1"><i class="fa fa-download"></i> Download CSV </Link></li>
+                            <li><Link to="logout.php"><i class="fa fa-sign-out"></i> Logout </Link></li>
                         </ul>
                     </div><!-- end offcanvas -->
                     <div class="content-frame">    
                         <div class="swipe-panel" role="banner">
-                            <a href="#" class="toggle-smartadmin" ><i class="fa fa-bars"></i></a>
+                            <Link to="#" class="toggle-smartadmin" ><i class="fa fa-bars"></i></Link>
                             <div class="dwnload">
                             	<span> Hello: <b><?php echo $showDisplayName; ?></b> </span>
-                                <a href="logout.php"> <i class="fa fa-sign-out"></i> Logout </a>
+                                <Link to="logout.php"> <i class="fa fa-sign-out"></i> Logout </Link>
                             </div>    
                         </div><!-- end header -->
                         <div class="container">

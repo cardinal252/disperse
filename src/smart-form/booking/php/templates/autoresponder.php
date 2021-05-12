@@ -71,10 +71,10 @@ $automessage = '
                                                 <tbody>
                                                     <tr>
                                                         <td style="font-size:14px;line-height:20px;text-align:center;max-width:650px">
-                                                            <a href="'.$poweredby_url.'" style="text-decoration:none;color:#69696c" target="_blank">
+                                                            <Link to="'.$poweredby_url.'" style="text-decoration:none;color:#69696c" target="_blank">
                                                                 <span style="color:#00ce00;font-weight:bold;max-width:180px">POWERED BY:</span> 
                                                                 '.$poweredby_name.'
-                                                            </a>
+                                                            </Link>
                                                         </td>
                                                     </tr>
                                                 </tbody>

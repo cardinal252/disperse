@@ -1,12 +1,16 @@
 import React from 'react'
 import Logo from '../../images/logo-white.png'
-import Logo1 from '../../images/logo-white2.png'
 import '../../components/template.css'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 
 const Navbar = () => {
     const data = useStaticQuery(graphql`
 	query {
+		contentfulAsset(title: {eq: "Logo white"}) {
+			resize {
+			  src
+			}
+		}
 		contentfulMenuArticleA {
 			articleTitle
 			component
@@ -34,6 +38,7 @@ const Navbar = () => {
 		allContentfulMenuArticleA {
 			edges {
 			  node {
+				id  
 				articleTitle  
 				title  
 				slug
@@ -43,6 +48,7 @@ const Navbar = () => {
 		  allContentfulMenuArticleB {
 			edges {
 			  node {
+				id  
 				title
 				slug
 			  }
@@ -51,6 +57,7 @@ const Navbar = () => {
 		  allContentfulMenuArticleC {
 			edges {
 			  node {
+				id  
 				title
 				slug
 			  }
@@ -59,6 +66,7 @@ const Navbar = () => {
 		  allContentfulMenuArticleD {
 			edges {
 			  node {
+				id  
 				title
 				slug
 			  }
@@ -67,6 +75,7 @@ const Navbar = () => {
 		  allContentfulMenuArticleE {
 			edges {
 			  node {
+				id  
 				title
 				slug
 			  }
@@ -75,6 +84,7 @@ const Navbar = () => {
 		  allContentfulMenuArticleF {
 			edges {
 			  node {
+				id  
 				title
 				slug
 			  }
@@ -90,10 +100,10 @@ const Navbar = () => {
 		<div className="container">
 			
 			<div className="inner-header">
-				<a className="inner-brand" href="/">
-					<img className="brand-light" src={Logo1} alt="" />
+				<Link className="inner-brand" to="/">
+					<img className="brand-light" src={data.contentfulAsset.resize.src} alt="" />
 					<img className="brand-dark" src={Logo} alt="" />
-				</a>
+				</Link>
 			</div>
 		
 			
@@ -112,15 +122,15 @@ const Navbar = () => {
 				
 					<li className="has-submenu">
 						<Link to={`/${data.contentfulMenuArticleA.component}`}>{data.contentfulMenuArticleA.articleTitle}</Link>
-						<ul className="submenu">
+						<ul  className="submenu">
                         {data.allContentfulMenuArticleA.edges.map((edge) => {
                             return  (
-                            <li className="has-submenu">    
+                            <li key={edge.node.id} className="has-submenu">    
 								<Link to={`/${edge.node.slug}`}>{edge.node.title}</Link>
 								<ul className="submenu">
-									<li><a href="about-1.html">SubPage 1</a></li>
-									<li><a href="about-2.html">SubPage 2</a></li>
-									<li><a href="about-3.html">Subpage 3</a></li>
+									<li><Link to="about-1.html">SubPage 1</Link></li>
+									<li><Link to="about-2.html">SubPage 2</Link></li>
+									<li><Link to="about-3.html">Subpage 3</Link></li>
 								</ul>	
                             </li>
                             )    
@@ -133,12 +143,12 @@ const Navbar = () => {
 						<ul className="submenu">
 						{data.allContentfulMenuArticleB.edges.map((edge) => {
                             return  (
-                            <li className="has-submenu">    
+                            <li key={edge.node.id} className="has-submenu">    
 								<Link to={`/${edge.node.slug}`}>{edge.node.title}</Link>
 								<ul className="submenu">
-									<li><a href="about-1.html">SubPage 1</a></li>
-									<li><a href="about-2.html">SubPage 2</a></li>
-									<li><a href="about-3.html">Subpage 3</a></li>
+									<li><Link to="about-1.html">SubPage 1</Link></li>
+									<li><Link to="about-2.html">SubPage 2</Link></li>
+									<li><Link to="about-3.html">Subpage 3</Link></li>
 								</ul>	
                             </li>
                             )    
@@ -151,12 +161,12 @@ const Navbar = () => {
 						<ul className="submenu">
 							{data.allContentfulMenuArticleC.edges.map((edge) => {
 								return  (
-								<li className="has-submenu">    
+								<li key={edge.node.id} className="has-submenu">    
 									<Link to={`/${edge.node.slug}`}>{edge.node.title}</Link>
 									<ul className="submenu">
-										<li><a href="about-1.html">SubPage 1</a></li>
-										<li><a href="about-2.html">SubPage 2</a></li>
-										<li><a href="about-3.html">Subpage 3</a></li>
+										<li><Link to="about-1.html">SubPage 1</Link></li>
+										<li><Link to="about-2.html">SubPage 2</Link></li>
+										<li><Link to="about-3.html">Subpage 3</Link></li>
 									</ul>	
 								</li>
 								)    
@@ -169,12 +179,12 @@ const Navbar = () => {
 						<ul className="submenu">
 						{data.allContentfulMenuArticleD.edges.map((edge) => {
 								return  (
-								<li className="has-submenu">    
+								<li key={edge.node.id} className="has-submenu">    
 									<Link to={`/${edge.node.slug}`}>{edge.node.title}</Link>
 									<ul className="submenu">
-										<li><a href="about-1.html">SubPage 1</a></li>
-										<li><a href="about-2.html">SubPage 2</a></li>
-										<li><a href="about-3.html">Subpage 3</a></li>
+										<li><Link to="about-1.html">SubPage 1</Link></li>
+										<li><Link to="about-2.html">SubPage 2</Link></li>
+										<li><Link to="about-3.html">Subpage 3</Link></li>
 									</ul>	
 								</li>
 								)    
@@ -187,12 +197,12 @@ const Navbar = () => {
 						<ul className="submenu">
 						{data.allContentfulMenuArticleE.edges.map((edge) => {
 								return  (
-								<li className="has-submenu">    
+								<li key={edge.node.id} className="has-submenu">    
 									<Link to={`/${edge.node.slug}`}>{edge.node.title}</Link>
 									<ul className="submenu">
-										<li><a href="about-1.html">SubPage 1</a></li>
-										<li><a href="about-2.html">SubPage 2</a></li>
-										<li><a href="about-3.html">Subpage 3</a></li>
+										<li><Link to="about-1.html">SubPage 1</Link></li>
+										<li><Link to="about-2.html">SubPage 2</Link></li>
+										<li><Link to="about-3.html">Subpage 3</Link></li>
 									</ul>	
 								</li>
 								)    
@@ -205,12 +215,12 @@ const Navbar = () => {
 						<ul className="submenu">
 						{data.allContentfulMenuArticleF.edges.map((edge) => {
 							return  (
-							<li className="has-submenu">    
+							<li key={edge.node.id} className="has-submenu">    
 								<Link to={`/${edge.node.slug}`}>{edge.node.title}</Link>
 								<ul className="submenu">
-									<li><a href="about-1.html">SubPage 1</a></li>
-									<li><a href="about-2.html">SubPage 2</a></li>
-									<li><a href="about-3.html">Subpage 3</a></li>
+									<li><Link to="about-1.html">SubPage 1</Link></li>
+									<li><Link to="about-2.html">SubPage 2</Link></li>
+									<li><Link to="about-3.html">Subpage 3</Link></li>
 								</ul>	
 							</li>
 							)    
@@ -221,45 +231,45 @@ const Navbar = () => {
 		
 					
 					<li className="has-submenu">
-						<a href="/contact">CONTACT</a>
+						<Link to="/contact">CONTACT</Link>
 						<ul className="submenu submenu-mega">
 							<li>
 								<span className="submenu-title">Element 1</span>
 								<ul>
-									<li><a href="components-accordions.html"><i className="fa fa-list-ul"></i> Element 1: 1</a></li>
-									<li><a href="components-alerts.html"><i className="fa fa-exclamation-circle"></i> Element 1: 2</a></li>
-									<li><a href="components-buttons.html"><i className="fa fa-link fa-sm"></i> Element 1: 3</a></li>
-									<li><a href="components-carousel.html"><i className="fa fa-exchange"></i> Element 1: 4</a></li>
+									<li><Link to="components-accordions.html"><i className="fa fa-list-ul"></i> Element 1: 1</Link></li>
+									<li><Link to="components-alerts.html"><i className="fa fa-exclamation-circle"></i> Element 1: 2</Link></li>
+									<li><Link to="components-buttons.html"><i className="fa fa-link fa-sm"></i> Element 1: 3</Link></li>
+									<li><Link to="components-carousel.html"><i className="fa fa-exchange"></i> Element 1: 4</Link></li>
 								</ul>
 							</li>
 		
 							<li>
 								<span className="submenu-title">Element 2</span>
 								<ul>
-									<li><a href="components-grid.html"><i className="fa fa-th fa-sm"></i> Element 2: 1</a></li>
-									<li><a href="components-iconboxes.html"><i className="fa fa-bullseye"></i> Element 2: 2</a></li>
-									<li><a href="components-icons-font-awesome.html"><i className="fa fa-heart fa-sm"></i> Element 2: 3</a></li>
-									<li><a href="components-icons-simple-line.html"><i className="fa fa-heart-o fa-sm"></i> Element 2: 4</a></li>
+									<li><Link to="components-grid.html"><i className="fa fa-th fa-sm"></i> Element 2: 1</Link></li>
+									<li><Link to="components-iconboxes.html"><i className="fa fa-bullseye"></i> Element 2: 2</Link></li>
+									<li><Link to="components-icons-font-awesome.html"><i className="fa fa-heart fa-sm"></i> Element 2: 3</Link></li>
+									<li><Link to="components-icons-simple-line.html"><i className="fa fa-heart-o fa-sm"></i> Element 2: 4</Link></li>
 								</ul>
 							</li>
 		
 							<li>
 								<span className="submenu-title">Element 3</span>
 								<ul>
-									<li><a href="components-pagination.html"><i className="fa fa-arrow-circle-right"></i> Element 3: 1</a></li>
-									<li><a href="components-pie-chart.html"><i className="fa fa-pie-chart"></i> Element 3: 2</a></li>
-									<li><a href="components-tooltips.html"><i className="fa fa-lightbulb-o"></i> Element 3: 3</a></li>
-									<li><a href="components-pricing-tables.html"><i className="fa fa-dollar"></i> Element 3: 4</a></li>
+									<li><Link to="components-pagination.html"><i className="fa fa-arrow-circle-right"></i> Element 3: 1</Link></li>
+									<li><Link to="components-pie-chart.html"><i className="fa fa-pie-chart"></i> Element 3: 2</Link></li>
+									<li><Link to="components-tooltips.html"><i className="fa fa-lightbulb-o"></i> Element 3: 3</Link></li>
+									<li><Link to="components-pricing-tables.html"><i className="fa fa-dollar"></i> Element 3: 4</Link></li>
 								</ul>
 							</li>
 		
 							<li>
 								<span className="submenu-title">Element 4</span>
 								<ul>
-									<li><a href="components-tables.html"><i className="fa fa-table"></i> Element 4: 1</a></li>
-									<li><a href="components-tabs.html"><i className="fa fa-indent"></i> Element 4: 2</a></li>
-									<li><a href="components-team.html"><i className="fa fa-group"></i> Element 4: 3</a></li>
-									<li><a href="components-typography.html"><i className="fa fa-font"></i> Element 4: 4</a></li>
+									<li><Link to="components-tables.html"><i className="fa fa-table"></i> Element 4: 1</Link></li>
+									<li><Link to="components-tabs.html"><i className="fa fa-indent"></i> Element 4: 2</Link></li>
+									<li><Link to="components-team.html"><i className="fa fa-group"></i> Element 4: 3</Link></li>
+									<li><Link to="components-typography.html"><i className="fa fa-font"></i> Element 4: 4</Link></li>
 								</ul>
 							</li>
 						</ul>

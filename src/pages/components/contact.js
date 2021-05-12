@@ -47,25 +47,25 @@ return (
                     <h4 className="text-uppercase">Phone</h4>
                     <p>
                         <Link to="/">{data.contentfulContactPage.phone}</Link></p>
-                        <h4 class="text-uppercase">Social</h4>
-                    <div class="clearfix pt10">
+                        <h4 className="text-uppercase">Social</h4>
+                    <div className="clearfix pt10">
                         <Link to="#" class="social-icon si-border si-facebook">
                         <FontAwesomeIcon icon={faFacebook} size="1x" />
                       
                         </Link>
-                        <Link to="#" class="social-icon si-border si-twitter">
+                        <Link to="#" className="social-icon si-border si-twitter">
                         <FontAwesomeIcon icon={faTwitter} size="1x" />
                       
                         </Link>
-                        <Link to="#" class="social-icon si-border si-g-plus">
+                        <Link to="#" className="social-icon si-border si-g-plus">
                         <FontAwesomeIcon icon={faGooglePlus} size="1x" />
                         
                         </Link>
-                        <Link to="#" class="social-icon si-border si-skype">
+                        <Link to="#" className="social-icon si-border si-skype">
                         <FontAwesomeIcon icon={faSkype} size="1x" />
                         
                         </Link>
-                        <Link to="#" class="social-icon si-border si-linkedin">
+                        <Link to="#" className="social-icon si-border si-linkedin">
                         <FontAwesomeIcon icon={faLinkedin} size="1x" />
                        
                         </Link>

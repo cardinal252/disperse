@@ -18,6 +18,7 @@ const MenuArticleD = () => {
       allContentfulMenuArticleD {
         edges {
           node {
+            id
             title
             slug
             body {
@@ -45,7 +46,7 @@ const MenuArticleD = () => {
         <ol className={blogStyles.posts}>
           {data.allContentfulMenuArticleD.edges.map((edge) => {
             return  (
-              <li className={blogStyles.post}>
+              <li key={edge.node.id} className={blogStyles.post}>
                 <Link to={`/${edge.node.slug}`}>
                   <div className="row">
                     <h2>{edge.node.title}</h2>
