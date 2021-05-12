@@ -29,7 +29,6 @@ const Contact = () => {
               companyInfo
             }
             formTitle
-            formIntro
           }
     }
 `)
