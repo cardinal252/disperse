@@ -1,13 +1,15 @@
 import React from 'react'
 import "./HeroSection.css"
 
-function HeroSection() {
-    return (
-        <div className="hero-container pt60">
-            <h2>DISPERSE</h2>
-            <p>telecommunications & Support</p> 
-        </div>
-    )
+class HeroSection extends React.Component {
+    render() {
+        return(
+            <div className="hero-container pt60">
+                <h2>{ this.props.title }</h2>
+                <p>{ this.props.heroSubtitle }</p> 
+            </div>
+        )
+    }
 }
 
 export default HeroSection 
