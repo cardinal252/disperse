@@ -28,6 +28,8 @@ const Contact = () => {
             companyInfo {
               companyInfo
             }
+            formTitle
+            formIntro
           }
     }
 `)
@@ -94,9 +96,7 @@ return (
                 </div>
                 <div className="col-md-6 pb40">
                 <h2>{data.contentfulContactPage.formTitle}</h2> 
-                    <p>
-                        Suspendisse ut interdum lectus. Integer ac neque faucibus, venenatis nisl quis, pellentesque lacus. Integer et ipsum sit amet dui ultrices hendrerit. Pellentesque leo massa, suscipit a felis non, posuere convallis velit. Sed tincidunt lacinia velit et aliquam.
-                    </p>
+                    <p>{data.contentfulContactPage.formIntro}</p>
                     <div className="smart-wrap">
                         <div className="smart-forms smart-container">
                             <form method="post" action="smart-form/contact/php/smartprocess.php" id="smart-form">
