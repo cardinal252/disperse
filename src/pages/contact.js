@@ -31,7 +31,7 @@ const ContactPage = () => {
     <Layout>
       <SEO title="Contact" />
       <h1 className="contact">{ data.page.title }</h1>
-      <Contact data={data} />
+      <Contact page={data.page} />
     </Layout>
   );
 }

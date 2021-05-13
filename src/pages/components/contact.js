@@ -26,13 +26,13 @@ class Contact extends React.Component {
                 <div className="row">
                     <div className="col-md-6 mb40">
                         <h4 className="text-uppercase">Address</h4>
-                        <p>{this.props.data.page.address}</p>
+                        <p>{this.props.page.address}</p>
                         <h4 className="text-uppercase">Email</h4>
                         <p>
-                            <Link to="/">{this.props.data.page.email}</Link></p>
+                            <Link to="/">{this.props.page.email}</Link></p>
                         <h4 className="text-uppercase">Phone</h4>
                         <p>
-                            <Link to="/">{this.props.data.page.phone}</Link></p>
+                            <Link to="/">{this.props.page.phone}</Link></p>
                         <h4 className="text-uppercase">Social</h4>
                         <div className="clearfix pt10">
                             <Link to="#" class="social-icon si-border si-facebook">
@@ -82,8 +82,8 @@ class Contact extends React.Component {
                         </div>
                     </div>
                     <div className="col-md-6 pb40">
-                        <h2>{this.props.data.page.formTitle}</h2>
-                        <p>{this.props.data.page.formIntro.internal.content}</p>
+                        <h2>{this.props.page.formTitle}</h2>
+                        <p>{this.props.page.formIntro.internal.content}</p>
                         <div className="smart-wrap">
                             <div className="smart-forms smart-container">
                                 <form method="post" action="smart-form/contact/php/smartprocess.php" id="smart-form">
