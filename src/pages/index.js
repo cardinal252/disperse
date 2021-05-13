@@ -9,7 +9,7 @@ const IndexPage = () => {
     const data = useStaticQuery(
       graphql
         `query {
-          page: contentfulHomePage(id: {}, name: {eq: "Home"}) {
+          page: contentfulHomePage(name: {eq: "Home"}) {
             browserTitle
             title
             subtitle
