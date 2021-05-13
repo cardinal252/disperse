@@ -15,7 +15,7 @@ const IndexPage = ({ data }) => {
     );
   }
 
-export const indexQuery = graphql`
+export const query = graphql`
     query {
       page: contentfulHomePage(name: {eq: "Home"}) {
         browserTitle
