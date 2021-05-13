@@ -9,7 +9,7 @@ const ContactPage = () => {
   const data = useStaticQuery(
     graphql
       `query {
-        page: contentfulContactPage(name: {eq: "Contact Us"}) {
+        page: contentfulContactPage(id: {eq: "77e8e669-7cba-58c2-b83c-2ad7d3769bcb"}) {
           browserTitle
           title
           address 
