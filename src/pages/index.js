@@ -3,20 +3,9 @@ import HeroSection from "../components/HeroSection"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Main from './components/index'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql } from 'gatsby'
 
-const IndexPage = () => {
-    const data = useStaticQuery(
-      graphql
-        `query {
-          page: contentfulHomePage(name: {eq: "Home"}) {
-            browserTitle
-            title
-            subtitle
-          }
-        }`
-    );
-
+const IndexPage = ({ data }) => {
     return (
       <Layout>
         <SEO title={ data.page.browserTitle } />
@@ -25,5 +14,14 @@ const IndexPage = () => {
       </Layout>
     );
   }
+
+export const indexQuery = graphql`
+    query {
+      page: contentfulHomePage(name: {eq: "Home"}) {
+        browserTitle
+        title
+        subtitle
+      }
+    }`;
 
 export default IndexPage
