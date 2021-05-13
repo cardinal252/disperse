@@ -2,7 +2,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../components/MainElements.css'
 import '../../smart-form/contact/css/smart-forms.css'
-import { graphql, useStaticQuery, Link } from 'gatsby'
+import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faFacebook,
