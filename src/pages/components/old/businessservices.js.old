@@ -1,19 +1,19 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/MainElements.css'
-import MenuArticleD from '../articles/connectivityarticles'
-const Connectivity = () => {
+import MenuArticleE from '../articles/businessservicesarticles'
+const BusinessServices = () => {
 
   return (
         <>        
      	<div className="container">
 
 <div className="row">
-    <MenuArticleD />
+    <MenuArticleE />
     {/* <div className="col-sm-10 col-sm-offset-1 blog-content">
         <article className="post format-image">
             <div className="post-preview">
-                <Link to="#"><img src="assets/images/blog/1.jpg" alt="" /></Link>
+                <Link to="#"><img src="/assets/images/blog/1.jpg" alt="" /></Link>
             </div>
             <div className="post-content">
                 <h2 className="post-title"><Link to="#">Super Awesome Site Showcase</Link></h2>
@@ -108,4 +108,4 @@ const Connectivity = () => {
     )  
 }
 
-export default Connectivity    
+export default BusinessServices     

@@ -3,24 +3,71 @@ const path = require('path')
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  getMenuArticleA().then(function(result){
-    createPages(result.data.allContentfulMenuArticleA.nodes, './src/templates/TeleSys.js');
-  });
-  getMenuArticleB().then(function(result){
-    createPages(result.data.allContentfulMenuArticleB.nodes, './src/templates/LinesCalls.js');
-  });
-  getMenuArticleC().then(function(result){
-    createPages(result.data.allContentfulMenuArticleC.nodes, './src/templates/Mobile.js');
-  });
-  getMenuArticleD().then(function(result){
-    createPages(result.data.allContentfulMenuArticleD.nodes, './src/templates/Connectivity.js');
-  });
-  getMenuArticleE().then(function(result){
-    createPages(result.data.allContentfulMenuArticleE.nodes, './src/templates/Business.js');
-  });
-  getMenuArticleF().then(function(result){
-    createPages(result.data.allContentfulMenuArticleF.nodes, './src/templates/Computer.js');
-  });
+  await buildArticlePages();
+
+  await buildHubPages();
+
+  async function buildArticlePages() {
+    console.log('Writing the articles');
+    const result = await await graphql(`
+        query {
+          articles: allContentfulArticlePage {
+            nodes {
+              id
+              slug
+            }
+          }
+        } 
+    `);
+
+    if(result.errors){
+      reporter.panicOnBuild(`Error while running GraphQL query.`);
+      return;
+    }
+  
+    result.data.articles.nodes.forEach((content) => {
+        var template='./src/templates/articlePageTemplate.js';
+        console.log('Writing article page - ' + content.id);
+        createPage({
+          component: path.resolve(template),
+          path: `/${content.slug}`,
+          context: {
+            id: content.id
+          }
+        })
+    });
+  }
+
+  async function buildHubPages() {
+    console.log('Writing the hubs');
+    const result = await await graphql(`
+        query {
+          hubs: allContentfulMain {
+            nodes {
+              id
+              slug
+            }
+          }
+        } 
+    `);
+    
+    if(result.errors){
+      reporter.panicOnBuild(`Error while running GraphQL query.`);
+      return;
+    }
+  
+    result.data.hubs.nodes.forEach((content) => {
+        var template='./src/templates/hubPageTemplate.js';
+        console.log('Writing hub page - ' + content.id);
+        createPage({
+          component: path.resolve(template),
+          path: `/${content.slug}`,
+          context: {
+            id: content.id
+          }
+        })
+    });
+  }  
 
   async function getMenuArticleE() {
     console.log('Writing the ls articles');

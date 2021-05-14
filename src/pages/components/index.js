@@ -13,9 +13,9 @@ const Main = () => {
             edges {
               node {
                 id  
-                pageTitle
-                pageSubheader {
-                  pageSubheader
+                title
+                subheader {
+                  subheader
                 }
                 servicesImage {
                   resize(height: 200) {
@@ -25,15 +25,15 @@ const Main = () => {
               }
             }
           }
-          contentfulMain(pageTitle: {eq: "TELEPHONE SYSTEMS"}) {
+          contentfulMain(title: {eq: "TELEPHONE SYSTEMS"}) {
             servicesImage {
               resize {
                 src
               }
             }
-            pageTitle
-            pageBody {
-              pageBody
+            title
+            body {
+              body
             }
           }  
         allContentfulBlogPost ( sort: { fields: publishedDate, order:DESC }, limit: 3 ) {
@@ -83,9 +83,9 @@ return (
                 <div  className='row'>
                     <div  className='col-md-5 mb30'>
                     
-                            <img className="mb30" src={data.contentfulMain.servicesImage.resize.src} alt={data.contentfulMain.pageTitle} />
-                            <h5  className='text-uppercase mb20'>{data.contentfulMain.pageTitle}</h5>
-                            <p>{data.contentfulMain.pageBody.pageBody}</p>
+                            <img className="mb30" src={data.contentfulMain.servicesImage.resize.src} alt={data.contentfulMain.title} />
+                            <h5  className='text-uppercase mb20'>{data.contentfulMain.title}</h5>
+                            <p>{data.contentfulMain.body.body}</p>
                         
                     </div>    
                     <div  className='col-md-7 ml-auto'>
@@ -93,9 +93,9 @@ return (
                             {data.allContentfulMain.edges.map((edge) => {
                                 return  (
                                     <div key={edge.node.id} className='col-md-6 mb30 text-center'>
-                                        <img className="mb30" src={edge.node.servicesImage.resize.src} alt={edge.node.pageTitle} />
-                                        <h5 className='text-uppercase mb20'>{edge.node.pageTitle}</h5>
-                                        <p>{edge.node.pageSubheader.pageSubheader}</p>
+                                        <img className="mb30" src={edge.node.servicesImage.resize.src} alt={edge.node.title} />
+                                        <h5 className='text-uppercase mb20'>{edge.node.title}</h5>
+                                        <p>{edge.node.subheader.subheader}</p>
                                     </div>      
                                 )    
                             })} 

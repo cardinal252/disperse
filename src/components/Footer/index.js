@@ -26,7 +26,7 @@ const Footer = () => {
                     src
                   }
                 }
-                pageTitle
+                title
               }
             }
           }

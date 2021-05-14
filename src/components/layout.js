@@ -10,16 +10,12 @@ import "./layout.css"
 
 const Layout = ({ children }) => {
   
-  useScript('/assets/jquery-2.2.3.min.js');
+  useScript('/assets/js/jquery-2.2.3.min.js');
   
  
-  useScript('/assets/plugins.js');
-  useScript('/assets/bootstrap.min.js');
-  useScript('/assets/custom.min.js');
- 
-
-  
-  
+  useScript('/assets/js/plugins.js');
+  useScript('/assets/js/bootstrap.min.js');
+  useScript('/assets/js/custom.min.js');
   
   Layout.propTypes = {
     children: PropTypes.node.isRequired,
