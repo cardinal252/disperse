@@ -1,6 +1,6 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../components/MainElements.css'
+import '../components/main-elements.css'
 import MenuArticleE from '../articles/businessservicesarticles'
 const BusinessServices = () => {
 

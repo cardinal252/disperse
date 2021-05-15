@@ -50,7 +50,7 @@ const HubPageTemplate = (props) => {
 }
 
 export const query = graphql`
-    query($id: String) {
+    query($id: String!, $sectionId: String) {
         page:contentfulMain(id: {eq: $id}) {
             title
             header
@@ -61,7 +61,7 @@ export const query = graphql`
                 body
             }
         }
-        articles: allContentfulArticlePage(filter: {section: {key: {eq: "telephone-systems"}}}) {
+        articles: allContentfulArticlePage(filter: {section: {id: {eq: $sectionId}}}) {
             edges {
               node {
                 id

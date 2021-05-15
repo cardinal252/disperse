@@ -1,6 +1,6 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../components/MainElements.css'
+import '../components/main-elements.css'
 import '../components/template.css'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 
@@ -52,18 +52,6 @@ const Main = () => {
                         }
                     }
                 }
-            }
-        }
-        contentfulMenuArticleA {
-            tsImage {
-                resize {
-                    src
-                }
-            }
-
-            title
-            body {
-              body
             }
         }
         contentfulHeader {

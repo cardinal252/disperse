@@ -10,10 +10,6 @@ const Navbar = () => {
 			  src
 			}
 		}
-		contentfulMenuArticleA {
-			articleTitle
-			component
-		  }
 		contentfulMenuArticleE {
 			articleTitle
 			component
@@ -119,7 +115,7 @@ const Navbar = () => {
 
 
 							<li className="has-submenu">
-								<Link to={`/${data.contentfulMenuArticleA.slug}`}>{data.contentfulMenuArticleA.articleTitle}</Link>
+								<Link to={`/${data.contentfulMenuArticleB.slug}`}>{data.contentfulMenuArticleB.articleTitle}</Link>
 								<ul className="submenu">
 									{data.telephone.edges.map((edge) => {
 										return (

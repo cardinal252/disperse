@@ -1,6 +1,6 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../components/MainElements.css'
+import '../components/main-elements.css'
 import Mobarticles from '../articles/mobilearticles'
 const Mobile = () => {
 
