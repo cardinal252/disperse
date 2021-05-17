@@ -1,6 +1,6 @@
 import React from "react"
 import HeroSection from "../components/HeroSection"
-import Layout from "../components/layout"
+import Layout from "../components/layout/layout.js"
 import Seo from "../components/seo"
 import Main from './components/index'
 import { graphql } from 'gatsby'

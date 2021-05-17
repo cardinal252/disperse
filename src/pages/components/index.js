@@ -1,7 +1,4 @@
 import React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../components/main-elements.css'
-import '../components/template.css'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 
 

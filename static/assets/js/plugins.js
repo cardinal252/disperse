@@ -9724,7 +9724,7 @@ $.magnificPopup.registerModule(AJAX_NS, {
 	options: {
 		settings: null,
 		cursor: 'mfp-ajax-cur',
-		tError: '<Link to="%url%">The content</Link> could not be loaded.'
+		tError: '<a href="%url%">The content</a> could not be loaded.'
 	},
 
 	proto: {
@@ -9821,7 +9821,7 @@ $.magnificPopup.registerModule('image', {
 		cursor: 'mfp-zoom-out-cur',
 		titleSrc: 'title',
 		verticalFit: true,
-		tError: '<Link to="%url%">The image</Link> could not be loaded.'
+		tError: '<a href="%url%">The image</a> could not be loaded.'
 	},
 
 	proto: {
@@ -10999,7 +10999,7 @@ $.magnificPopup.registerModule(RETINA_NS, {
               slide = slider.slides.eq(i);
               if ( undefined === slide.attr( 'data-thumb-alt' ) ) { slide.attr( 'data-thumb-alt', '' ); }
               altText = ( '' !== slide.attr( 'data-thumb-alt' ) ) ? altText = ' alt="' + slide.attr( 'data-thumb-alt' ) + '"' : '';
-              item = (slider.vars.controlNav === "thumbnails") ? '<img src="' + slide.attr( 'data-thumb' ) + '"' + altText + '/>' : '<Link to="#">' + j + '</Link>';
+              item = (slider.vars.controlNav === "thumbnails") ? '<img src="' + slide.attr( 'data-thumb' ) + '"' + altText + '/>' : '<a href="#">' + j + '</a>';
               if ( 'thumbnails' === slider.vars.controlNav && true === slider.vars.thumbCaptions ) {
                 var captn = slide.attr( 'data-thumbcaption' );
                 if ( '' !== captn && undefined !== captn ) { item += '<span class="' + namespace + 'caption">' + captn + '</span>'; }
@@ -11069,7 +11069,7 @@ $.magnificPopup.registerModule(RETINA_NS, {
         },
         update: function(action, pos) {
           if (slider.pagingCount > 1 && action === "add") {
-            slider.controlNavScaffold.append($('<li><Link to="#">' + slider.count + '</Link></li>'));
+            slider.controlNavScaffold.append($('<li><a href="#">' + slider.count + '</a></li>'));
           } else if (slider.pagingCount === 1) {
             slider.controlNavScaffold.find('li').remove();
           } else {
@@ -11081,7 +11081,7 @@ $.magnificPopup.registerModule(RETINA_NS, {
       },
       directionNav: {
         setup: function() {
-          var directionNavScaffold = $('<ul class="' + namespace + 'direction-nav"><li class="' + namespace + 'nav-prev"><a class="' + namespace + 'prev" href="#">' + slider.vars.prevText + '</Link></li><li class="' + namespace + 'nav-next"><a class="' + namespace + 'next" href="#">' + slider.vars.nextText + '</Link></li></ul>');
+          var directionNavScaffold = $('<ul class="' + namespace + 'direction-nav"><li class="' + namespace + 'nav-prev"><a class="' + namespace + 'prev" href="#">' + slider.vars.prevText + '</a></li><li class="' + namespace + 'nav-next"><a class="' + namespace + 'next" href="#">' + slider.vars.nextText + '</a></li></ul>');
 
           // CUSTOM DIRECTION NAV:
           if (slider.customDirectionNav) {
@@ -11132,7 +11132,7 @@ $.magnificPopup.registerModule(RETINA_NS, {
       },
       pausePlay: {
         setup: function() {
-          var pausePlayScaffold = $('<div class="' + namespace + 'pauseplay"><Link to="#"></Link></div>');
+          var pausePlayScaffold = $('<div class="' + namespace + 'pauseplay"><a href="#"></a></div>');
 
           // CONTROLSCONTAINER:
           if (slider.controlsContainer) {
@@ -14143,8 +14143,8 @@ if (typeof Object.create !== "function") {
             op += '<p class="tweet">' + strip(tweets[n].innerHTML) + '</p>';
             if (printTime) {
               if (permalinks) {
-                op += '<p class="timePosted"><Link to="' + permalinksURL[n] +
-                   '">' + times[n].getAttribute('aria-label') + '</Link></p>';
+                op += '<p class="timePosted"><a href="' + permalinksURL[n] +
+                   '">' + times[n].getAttribute('aria-label') + '</a></p>';
               } else {
                 op += '<p class="timePosted">' +
                     times[n].getAttribute('aria-label') + '</p>';
@@ -14171,16 +14171,16 @@ if (typeof Object.create !== "function") {
             }
           }
           if (showInteractionLinks) {
-            op += '<p class="interact"><Link to="https://twitter.com/intent/' +
+            op += '<p class="interact"><a href="https://twitter.com/intent/' +
                 'tweet?in_reply_to=' + tids[n] +
                 '" class="twitter_reply_icon"' +
                 (targetBlank ? ' target="_blank">' : '>') +
-                'Reply</Link><Link to="https://twitter.com/intent/retweet?' +
+                'Reply</a><a href="https://twitter.com/intent/retweet?' +
                 'tweet_id=' + tids[n] + '" class="twitter_retweet_icon"' +
-                (targetBlank ? ' target="_blank">' : '>') + 'Retweet</Link>' +
-                '<Link to="https://twitter.com/intent/favorite?tweet_id=' +
+                (targetBlank ? ' target="_blank">' : '>') + 'Retweet</a>' +
+                '<a href="https://twitter.com/intent/favorite?tweet_id=' +
                 tids[n] + '" class="twitter_fav_icon"' +
-                (targetBlank ? ' target="_blank">' : '>') + 'Favorite</Link></p>';
+                (targetBlank ? ' target="_blank">' : '>') + 'Favorite</a></p>';
           }
           if (showImages && images[n] !== undefined && extractImageUrl(images[n]) !== undefined) {
             op += '<div class="media">' +

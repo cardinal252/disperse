@@ -27,10 +27,10 @@ const News = () => {
   return (
       <div className="container pt30 pb30">
         <Head title="Blog" />  
-        <ol className={blogStyles.posts}>
+        <ol className="posts">
           {data.allContentfulBlogPost.edges.map((edge) => {
             return  (
-              <li key={edge.node.id} className={blogStyles.post}>
+              <li key={edge.node.id} className="post">
                 <Link to={`/${edge.node.slug}`}>
                   <div className="col-lg-4">
                     <h2>{edge.node.title}</h2>

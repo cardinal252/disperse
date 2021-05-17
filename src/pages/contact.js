@@ -1,6 +1,5 @@
 import React from "react"
-import "../../src/components/layout.css"
-import Layout from "../components/layout"
+import Layout from "../components/layout/layout.js"
 import Seo from "../components/seo"
 import { graphql, Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

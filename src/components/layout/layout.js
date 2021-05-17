@@ -1,11 +1,11 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import Footer from "./Footer"
-import useScript from '../hooks/useScript'
+import Footer from "../Footer"
+import useScript from '../../hooks/useScript'
 
 
-import Navbar from "./Navbar"
+import Navbar from "../Navbar"
 import "./layout.css"
 
 const Layout = ({ children }) => {
