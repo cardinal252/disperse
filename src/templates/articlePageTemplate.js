@@ -3,13 +3,13 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import Head from '../components/head'
-import SEO from '../components/seo.js'
+import Seo from '../components/seo.js'
 
 const ArticlePageTemplate = (props) => {
 
     return (
         <Layout>
-            <SEO title={props.data.page.browserTitle ?? props.data.page.title} />
+            <Seo title={props.data.page.browserTitle ?? props.data.page.title} />
             <Head title={props.data.page.title} />
             <div className="templates pt80"></div>
             <div className="container pt30">

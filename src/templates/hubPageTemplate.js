@@ -3,13 +3,13 @@ import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import Head from '../components/head'
-import SEO from '../components/seo.js'
+import Seo from '../components/seo.js'
 
 const HubPageTemplate = (props) => {
 
     return (
         <Layout>
-            <SEO title="Connectivity" />
+            <Seo title="Connectivity" />
             <Head title={props.data.page.title} />
             <h1 className="portfolio">{props.data.page.title}</h1>
             <div className="container pt30 pb30">
@@ -71,8 +71,8 @@ export const query = graphql`
                     body
                 }
                 image {
-                    fluid {
-                        src
+                    file {
+                        url
                     }
                 }
               }

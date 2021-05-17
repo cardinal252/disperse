@@ -1,7 +1,7 @@
 import React from "react"
 import "../../src/components/layout.css"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import { graphql, Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -21,7 +21,7 @@ import {
 const ContactPage = ({ data }) => {
   return (
     <Layout>
-      <SEO title="Contact" />
+      <Seo title="Contact" />
       <h1 className="contact">{data.page.title}</h1>
       <div className="container pt90 pb50">
         <div className="row">
