@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/layout/layout.js'
-import Head from '../components/head'
 import Seo from '../components/seo.js'
 
 const ArticlePageTemplate = (props) => {
@@ -10,7 +9,6 @@ const ArticlePageTemplate = (props) => {
     return (
         <Layout>
             <Seo title={props.data.page.browserTitle ?? props.data.page.title} />
-            <Head title={props.data.page.title} />
             <div className="templates pt80"></div>
             <div className="container pt30">
                 <h1 className="news">{props.data.page.title}</h1>

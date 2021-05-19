@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
+import '../../components/MainElements.css'
 
 
 const Main = () => {
@@ -51,13 +52,9 @@ const Main = () => {
                 }
             }
         }
-        contentfulHeader {
-            header
-            subheader
-        }
-        contentfulHeader {
-            header
-            subheader
+        contentfulHomePage {
+            featuredHeader
+            featuredSubheader
         }
       }
   `)
@@ -91,10 +88,10 @@ return (
             <div  className="container">
 
 <div  className="row">
-    <div  className="col-sm-12 col-sm-offset-3">
+    <div  className="col-sm-12">
         <div  className="module-header text-center">
-            <h2  className="montserrat text-uppercase">{data.contentfulHeader.header}</h2>
-            <p  className="lead divider-line">{data.contentfulHeader.subheader}</p>
+            <h2  className="montserrat text-uppercase">{data.contentfulHomePage.featuredHeader}</h2>
+            <p  className="lead divider-line">{data.contentfulHomePage.featuredSubheader}</p>
         </div>
     </div>
 </div>

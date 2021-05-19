@@ -2,7 +2,6 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/layout/layout.js'
-import Head from '../components/head'
 import Seo from '../components/seo.js'
 
 const HubPageTemplate = (props) => {
@@ -10,7 +9,6 @@ const HubPageTemplate = (props) => {
     return (
         <Layout>
             <Seo title="Connectivity" />
-            <Head title={props.data.page.title} />
             <h1 className="portfolio">{props.data.page.title}</h1>
             <div className="container pt30 pb30">
                 <div>
