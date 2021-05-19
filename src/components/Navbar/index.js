@@ -10,36 +10,41 @@ const Navbar = () => {
 			  src
 			}
 		}
-		contentfulMenuArticleE {
-			articleTitle
-			component
+		telephonetitle: contentfulMain(section: {name: {eq: "Telephone Systems"}}) {
+			title
+			slug
 		  }
-		contentfulMenuArticleD {
-			articleTitle
-			component
+		linestitle: contentfulMain(section: {name: {eq: "Lines"}}) {
+			title
+			slug
 		  } 
-		contentfulMenuArticleF {
-			articleTitle
-			component
+		mobiletitle: contentfulMain(section: {name: {eq: "Mobile"}}) {
+			title
+			slug
+		  }  
+		connectivitytitle: contentfulMain(section: {name: {eq: "Connectivity"}}) {
+			title
+			slug
+		  }  
+		businessservicestitle: contentfulMain(section: {name: {eq: "Business Services"}}) {
+			title
+			slug
 		  } 
-		contentfulMenuArticleB {
-			articleTitle
-			component
-		  } 
-		contentfulMenuArticleC {
-			articleTitle
-			component
-		  }     
+		computerservicestitle: contentfulMain(section: {name: {eq: "Computer Services"}}) {
+			title
+			slug
+		  }      
 		telephone: allContentfulArticlePage(filter: {section: {key: {eq: "telephone-systems"}}}) {
 			edges {
 				node {
 					id  
 					title
 					slug
+					articleTitle
 				}
 			}
 		}
-		allContentfulMenuArticleB {
+		lines: allContentfulArticlePage(filter: {section: {key: {eq: "lines"}}}) {
 			edges {
 				node {
 					id  
@@ -48,7 +53,7 @@ const Navbar = () => {
 				}
 			}
 		}  
-		allContentfulMenuArticleC {
+		mobile: allContentfulArticlePage(filter: {section: {key: {eq: "mobile"}}}) {
 			edges {
 				node {
 					id  
@@ -57,7 +62,7 @@ const Navbar = () => {
 				}
 			}
 		} 
-		allContentfulMenuArticleD {
+		connectivity: allContentfulArticlePage(filter: {section: {key: {eq: "connectivity"}}}) {
 			edges {
 				node {
 					id  
@@ -66,7 +71,7 @@ const Navbar = () => {
 				}
 			}
 		}  
-		allContentfulMenuArticleE {
+		businessservices: allContentfulArticlePage(filter: {section: {key: {eq: "business-services"}}}) {
 			edges {
 				node {
 					id  
@@ -75,7 +80,7 @@ const Navbar = () => {
 				}
 			}
 		} 
-		allContentfulMenuArticleF {
+		computerservices: allContentfulArticlePage(filter: {section: {key: {eq: "computer-services"}}}) {
 			edges {
 				node {
 					id  
@@ -115,7 +120,7 @@ const Navbar = () => {
 
 
 							<li className="has-submenu">
-								<Link to={`/${data.contentfulMenuArticleB.slug}`}>{data.contentfulMenuArticleB.articleTitle}</Link>
+								<Link to={`/${data.telephonetitle.slug}`}>{data.telephonetitle.title}</Link>
 								<ul className="submenu">
 									{data.telephone.edges.map((edge) => {
 										return (
@@ -133,9 +138,9 @@ const Navbar = () => {
 							</li>
 
 							<li className="has-submenu">
-								<Link to={`/${data.contentfulMenuArticleB.component}`}>{data.contentfulMenuArticleB.articleTitle}</Link>
+								<Link to={`/${data.linestitle.slug}`}>{data.linestitle.title}</Link>
 								<ul className="submenu">
-									{data.allContentfulMenuArticleB.edges.map((edge) => {
+									{data.lines.edges.map((edge) => {
 										return (
 											<li key={edge.node.id} className="has-submenu">
 												<Link to={`/${edge.node.slug}`}>{edge.node.title}</Link>
@@ -151,9 +156,9 @@ const Navbar = () => {
 							</li>
 
 							<li className="has-submenu">
-								<Link to={`/${data.contentfulMenuArticleC.component}`}>{data.contentfulMenuArticleC.articleTitle}</Link>
+								<Link to={`/${data.mobiletitle.slug}`}>{data.mobiletitle.title}</Link>
 								<ul className="submenu">
-									{data.allContentfulMenuArticleC.edges.map((edge) => {
+									{data.mobile.edges.map((edge) => {
 										return (
 											<li key={edge.node.id} className="has-submenu">
 												<Link to={`/${edge.node.slug}`}>{edge.node.title}</Link>
@@ -169,9 +174,9 @@ const Navbar = () => {
 							</li>
 
 							<li className="has-submenu">
-								<Link to={`/${data.contentfulMenuArticleD.component}`}>{data.contentfulMenuArticleD.articleTitle}</Link>
+								<Link to={`/${data.connectivitytitle.slug}`}>{data.connectivitytitle.title}</Link>
 								<ul className="submenu">
-									{data.allContentfulMenuArticleD.edges.map((edge) => {
+									{data.connectivity.edges.map((edge) => {
 										return (
 											<li key={edge.node.id} className="has-submenu">
 												<Link to={`/${edge.node.slug}`}>{edge.node.title}</Link>
@@ -187,9 +192,9 @@ const Navbar = () => {
 							</li>
 
 							<li className="has-submenu">
-								<Link to={`/${data.contentfulMenuArticleE.component}`}>{data.contentfulMenuArticleE.articleTitle}</Link>
+								<Link to={`/${data.businessservicestitle.slug}`}>{data.businessservicestitle.title}</Link>
 								<ul className="submenu">
-									{data.allContentfulMenuArticleE.edges.map((edge) => {
+									{data.businessservices.edges.map((edge) => {
 										return (
 											<li key={edge.node.id} className="has-submenu">
 												<Link to={`/${edge.node.slug}`}>{edge.node.title}</Link>
@@ -205,9 +210,9 @@ const Navbar = () => {
 							</li>
 
 							<li className="has-submenu">
-								<Link to={`/${data.contentfulMenuArticleF.component}`}>{data.contentfulMenuArticleF.articleTitle}</Link>
+								<Link to={`/${data.computerservicestitle.slug}`}>{data.computerservicestitle.title}</Link>
 								<ul className="submenu">
-									{data.allContentfulMenuArticleF.edges.map((edge) => {
+									{data.computerservices.edges.map((edge) => {
 										return (
 											<li key={edge.node.id} className="has-submenu">
 												<Link to={`/${edge.node.slug}`}>{edge.node.title}</Link>

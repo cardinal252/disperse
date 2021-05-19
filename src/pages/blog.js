@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
-import blogStyles from './blog.module.css' 
 
 
 const News = () => {

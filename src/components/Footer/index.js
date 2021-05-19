@@ -46,6 +46,7 @@ const Footer = () => {
             }
         }
         contentfulHomePage {
+            title
             featuredHeader
         }
         contentfulContactPage {
@@ -72,11 +73,11 @@ const Footer = () => {
                             <li key={edge.node.id}>
                                 <div className="row">
                                     <div className="col-md-3 widget-posts-image">
-                                        <img src={edge.node.icon.resize.src} alt={edge.node.pageTitle} />
+                                        <img src={edge.node.icon.resize.src} alt={edge.node.title} />
                                     </div>
-                                    <div className="col-md-8 widget-posts-body">
-                                        <Link to={`${edge.node.pageTitle}`}>   
-                                            <h6>{edge.node.pageTitle}</h6>
+                                    <div className="col-md-7 widget-posts-body">
+                                        <Link to={`${edge.node.slug}`}>   
+                                            <h6>{edge.node.title}</h6>
                                         </Link>
                                     </div>
                                 </div>
@@ -183,8 +184,8 @@ const Footer = () => {
                 </div>                    
             </div>
             <div className="row text-center">
-                <div className="col-lg-6 mr-auto ml-auto">
-                © Copyright {new Date().getFullYear()} Disperse
+                <div className="col-lg-12 mr-auto ml-auto">
+                © Copyright {new Date().getFullYear()} {data.contentfulHomePage.title}
                 
                 </div>
             </div>

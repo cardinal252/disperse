@@ -22,7 +22,9 @@ const HubPageTemplate = (props) => {
                             <li key={edge.node.id} className="post">
                                 <Link to={`/${edge.node.slug}`}>
                                     <div className="row">
-                                        <h2>{edge.node.title}</h2>
+                                        <div className="col-lg-12">
+                                            <h2>{edge.node.title}</h2>
+                                        </div>    
                                     </div>
                                     <div className="row">
                                         <div className="col-lg-8">
