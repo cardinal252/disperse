@@ -20,6 +20,7 @@ module.exports = {
     `@contentful/rich-text-react-renderer`,
     `@contentful/gatsby-transformer-contentful-richtext`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-excerpts`,
     {
       resolve: `gatsby-plugin-manifest`,

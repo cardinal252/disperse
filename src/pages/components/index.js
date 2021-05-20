@@ -70,7 +70,7 @@ return (
                             <p>{data.contentfulMain.body.body}</p>
                         
                     </div>    
-                    <div  className='col-md-7 ml-auto'>
+                    <div  className='col-md-7'>
                         <div  className='row'>
                             {data.allContentfulMain.edges.map((edge) => {
                                 return  (

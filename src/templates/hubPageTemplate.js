@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 import Layout from '../components/layout/layout.js'
 import Seo from '../components/seo.js'
@@ -30,14 +31,14 @@ const HubPageTemplate = (props) => {
                                         <div className="col-lg-8">
                                             <p>{edge.node.body.body}</p>
                                         </div>
-                                        {edge.node.image &&
-                                            <div className="col-lg-4">
-                                                <img
-                                                    src={edge.node.image?.fluid.src}
-                                                    alt={edge.node.title}
-                                                />
-                                            </div>
-                                        }
+                                        
+                                        <div className="col-lg-4">
+                                            <GatsbyImage
+                                                src={edge.node.image.gatsbyImageData}
+                                                alt={edge.node.title}
+                                            />
+                                        </div>
+                                        
                                     </div>
                                 </Link>
                             </li>
@@ -71,9 +72,7 @@ export const query = graphql`
                     body
                 }
                 image {
-                    fluid {
-                        src
-                    }
+                    gatsbyImageData(width: 300, layout: FIXED)
                 }
               }
             }
