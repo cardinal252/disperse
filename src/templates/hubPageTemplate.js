@@ -1,16 +1,16 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import { GatsbyImage } from 'gatsby-plugin-image'
 
 import Layout from '../components/layout/layout.js'
 import Seo from '../components/seo.js'
 
-const HubPageTemplate = (props) => {
 
+
+const HubPageTemplate = (props) => {
     return (
         <Layout>
             <Seo title="Connectivity" />
-            <h1 className="portfolio">{props.data.page.title}</h1>
+            <h1 className="topban" style={{backgroundImage: `url(${props.data.page.topBanner.fluid.src})`, backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat'}}>{props.data.page.title}</h1>
             <div className="container pt30 pb30">
                 <div>
                     <h1>{props.data.page.header}</h1>
@@ -33,10 +33,12 @@ const HubPageTemplate = (props) => {
                                         </div>
                                         
                                         <div className="col-lg-4">
-                                            <GatsbyImage
-                                                src={edge.node.image.gatsbyImageData}
+                                        {props.data.page.image &&
+                                            <img
+                                                src={edge.node.image.fluid.src}
                                                 alt={edge.node.title}
                                             />
+                                        }    
                                         </div>
                                         
                                     </div>
@@ -61,6 +63,11 @@ export const query = graphql`
             body {
                 body
             }
+            topBanner {
+                fluid {
+                    src
+                }
+            }
         }
         articles: allContentfulArticlePage(filter: {section: {id: {eq: $sectionId}}}) {
             edges {
@@ -72,7 +79,9 @@ export const query = graphql`
                     body
                 }
                 image {
-                    gatsbyImageData(width: 300, layout: FIXED)
+                    fluid(maxWidth: 400) {
+                        src
+                    }
                 }
               }
             }

@@ -142,23 +142,23 @@ const Footer = () => {
                         </div> 
                         <div className="col-lg-6 clearfix social">
                                 <Link to="#" className="social-icon si-facebook">
-                                <FontAwesomeIcon icon={faFacebook} size="2x" />
+                                <FontAwesomeIcon icon={faFacebook} size="1x" />
                             
                                 </Link>
                                 <Link to="#" className="social-icon si-border si-twitter">
-                                <FontAwesomeIcon icon={faTwitter} size="2x" />
+                                <FontAwesomeIcon icon={faTwitter} size="1x" />
                             
                                 </Link>
                                 <Link to="#" className="social-icon si-border si-g-plus">
-                                <FontAwesomeIcon icon={faGooglePlus} size="2x" />
+                                <FontAwesomeIcon icon={faGooglePlus} size="1x" />
                                 
                                 </Link>
                                 <Link to="#" className="social-icon si-border si-skype">
-                                <FontAwesomeIcon icon={faSkype} size="2x" />
+                                <FontAwesomeIcon icon={faSkype} size="1x" />
                                 
                                 </Link>
                                 <Link to="#" className="social-icon si-border si-linkedin">
-                                <FontAwesomeIcon icon={faLinkedin} size="2x" />
+                                <FontAwesomeIcon icon={faLinkedin} size="1x" />
                             
                                 </Link>
                         </div>         

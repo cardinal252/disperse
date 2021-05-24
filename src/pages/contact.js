@@ -1,6 +1,7 @@
 import React from "react"
 import Layout from "../components/layout/layout.js"
 import Seo from "../components/seo"
+
 import { graphql, Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -21,7 +22,7 @@ const ContactPage = ({ data }) => {
   return (
     <Layout>
       <Seo title="Contact" />
-      <h1 className="contact">{data.page.title}</h1>
+      <h1 className="contact" style={{backgroundImage: `url(${data.page.topBanContact.fluid.src})`, backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat'}}>{data.page.title}</h1>
       <div className="container pt90 pb50">
         <div className="row">
           <div className="col-md-6 mb40">
@@ -36,23 +37,23 @@ const ContactPage = ({ data }) => {
             <h4 className="text-uppercase">Social</h4>
             <div className="clearfix pt10">
               <Link to="#" class="social-icon si-border si-facebook">
-                <FontAwesomeIcon icon={faFacebook} size="1x" />
+                <FontAwesomeIcon icon={faFacebook} size="2x" />
 
               </Link>
               <Link to="#" className="social-icon si-border si-twitter">
-                <FontAwesomeIcon icon={faTwitter} size="1x" />
+                <FontAwesomeIcon icon={faTwitter} size="2x" />
 
               </Link>
               <Link to="#" className="social-icon si-border si-g-plus">
-                <FontAwesomeIcon icon={faGooglePlus} size="1x" />
+                <FontAwesomeIcon icon={faGooglePlus} size="2x" />
 
               </Link>
               <Link to="#" className="social-icon si-border si-skype">
-                <FontAwesomeIcon icon={faSkype} size="1x" />
+                <FontAwesomeIcon icon={faSkype} size="2x" />
 
               </Link>
               <Link to="#" className="social-icon si-border si-linkedin">
-                <FontAwesomeIcon icon={faLinkedin} size="1x" />
+                <FontAwesomeIcon icon={faLinkedin} size="2x" />
 
               </Link>
             </div>
@@ -148,6 +149,11 @@ export const query = graphql`
           internal {
             content
           }
+        }
+        topBanContact {
+          fluid {
+            src
+          } 
         }             
       }
     }`;

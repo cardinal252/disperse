@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
-import '../../components/MainElements.css'
+
 
 
 const Main = () => {
