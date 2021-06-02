@@ -12,9 +12,7 @@ const Main = () => {
               node {
                 id  
                 title
-                subheader {
-                  subheader
-                }
+                summary 
                 servicesImage {
                   resize(height: 200) {
                     src
@@ -77,7 +75,8 @@ return (
                                     <div key={edge.node.id} className='col-md-6 mb30 text-center'>
                                         <img className="mb30" src={edge.node.servicesImage.resize.src} alt={edge.node.title} />
                                         <h5 className='text-uppercase mb20'>{edge.node.title}</h5>
-                                        <p>{edge.node.subheader.subheader}</p>
+                                        <h5>{edge.node.summary}</h5>
+                                        <Link>Read More..</Link>
                                     </div>      
                                 )    
                             })} 
