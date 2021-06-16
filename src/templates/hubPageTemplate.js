@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Layout from '../components/layout/layout.js'
 import Seo from '../components/seo.js'
@@ -7,6 +8,7 @@ import Seo from '../components/seo.js'
 
 
 const HubPageTemplate = (props) => {
+    
     return (
         <Layout>
             <Seo title="Connectivity" />
@@ -33,12 +35,12 @@ const HubPageTemplate = (props) => {
                                         </div>
                                         
                                         <div className="col-lg-4">
-                                        {props.data.page.image &&
-                                            <img
-                                                src={edge.node.image.fluid.src}
+                                        {edge.node.image && 
+                                            <GatsbyImage
+                                                image={getImage(edge.node.image)}
                                                 alt={edge.node.title}
                                             />
-                                        }    
+                                        }   
                                         </div>
                                         
                                     </div>
@@ -79,10 +81,8 @@ export const query = graphql`
                     body
                 }
                 image {
-                    fluid(maxWidth: 400) {
-                        src
-                    }
-                }
+                    gatsbyImageData(width: 400)
+                  }
               }
             }
         }

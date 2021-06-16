@@ -76,7 +76,7 @@ return (
                                         <img className="mb30" src={edge.node.servicesImage.resize.src} alt={edge.node.title} />
                                         <h5 className='text-uppercase mb20'>{edge.node.title}</h5>
                                         <h5>{edge.node.summary}</h5>
-                                        <Link>Read More..</Link>
+                                        <Link to="/"  className="btn btn-lg btn-link btn-base">Read more ›</Link> 
                                     </div>      
                                 )    
                             })} 

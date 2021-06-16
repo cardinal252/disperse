@@ -13,6 +13,7 @@ import {
     faSkype,
     faLinkedin,
   } from '@fortawesome/free-brands-svg-icons'
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const Footer = () => {
     const data = useStaticQuery(graphql`
@@ -22,9 +23,7 @@ const Footer = () => {
               node {
                 id  
                 icon {
-                  resize(width: 20) {
-                    src
-                  }
+                  gatsbyImageData(width: 20) 
                 }
                 title
               }
@@ -36,11 +35,8 @@ const Footer = () => {
                     id
                     title
                     slug
-                    publishedDate(formatString:"MMMM Do, YYYY")
                     media {
-                        resize(width: 200, height: 200) {
-                          src
-                        }
+                        gatsbyImageData(width: 200, height: 200) 
                     }
                 }
             }
@@ -73,7 +69,7 @@ const Footer = () => {
                             <li key={edge.node.id}>
                                 <div className="row">
                                     <div className="col-md-3 widget-posts-image">
-                                        <img src={edge.node.icon.resize.src} alt={edge.node.title} />
+                                        <GatsbyImage image={getImage(edge.node.icon)} alt={edge.node.title} />
                                     </div>
                                     <div className="col-md-7 widget-posts-body">
                                         <Link to={`${edge.node.slug}`}>   
@@ -96,7 +92,7 @@ const Footer = () => {
                             <li key={edge.node.id}>
                                 <div className="row">
                                     <div className="col-md-3 widget-posts-image">
-                                        <img src={edge.node.media.resize.src} alt={edge.node.title} />
+                                        <GatsbyImage image={getImage(edge.node.media)} alt={edge.node.title} />
                                     </div>
                                     <div className="col-md-8 widget-posts-body">
                                         <Link to={`/news/${edge.node.slug}`}>   

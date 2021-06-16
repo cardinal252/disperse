@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/layout/layout.js'
 import Seo from '../components/seo.js'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 const ArticlePageTemplate = (props) => {
 
@@ -12,9 +13,10 @@ const ArticlePageTemplate = (props) => {
             <div className="templates pt80"></div>
             <div className="container pt30">
                 <h1 className="news">{props.data.page.title}</h1>
-                {props.data.page.image &&
-                    <img
-                        src={props.data.page.image.fluid.src}
+                {props.data.page.image && 
+                    <GatsbyImage
+                        image={getImage(props.data.page.image)}
+                       
                         alt={props.data.page.title}
                     />
                 }
@@ -32,10 +34,8 @@ export const query = graphql`
                 body
             }
             image {
-                fluid(maxWidth: 500) {
-                    src
-                }
-            }
+                gatsbyImageData(width: 400)
+              }
         }
     }
 `
