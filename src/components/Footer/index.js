@@ -44,6 +44,8 @@ const Footer = () => {
         contentfulHomePage {
             title
             featuredHeader
+            servicesHeader
+            contactHeader
         }
         contentfulContactPage {
             address 
@@ -62,7 +64,7 @@ const Footer = () => {
             <div className="row">
                 <div className="col-lg-3 col-md-6">
                     <div className="widget">
-                    <h6 className="montserrat text-uppercase bottom-line">WHAT WE DO</h6>
+                    <h6 className="montserrat text-uppercase bottom-line">{data.contentfulHomePage.servicesHeader}</h6>
                     <ul className="recent-posts">
                         {data.allContentfulMain.edges.map((edge) => {
                             return  (
@@ -94,7 +96,7 @@ const Footer = () => {
                                     <div className="col-md-3 widget-posts-image">
                                         <GatsbyImage image={getImage(edge.node.media)} alt={edge.node.title} />
                                     </div>
-                                    <div className="col-md-8 widget-posts-body">
+                                    <div className="col-md-7 widget-posts-body">
                                         <Link to={`/news/${edge.node.slug}`}>   
                                             <h6>{edge.node.title}</h6>
                                             <p>{edge.node.publishedDate}</p>
@@ -110,7 +112,7 @@ const Footer = () => {
                 <div className="col-lg-6">
                     <div className="row">
                         <div className="col-lg-12">
-                        <h6 className="montserrat text-uppercase bottom-line">Contact Us</h6>
+                        <h6 className="montserrat text-uppercase bottom-line">{data.contentfulHomePage.contactHeader}</h6>
                             <div className="row">
                                 <div className="col-lg-6">
                                     <div className="widget">

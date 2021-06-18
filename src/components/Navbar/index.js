@@ -1,15 +1,17 @@
 import React from 'react'
 import Logo from '../../images/logo-white.png'
 import { Link, graphql, useStaticQuery } from 'gatsby'
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const Navbar = () => {
 	const data = useStaticQuery(graphql`
 	query {
-		contentfulAsset(title: {eq: "Logo white"}) {
-			resize {
-			  src
+		logodark:  contentfulIcons(title: {eq: "Logo Light"}) {
+			title
+			icon {
+			  gatsbyImageData(width: 200)
 			}
-		}
+		  }
 		telephonetitle: contentfulMain(section: {name: {eq: "Telephone Systems"}}) {
 			title
 			slug
@@ -100,8 +102,17 @@ const Navbar = () => {
 
 					<div className="inner-header">
 						<Link className="inner-brand" to="/">
-							<img className="brand-light" src={data.contentfulAsset.resize.src} alt="" />
-							<img className="brand-dark" src={Logo} alt="" />
+							<GatsbyImage
+								className="brand-light"
+								image={getImage(data.logodark.icon)}
+								alt={data.logodark.title}
+							/>
+								<GatsbyImage
+								className="brand-dark"
+								image={getImage(data.logodark.icon)}
+								alt={data.logodark.title}
+							/>
+						
 						</Link>
 					</div>
 
@@ -126,11 +137,11 @@ const Navbar = () => {
 										return (
 											<li key={edge.node.id} className="has-submenu">
 												<Link to={`/${edge.node.slug}`}>{edge.node.title}</Link>
-												<ul className="submenu">
+												{/* <ul className="submenu">
 													<li><Link to="about-1.html">SubPage 1</Link></li>
 													<li><Link to="about-2.html">SubPage 2</Link></li>
 													<li><Link to="about-3.html">Subpage 3</Link></li>
-												</ul>
+												</ul> */}
 											</li>
 										)
 									})}
@@ -144,11 +155,11 @@ const Navbar = () => {
 										return (
 											<li key={edge.node.id} className="has-submenu">
 												<Link to={`/${edge.node.slug}`}>{edge.node.title}</Link>
-												<ul className="submenu">
+												{/*<ul className="submenu">
 													<li><Link to="about-1.html">SubPage 1</Link></li>
 													<li><Link to="about-2.html">SubPage 2</Link></li>
 													<li><Link to="about-3.html">Subpage 3</Link></li>
-												</ul>
+												</ul>*/}
 											</li>
 										)
 									})}
@@ -162,11 +173,11 @@ const Navbar = () => {
 										return (
 											<li key={edge.node.id} className="has-submenu">
 												<Link to={`/${edge.node.slug}`}>{edge.node.title}</Link>
-												<ul className="submenu">
+												{/*<ul className="submenu">
 													<li><Link to="about-1.html">SubPage 1</Link></li>
 													<li><Link to="about-2.html">SubPage 2</Link></li>
 													<li><Link to="about-3.html">Subpage 3</Link></li>
-												</ul>
+												</ul>*/}
 											</li>
 										)
 									})}
@@ -180,11 +191,11 @@ const Navbar = () => {
 										return (
 											<li key={edge.node.id} className="has-submenu">
 												<Link to={`/${edge.node.slug}`}>{edge.node.title}</Link>
-												<ul className="submenu">
+												{/*<ul className="submenu">
 													<li><Link to="about-1.html">SubPage 1</Link></li>
 													<li><Link to="about-2.html">SubPage 2</Link></li>
 													<li><Link to="about-3.html">Subpage 3</Link></li>
-												</ul>
+												</ul>*/}
 											</li>
 										)
 									})}
@@ -198,11 +209,11 @@ const Navbar = () => {
 										return (
 											<li key={edge.node.id} className="has-submenu">
 												<Link to={`/${edge.node.slug}`}>{edge.node.title}</Link>
-												<ul className="submenu">
+												{/*<ul className="submenu">
 													<li><Link to="about-1.html">SubPage 1</Link></li>
 													<li><Link to="about-2.html">SubPage 2</Link></li>
 													<li><Link to="about-3.html">Subpage 3</Link></li>
-												</ul>
+												</ul>*/}
 											</li>
 										)
 									})}
@@ -216,11 +227,11 @@ const Navbar = () => {
 										return (
 											<li key={edge.node.id} className="has-submenu">
 												<Link to={`/${edge.node.slug}`}>{edge.node.title}</Link>
-												<ul className="submenu">
+												{/*<ul className="submenu">
 													<li><Link to="about-1.html">SubPage 1</Link></li>
 													<li><Link to="about-2.html">SubPage 2</Link></li>
 													<li><Link to="about-3.html">Subpage 3</Link></li>
-												</ul>
+												</ul>*/}
 											</li>
 										)
 									})}
@@ -231,7 +242,7 @@ const Navbar = () => {
 
 							<li className="has-submenu">
 								<Link to="/contact">CONTACT</Link>
-								<ul className="submenu submenu-mega">
+								{/*<ul className="submenu submenu-mega">
 									<li>
 										<span className="submenu-title">Element 1</span>
 										<ul>
@@ -271,7 +282,7 @@ const Navbar = () => {
 											<li><Link to="components-typography.html"><i className="fa fa-font"></i> Element 4: 4</Link></li>
 										</ul>
 									</li>
-								</ul>
+								</ul>*/}
 							</li>
 
 						</ul>
