@@ -1,5 +1,4 @@
 import React from 'react'
-import Logo from '../../images/logo-white.png'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
@@ -103,12 +102,14 @@ const Navbar = () => {
 					<div className="inner-header">
 						<Link className="inner-brand" to="/">
 							<GatsbyImage
-								className="brand-light"
+								className="brand-dark"
 								image={getImage(data.logodark.icon)}
 								alt={data.logodark.title}
 							/>
 								<GatsbyImage
-								className="brand-dark"
+								imgStyle={{ position: "unset", height: "auto" }}
+								
+								className="brand-light"
 								image={getImage(data.logodark.icon)}
 								alt={data.logodark.title}
 							/>

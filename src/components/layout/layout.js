@@ -2,21 +2,22 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Footer from "../Footer"
-import useScript from '../../hooks/useScript'
+import "../../hooks/mountScript"
 
 
 import Navbar from "../Navbar"
 import "./layout.css"
 
+const addScript = url => {
+  const script = document.createElement("script")
+  script.src = url
+  script.async = true
+  document.body.appendChild(script)
+}  
+
 const Layout = ({ children }) => {
-  
-  useScript('/assets/js/jquery-2.2.3.min.js');
-  
  
-  useScript('/assets/js/plugins.js');
-  useScript('/assets/js/bootstrap.min.js');
-  useScript('/assets/js/custom.min.js');
-  
+
   Layout.propTypes = {
     children: PropTypes.node.isRequired,
   }
@@ -26,6 +27,11 @@ const Layout = ({ children }) => {
       <Navbar />
       <main>{children}</main>
       <Footer />
+      addScript("/assets/js/jquery-2.2.3.min.js")
+      addScript("/assets/js/plugins.js")
+      addScript("/assets/js/bootstrap.min.js")
+      addScript("/assets/js/custom.min.js")  
+  }
     </>
   )
 }

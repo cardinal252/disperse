@@ -5,7 +5,7 @@ class HeroSection extends React.Component {
     render() {
 
         return(
-            <div className="hero-container" style={{backgroundImage: `url(${this.props.topBanHome})`, backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat'}} pt60>
+            <div className="hero-container" style={{backgroundImage: `url(${this.props.topBanHome})`, backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat'}}>
                 <h2>{ this.props.title }</h2>
                 <p>{ this.props.subTitle }</p> 
             </div>

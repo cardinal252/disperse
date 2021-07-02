@@ -36,6 +36,7 @@ module.exports = {
     `@contentful/gatsby-transformer-contentful-richtext`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-image`,
+    
     `gatsby-plugin-excerpts`,
     {
       resolve: `gatsby-plugin-manifest`,
