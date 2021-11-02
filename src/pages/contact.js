@@ -1,7 +1,6 @@
 import React from "react"
-import Layout from "../components/layout/layout.js"
-import Seo from "../components/seo"
-
+import Layout from "../components/layout"
+import Head from "../components/head"
 import { graphql, Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -21,8 +20,8 @@ import {
 const ContactPage = ({ data }) => {
   return (
     <Layout>
-      <Seo title="Contact" />
-      <h1 className="contact" style={{backgroundImage: `url(${data.page.topBanContact.fluid.src})`, backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat'}}>{data.page.title}</h1>
+      <Head title="Contact" />
+      <h1 className="contact">{data.page.title}</h1>
       <div className="container pt90 pb50">
         <div className="row">
           <div className="col-md-6 mb40">
@@ -35,29 +34,29 @@ const ContactPage = ({ data }) => {
             <p>
               <Link to="/">{data.page.phone}</Link></p>
             <h4 className="text-uppercase">Social</h4>
-            <div className="clearfix pt10">
+            {/* <div className="clearfix pt10">
               <Link to="#" class="social-icon si-border si-facebook">
-                <FontAwesomeIcon icon={faFacebook} size="2x" />
+                <FontAwesomeIcon icon={faFacebook} size="1x" />
 
               </Link>
               <Link to="#" className="social-icon si-border si-twitter">
-                <FontAwesomeIcon icon={faTwitter} size="2x" />
+                <FontAwesomeIcon icon={faTwitter} size="1x" />
 
               </Link>
               <Link to="#" className="social-icon si-border si-g-plus">
-                <FontAwesomeIcon icon={faGooglePlus} size="2x" />
+                <FontAwesomeIcon icon={faGooglePlus} size="1x" />
 
               </Link>
               <Link to="#" className="social-icon si-border si-skype">
-                <FontAwesomeIcon icon={faSkype} size="2x" />
+                <FontAwesomeIcon icon={faSkype} size="1x" />
 
               </Link>
               <Link to="#" className="social-icon si-border si-linkedin">
-                <FontAwesomeIcon icon={faLinkedin} size="2x" />
+                <FontAwesomeIcon icon={faLinkedin} size="1x" />
 
               </Link>
-            </div>
-            <div className="smart-forms pt20">
+            </div> */}
+            {/* <div className="smart-forms pt20">
               <form method="post" action="smart-form/contact/php/smartprocess.php" id="smart-form">
 
                 <h4>Join Our Mailing List :</h4>
@@ -80,14 +79,14 @@ const ContactPage = ({ data }) => {
                   <button type="submit" data-btntext-sending="Sending..." className="button btn btn-primary">Submit</button>
                 </div>
               </form>
-            </div>
+            </div> */}
           </div>
           <div className="col-md-6 pb40">
             <h2>{data.page.formTitle}</h2>
             <p>{data.page.formIntro.internal.content}</p>
             <div className="smart-wrap">
               <div className="smart-forms smart-container">
-                <form method="post" action="smart-form/contact/php/smartprocess.php" id="smart-form">
+                <form method="post" action="mailto:Enquiries@sjdconsultancy.co.uk" id="smart-form">
                   <div className="form-body">
                     <div className="section">
                       <label className="field prepend-icon">
@@ -135,7 +134,7 @@ const ContactPage = ({ data }) => {
 
 export const query = graphql`
     query {
-      page: contentfulContactPage(id: {eq: "77e8e669-7cba-58c2-b83c-2ad7d3769bcb"}) {
+      page: contentfulContactPage {
         browserTitle
         title
         address 
@@ -149,11 +148,6 @@ export const query = graphql`
           internal {
             content
           }
-        }
-        topBanContact {
-          fluid {
-            src
-          } 
         }             
       }
     }`;

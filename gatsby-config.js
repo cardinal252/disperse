@@ -1,61 +1,33 @@
 module.exports = {
   siteMetadata: {
-    title: `disperse`,
-    description: `disperse`,
-    author: `JCM`,
+    siteUrl: `https://www.yourdomain.tld`,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-styled-components`,
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-source-contentful",
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-images-contentful`,
-            options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
-              maxWidth: 590,
-            },
-          },
-        ],
-      },
-    },
-    `gatsby-transformer-sharp`,
-    `@contentful/rich-text-types`,
-    `@contentful/rich-text-react-renderer`,
-    `@contentful/gatsby-transformer-contentful-richtext`,
-    `gatsby-plugin-sharp`,
-    `gatsby-plugin-image`,
-    `gatsby-plugin-excerpts`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `disperse`,
-        short_name: `disperse`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
-      },
-    },
-    {
-      resolve: `gatsby-source-contentful`,
-      options: {
+        accessToken: "VbH191mNYgFr6-tdCbEw1chl_INWUM9cXpji6AIpm00",
         spaceId: "0g51cwofkrus",
-        accessToken: "VbH191mNYgFr6-tdCbEw1chl_INWUM9cXpji6AIpm00"
       },
     },
-    `gatsby-plugin-fontawesome-css`,
+    "gatsby-plugin-image",
+    {
+      resolve: "gatsby-plugin-google-analytics",
+      options: {
+        trackingId: "1234",
+      },
+    },
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sitemap",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
+        path: "./src/images/",
+      },
+      __key: "images",
+    },
   ],
-}
+};
