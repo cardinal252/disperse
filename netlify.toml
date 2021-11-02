@@ -3,6 +3,4 @@
   command = "npm run build"
   functions = "lambda"
 [build.environment]
-  NODE_VERSION = "12.18.3"
-  YARN_VERSION = "1.22.10"
-  YARN_FLAGS = "--no-ignore-optional"
+  NODE_VERSION = "14.17.0"

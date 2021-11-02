@@ -3,73 +3,130 @@ const path = require('path')
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  await buildArticlePages();
+  getArticles().then(result => {
+    return createPages(result.data.pages.nodes, './src/templates/article.js');
+  });
 
-  await buildHubPages();
+  getBlogPosts().then(result => {
+    return createPages(result.data.pages.nodes, './src/templates/blog.js');
+  });  
+ /* getMenuArticleB().then(function(result){
+    createPages(result.data.allContentfulMenuArticleB.nodes, './src/templates/LinesCalls.js');
+  });
+  getMenuArticleC().then(function(result){
+    createPages(result.data.allContentfulMenuArticleC.nodes, './src/templates/Mobile.js');
+  });
+  getMenuArticleD().then(function(result){
+    createPages(result.data.allContentfulMenuArticleD.nodes, './src/templates/Connectivity.js');
+  });
+  getMenuArticleE().then(function(result){
+    createPages(result.data.allContentfulMenuArticleE.nodes, './src/templates/Business.js');
+  });
+  getMenuArticleF().then(function(result){
+    createPages(result.data.allContentfulMenuArticleF.nodes, './src/templates/Computer.js');
+  });
 
-  async function buildArticlePages() {
-    console.log('Writing the articles');
-    const result = await await graphql(`
+  async function getMenuArticleE() {
+    console.log('Writing the ls articles');
+    return await graphql(`
         query {
-          articles: allContentfulArticlePage {
+          allContentfulMenuArticleE {
             nodes {
-              id
               slug
             }
           }
         } 
     `);
-
-    if(result.errors){
-      reporter.panicOnBuild(`Error while running GraphQL query.`);
-      return;
-    }
-  
-    result.data.articles.nodes.forEach((content) => {
-        var template='./src/templates/articlePageTemplate.js';
-        console.log('Writing article page - ' + content.id);
-        createPage({
-          component: path.resolve(template),
-          path: `/${content.slug}`,
-          context: {
-            id: content.id
-          }
-        })
-    });
   }
 
-  async function buildHubPages() {
-    console.log('Writing the hubs');
-    const result = await await graphql(`
+  async function getMenuArticleD() {
+    console.log('Writing the ls articles');
+    return await graphql(`
         query {
-          hubs: allContentfulMain {
+          allContentfulMenuArticleD {
             nodes {
-              id
               slug
-              section {
-                id
-              }
             }
           }
         } 
     `);
-    
-    if(result.errors){
-      reporter.panicOnBuild(`Error while running GraphQL query.`);
-      return;
-    }
-  
-    result.data.hubs.nodes.forEach((content) => {
-        var template='./src/templates/hubPageTemplate.js';
-        console.log('Writing hub page - ' + content.id);
-        createPage({
-          component: path.resolve(template),
-          path: `/${content.slug}`,
-          context: {
-            id: content.id,
-            sectionId: content.section.id
+  }
+
+  async function getMenuArticleB() {
+    console.log('Writing the ls articles');
+    return await graphql(`
+        query {
+          allContentfulMenuArticleB {
+            nodes {
+              slug
+            }
           }
-        })
-    });
+        } 
+    `);
+  }
+
+  async function getMenuArticleC() {
+    console.log('Writing the ls articles');
+    return await graphql(`
+        query {
+          allContentfulMenuArticleC {
+            nodes {
+              slug
+            }
+          }
+        } 
+    `);
+  }*/
+
+  async function getArticles() {
+    console.log('Writing the Articles');
+    return await graphql(`
+        query {
+          pages: allContentfulArticlePage {
+            nodes {
+              slug
+            }
+          }
+        } 
+    `);
   }  
+
+  async function getBlogPosts() {
+    console.log('Writing the Blog Posts');
+    return await graphql(`
+        query {
+          pages: allContentfulBlogPost {
+            nodes {
+              slug
+            }
+          }
+        } 
+    `);
+  }    
+
+  /*async function getMenuArticleF() {
+    console.log('Writing the ts articles');
+    return await graphql(`
+        query {
+          allContentfulMenuArticleF {
+            nodes {
+              slug
+            }
+          }
+        } 
+    `);
+  } */
+
+  async function createPages(nodes, template){
+    return Promise.all(nodes.map(async (edge, i) => {
+      console.log(`Writing ${edge.slug}`)
+      createPage({
+        component: path.resolve(template),
+        path: `/${edge.slug}`,
+        context: {
+          slug: edge.slug
+        }
+      })
+    }));
+  }
 }

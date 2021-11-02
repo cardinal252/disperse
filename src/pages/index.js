@@ -1,15 +1,15 @@
 import React from "react"
-import HeroSection from "../components/HeroSection"
-import Layout from "../components/layout/layout.js"
-import Seo from "../components/seo"
-import Main from './components/index'
+import HeroSection from "../components/herosection"
+import Layout from "../components/layout"
+import Head from "../components/head"
+import Main from '../components/home'
 import { graphql } from 'gatsby'
 
 const IndexPage = ({ data }) => {
     return (
       <Layout>
-        <Seo title={ data.page.browserTitle } />
-        <HeroSection title={ data.page.title } subTitle={ data.page.subtitle } topBanHome={ data.page.topBanHome.fluid.src }/>
+        <Head title={ data.page.browserTitle } />
+        <HeroSection title={ data.page.title } subTitle={ data.page.subtitle } />
         <Main />
       </Layout>
     );
@@ -17,15 +17,10 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
     query {
-      page: contentfulHomePage(name: {eq: "Home"}) {
+      page: contentfulHomePage {
         browserTitle
         title
         subtitle
-        topBanHome {
-          fluid {
-            src
-          }
-        }
       }
     }`;
 
