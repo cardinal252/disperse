@@ -5,38 +5,11 @@ import Layout from "../components/layout"
 import Head from "../components/head"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 
-const News = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      page: contentfulBlogHubPage {
-        browserTitle
-        title
-        body {
-          raw
-        }        
-      }
-      allContentfulBlogPost ( sort: { fields: publishedDate, order:DESC } ) {
-        edges {
-          node {
-            id
-            title
-            slug
-            publishedDate(formatString:"MMMM Do, YYYY")
-            image {
-              fluid(maxWidth: 200) {
-                  src
-              }
-          }
-          }
-        }
-      }
-    }
-  `)
-
+const Blog = ({ data }) => {
   return (
     <Layout>
     <Head title={ data.page.browserTitle } />
-    <HeroSection title={ data.page.title } subTitle={ data.page.subtitle } />    
+    <HeroSection title={ data.page.title } subTitle={ data.page.subtitle } heroImage={data.page.heroImage.fluid.src} />    
     <section class="module">
           <div class="container">
 
@@ -84,4 +57,35 @@ const News = () => {
   )
 }
 
-export default News
+export const data = graphql`
+    query {
+      page: contentfulBlogHubPage {
+        browserTitle
+        title
+        body {
+          raw
+        }        
+        heroImage {
+          fluid(maxHeight:200) {
+              src
+          }
+        }          
+      }
+      allContentfulBlogPost ( sort: { fields: publishedDate, order:DESC } ) {
+        edges {
+          node {
+            id
+            title
+            slug
+            publishedDate(formatString:"MMMM Do, YYYY")
+            image {
+              fluid(maxWidth: 200) {
+                  src
+              }
+            }          
+          }
+        }
+      }
+    }`
+
+export default Blog

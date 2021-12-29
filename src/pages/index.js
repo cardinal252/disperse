@@ -9,7 +9,7 @@ const IndexPage = ({ data }) => {
     return (
       <Layout>
         <Head title={ data.page.browserTitle } />
-        <HeroSection title={ data.page.title } subTitle={ data.page.subtitle } />
+        <HeroSection title={ data.page.title } subTitle={ data.page.subtitle } heroImage={data.page.heroImage.fluid.src} />
         <Main />
       </Layout>
     );
@@ -21,6 +21,11 @@ export const query = graphql`
         browserTitle
         title
         subtitle
+        heroImage {
+          fluid(maxHeight:200) {
+              src
+          }
+        }
       }
     }`;
 
