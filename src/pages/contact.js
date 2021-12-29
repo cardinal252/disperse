@@ -3,131 +3,70 @@ import Layout from "../components/layout"
 import Head from "../components/head"
 import { graphql, Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-/*import {
-  faFacebook,
-  faTwitter,
-  faGooglePlus,
-  faSkype,
-  faLinkedin,
-} from '@fortawesome/free-brands-svg-icons'*/
-import {
-  faUser,
-  faEnvelope,
-  faComment,
-  faLightbulb
-} from '@fortawesome/free-solid-svg-icons'
+import HeroSection from "../components/herosection"
 
 const ContactPage = ({ data }) => {
   return (
     <Layout>
       <Head title="Contact" />
-      <h1 className="contact">{data.page.title}</h1>
-      <div className="container pt90 pb50">
-        <div className="row">
-          <div className="col-md-6 mb40">
-            <h4 className="text-uppercase">Address</h4>
-            <p>{data.page.address}</p>
-            <h4 className="text-uppercase">Email</h4>
-            <p>
-              <Link to="/">{data.page.email}</Link></p>
-            <h4 className="text-uppercase">Phone</h4>
-            <p>
-              <Link to="/">{data.page.phone}</Link></p>
-            <h4 className="text-uppercase">Social</h4>
-            {/* <div className="clearfix pt10">
-              <Link to="#" class="social-icon si-border si-facebook">
-                <FontAwesomeIcon icon={faFacebook} size="1x" />
+      <HeroSection title={ data.page.title } subTitle={ data.page.subtitle } heroImage={data.page.heroImage.fluid.src} />      
+      <h1>{data.page.title}</h1>
+      <section class="module">
+        <div class="container">
 
-              </Link>
-              <Link to="#" className="social-icon si-border si-twitter">
-                <FontAwesomeIcon icon={faTwitter} size="1x" />
-
-              </Link>
-              <Link to="#" className="social-icon si-border si-g-plus">
-                <FontAwesomeIcon icon={faGooglePlus} size="1x" />
-
-              </Link>
-              <Link to="#" className="social-icon si-border si-skype">
-                <FontAwesomeIcon icon={faSkype} size="1x" />
-
-              </Link>
-              <Link to="#" className="social-icon si-border si-linkedin">
-                <FontAwesomeIcon icon={faLinkedin} size="1x" />
-
-              </Link>
-            </div> */}
-            {/* <div className="smart-forms pt20">
-              <form method="post" action="smart-form/contact/php/smartprocess.php" id="smart-form">
-
-                <h4>Join Our Mailing List :</h4>
-                <div className="section">
-                  <label className="field prepend-icon">
-                    <input type="text" name="sendername" id="sendername" className="gui-input" placeholder="Enter name" />
-                    <span className="field-icon"><FontAwesomeIcon icon={faUser} size="1x" /></span>
-                  </label>
-                </div>
-                <div className="section">
-                  <label className="field prepend-icon">
-                    <input type="email" name="emailaddress" id="emailaddress" className="gui-input" placeholder="Email address" />
-                    <span className="field-icon"><FontAwesomeIcon icon={faEnvelope} size="1x" /></span>
-                  </label>
-                </div>
-
-                <div className="result"></div>
-
-                <div>
-                  <button type="submit" data-btntext-sending="Sending..." className="button btn btn-primary">Submit</button>
-                </div>
-              </form>
-            </div> */}
-          </div>
-          <div className="col-md-6 pb40">
-            <h2>{data.page.formTitle}</h2>
-            <p>{data.page.formIntro.internal.content}</p>
-            <div className="smart-wrap">
-              <div className="smart-forms smart-container">
-                <form method="post" action="mailto:Enquiries@sjdconsultancy.co.uk" id="smart-form">
-                  <div className="form-body">
-                    <div className="section">
-                      <label className="field prepend-icon">
-                        <input type="text" name="sendername" id="sendername" className="gui-input" placeholder="Enter name" />
-                        <span className="field-icon"><FontAwesomeIcon icon={faUser} size="1x" /></span>
-                      </label>
-                    </div>
-                    <div className="section">
-                      <label className="field prepend-icon">
-                        <input type="email" name="emailaddress" id="emailaddress" className="gui-input" placeholder="Email address" />
-                        <span className="field-icon"><FontAwesomeIcon icon={faEnvelope} size="1x" /></span>
-                      </label>
-                    </div>
-
-                    <div className="section">
-                      <label className="field prepend-icon">
-                        <input type="text" name="sendersubject" id="sendersubject" className="gui-input" placeholder="Enter subject" />
-                        <span className="field-icon"><FontAwesomeIcon icon={faLightbulb} size="1x" /></span>
-                      </label>
-                    </div>
-
-                    <div className="section">
-                      <label className="field prepend-icon">
-                        <textarea className="gui-textarea" id="sendermessage" name="sendermessage" placeholder="Enter message"></textarea>
-                        <span className="field-icon"><FontAwesomeIcon icon={faComment} size="1x" /></span>
-                        <span className="input-hint"> <strong>Hint:</strong> Please enter between 80 - 300 characters.</span>
-                      </label>
-                    </div>
-
-                    <div className="result"></div>
-                  </div>
-                  <div className="form-footer">
-                    <button type="submit" data-btntext-sending="Sending..." className="button btn btn-primary">Submit</button>
-                    <button type="reset" className="button"> Reset </button>
-                  </div>
-                </form>
+          <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+              <div class="module-header text-center">
+                <p class="lead divider-line">{data.page.companyInfo.companyInfo}</p>
               </div>
             </div>
           </div>
+
+          <div class="row">
+
+            <div class="col-sm-8 col-sm-offset-2">
+
+              <form id="contact-form" method="post" action="mailto:Enquiries@sjdconsultancy.co.uk"  novalidate>
+                <div class="row">
+
+                  <div class="col-md-6 form-group">
+                    <label class="sr-only">First Name</label>
+                    <input type="text" class="form-control input-lg" name="name" placeholder="First Name" value="" required=""/>
+                    <p class="help-block text-danger"></p>
+                  </div>
+
+                  <div class="col-md-6 form-group">
+                    <label class="sr-only">Last Name</label>
+                    <input type="text" class="form-control input-lg" name="lastname" placeholder="Last Name" value="" required=""/>
+                    <p class="help-block text-danger"></p>
+                  </div>
+
+                  <div class="col-md-12 form-group">
+                    <label class="sr-only">E-mail Address</label>
+                    <input type="email" class="form-control input-lg" name="email" placeholder="E-mail Address" value="" required=""/>
+                    <p class="help-block text-danger"></p>
+                  </div>
+
+                  <div class="col-md-12 form-group">
+                    <textarea class="form-control input-lg" rows="7" name="message" placeholder="Message*" required=""></textarea>
+                    <p class="help-block text-danger"></p>
+                  </div>
+
+                  <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-lg btn-round btn-dark">Send Email</button>
+                  </div>
+
+                </div>
+              </form>
+
+              <div id="contact-response" class="ajax-response text-center"></div>
+
+            </div>
+
+          </div>
+
         </div>
-      </div>
+      </section>      
     </Layout>
   );
 }
@@ -143,6 +82,11 @@ export const query = graphql`
         companyInfo {
           companyInfo
         }
+        heroImage {
+          fluid(maxHeight:200) {
+              src
+          }
+        }        
         formTitle
         formIntro {
           internal {
