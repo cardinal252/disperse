@@ -43,16 +43,6 @@ const Main = () => {
                 <div class="container">
 
                     <div class="row">
-                        <div class="col-sm-6 col-sm-offset-3">
-                            <div class="module-header text-center">
-                                <h2 class="montserrat text-uppercase">{data.page.title}</h2>
-                                <p class="lead divider-line">{data.page.subtitle}</p>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="row">
                         <div class="col-sm-12">
                             <p class="lead text-center">{renderRichText(data.page.body)}</p>
                         </div>

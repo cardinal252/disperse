@@ -4,22 +4,6 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import Head from '../components/head';
 
-export const query = graphql`
-    query($slug: String!) {
-        article: contentfulArticlePage(slug: {eq: $slug}) {
-            title
-            body {
-                body
-            }
-            image {
-                fluid(maxWidth: 500) {
-                    src
-                }
-            }
-        }
-    }
-`
-
 const ArticleTemplate = (props) => {
   
     return (
@@ -36,5 +20,21 @@ const ArticleTemplate = (props) => {
         </Layout>
     )
 }
+
+export const query = graphql`
+    query($slug: String!) {
+        article: contentfulArticlePage(slug: {eq: $slug}) {
+            title
+            body {
+                body
+            }
+            image {
+                fluid(maxWidth: 500) {
+                    src
+                }
+            }
+        }
+    }
+`
 
 export default ArticleTemplate

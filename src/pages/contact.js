@@ -1,8 +1,7 @@
 import React from "react"
 import Layout from "../components/layout"
 import Head from "../components/head"
-import { graphql, Link } from 'gatsby'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { graphql } from 'gatsby'
 import HeroSection from "../components/herosection"
 
 const ContactPage = ({ data }) => {
@@ -10,7 +9,6 @@ const ContactPage = ({ data }) => {
     <Layout>
       <Head title="Contact" />
       <HeroSection title={ data.page.title } subTitle={ data.page.subtitle } heroImage={data.page.heroImage.fluid.src} />      
-      <h1>{data.page.title}</h1>
       <section class="module">
         <div class="container">
 
@@ -83,7 +81,7 @@ export const query = graphql`
           companyInfo
         }
         heroImage {
-          fluid(maxHeight:200) {
+          fluid {
               src
           }
         }        

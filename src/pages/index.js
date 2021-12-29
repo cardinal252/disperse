@@ -22,7 +22,7 @@ export const query = graphql`
         title
         subtitle
         heroImage {
-          fluid(maxHeight:200) {
+          fluid {
               src
           }
         }
