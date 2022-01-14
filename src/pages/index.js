@@ -9,7 +9,7 @@ const IndexPage = ({ data }) => {
     return (
       <Layout>
         <Head title={ data.page.browserTitle } />
-        <HeroSection title={ data.page.title } subTitle={ data.page.subtitle } heroImage={data.page.heroImage.fluid.src} />
+        <HeroSection title={ data.page.title } subTitle={ data.page.subtitle } heroImage={data.page.heroImage.file.url} />
         <Main />
       </Layout>
     );
@@ -22,8 +22,8 @@ export const query = graphql`
         title
         subtitle
         heroImage {
-          fluid {
-              src
+          file{
+            url
           }
         }
       }
